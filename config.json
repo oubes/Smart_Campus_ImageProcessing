@@ -1,0 +1,55 @@
+{
+	"DirectoryConfig":{
+		"InputDirectory": "input/dataset/unlabeled",
+		"OutputDirectory": "output",
+		"LabeledDirectory": "input/dataset/labeled"
+	},
+	"FaceDetectorConfig": {
+		"FR_Dlib": {
+			"upsampling": 1,
+			"model": "hog"
+		},
+		"FD_DSFD": {
+			"detector": "DSFDDetector",
+			"confidenceThreshold": 0.5,
+			"nmsThreshold": 0.3
+		},
+		"FD_RetinaNetMobileNetV1": {
+			"detector": "RetinaNetMobileNetV1",
+			"confidenceThreshold": 0.5,
+			"nmsThreshold": 0.3
+		},
+		"FD_RetinaNetResNet50": {
+			"detector": "RetinaNetResNet50",
+			"confidenceThreshold": 0.5,
+			"nmsThreshold": 0.3
+		},
+		"cv2": {
+			"scaleFactor": 1.05,
+			"minNeighbors": 4,
+			"minLength": 10,
+			"minWidth": 10
+		},
+		"RetinaFace": {
+			"threshold": 0.5,
+			"upsampleScale": 1
+		},
+		"MTCCN": {
+			"minFaceSize": 10,
+			"thresholds": [
+					0.6,
+				   	0.7,
+				   	0.7
+			],
+			"scaleFactor": 0.709
+		},
+		"YOLOv8": {
+			"confidenceThreshold": 0.2
+		}
+	},
+	"HandlingConfig":{
+		"generatePlot": 0,
+		"generateOutput": 1,
+		"urlActive": 0
+	}
+}

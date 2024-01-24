@@ -1,0 +1,2903 @@
+INFO:root:2023-12-29 13:25:54: 2023-12-29 13:25:54: Detector: fr has taken: 0.074 s to detect 3 faces
+INFO:root:2023-12-29 13:25:56: 2023-12-29 13:25:56: Detector: cv2 has taken: 1.342 s to detect 9 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 13:27:26: Detector: fr has taken: 0.068 s to detect 3 faces
+INFO:root:2023-12-29 13:27:28: Detector: cv2 has taken: 1.294 s to detect 9 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 13:29:22: Detector: 'fr' with config: (1, 'hog') has taken: 0.072 s to detect 3 faces
+INFO:root:2023-12-29 13:29:24: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.312 s to detect 9 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 13:47:13: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.401 s to detect 9 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 13:48:54: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 13:48:57: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.321 s to detect 9 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 14:06:46: Detector: 'fr' with config: (1, 'hog') has taken: 0.059 s to detect 3 faces
+INFO:root:2023-12-29 14:06:49: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.470 s to detect 9 faces
+INFO:root:2023-12-29 14:08:04: Detector: 'fr' with config: (1, 'hog') has taken: 0.077 s to detect 3 faces
+INFO:root:2023-12-29 14:08:06: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.392 s to detect 9 faces
+INFO:root:2023-12-29 14:12:38: Detector: 'fr' with config: (1, 'hog') has taken: 0.073 s to detect 3 faces
+INFO:root:2023-12-29 14:12:40: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.401 s to detect 9 faces
+INFO:root:2023-12-29 14:14:45: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 14:14:47: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.326 s to detect 9 faces
+INFO:root:2023-12-29 14:20:28: Detector: 'fr' with config: (1, 'hog') has taken: 0.060 s to detect 3 faces
+INFO:root:2023-12-29 14:20:30: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.346 s to detect 9 faces
+INFO:root:2023-12-29 14:22:16: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 14:22:17: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.314 s to detect 9 faces
+INFO:root:2023-12-29 14:23:56: Detector: 'fr' with config: (1, 'hog') has taken: 0.061 s to detect 3 faces
+INFO:root:2023-12-29 14:23:57: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.337 s to detect 9 faces
+INFO:root:2023-12-29 14:25:07: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 14:25:09: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.299 s to detect 9 faces
+INFO:root:2023-12-29 14:29:39: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 14:29:40: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.309 s to detect 9 faces
+INFO:root:2023-12-29 14:31:34: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 14:31:35: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.306 s to detect 9 faces
+INFO:root:2023-12-29 14:32:19: Detector: 'fr' with config: (1, 'hog') has taken: 0.072 s to detect 3 faces
+INFO:root:2023-12-29 14:32:21: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.363 s to detect 9 faces
+INFO:root:2023-12-29 14:33:04: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 14:33:05: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.316 s to detect 9 faces
+INFO:root:2023-12-29 14:33:48: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 14:33:50: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.300 s to detect 9 faces
+INFO:root:2023-12-29 14:40:03: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 14:40:05: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.297 s to detect 9 faces
+INFO:root:2023-12-29 14:44:17: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 14:44:18: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.294 s to detect 9 faces
+INFO:root:2023-12-29 14:45:00: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 14:45:01: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.299 s to detect 9 faces
+INFO:root:2023-12-29 14:45:49: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 14:45:50: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.314 s to detect 9 faces
+INFO:root:2023-12-29 14:46:54: Detector: 'fr' with config: (1, 'hog') has taken: 0.059 s to detect 3 faces
+INFO:root:2023-12-29 14:46:56: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.300 s to detect 9 faces
+INFO:root:2023-12-29 14:51:36: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 14:51:38: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.305 s to detect 9 faces
+INFO:root:2023-12-29 14:52:34: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 14:52:35: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.315 s to detect 9 faces
+INFO:root:2023-12-29 14:55:18: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 14:55:20: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.313 s to detect 9 faces
+INFO:root:2023-12-29 15:29:45: Detector: 'fr' with config: (1, 'hog') has taken: 0.059 s to detect 3 faces
+INFO:root:2023-12-29 15:29:45: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.259 s to detect 9 faces
+INFO:root:2023-12-29 15:47:02: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 15:47:03: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.265 s to detect 9 faces
+INFO:root:2023-12-29 15:47:43: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 15:47:43: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.261 s to detect 9 faces
+INFO:root:2023-12-29 15:48:23: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 15:48:24: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.257 s to detect 9 faces
+INFO:root:2023-12-29 15:49:06: Detector: 'fr' with config: (1, 'hog') has taken: 0.068 s to detect 3 faces
+INFO:root:2023-12-29 15:49:06: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.271 s to detect 9 faces
+INFO:root:2023-12-29 15:50:37: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 15:50:37: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.268 s to detect 9 faces
+INFO:root:2023-12-29 15:51:26: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 15:51:26: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.265 s to detect 9 faces
+INFO:root:2023-12-29 15:52:39: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 15:52:40: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.258 s to detect 9 faces
+INFO:root:2023-12-29 15:55:31: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 15:55:32: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.265 s to detect 9 faces
+INFO:root:2023-12-29 15:56:18: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 15:56:18: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.268 s to detect 9 faces
+INFO:root:2023-12-29 16:03:51: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 16:03:51: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.261 s to detect 9 faces
+INFO:root:2023-12-29 16:05:11: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 16:05:11: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.269 s to detect 9 faces
+INFO:root:2023-12-29 16:06:57: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 16:06:57: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.267 s to detect 9 faces
+INFO:root:2023-12-29 16:08:21: Detector: 'fr' with config: (1, 'hog') has taken: 0.059 s to detect 3 faces
+INFO:root:2023-12-29 16:08:21: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.285 s to detect 9 faces
+INFO:root:2023-12-29 16:10:17: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 16:10:18: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.267 s to detect 9 faces
+INFO:root:2023-12-29 16:14:36: Detector: 'fr' with config: (1, 'hog') has taken: 0.060 s to detect 3 faces
+INFO:root:2023-12-29 16:14:36: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.272 s to detect 9 faces
+INFO:root:2023-12-29 16:15:20: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 16:15:21: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.254 s to detect 9 faces
+INFO:root:2023-12-29 16:19:52: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 16:19:53: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.269 s to detect 9 faces
+INFO:root:2023-12-29 16:23:12: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 16:23:13: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.265 s to detect 9 faces
+INFO:root:2023-12-29 16:29:46: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 16:29:46: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.259 s to detect 9 faces
+INFO:root:2023-12-29 16:31:09: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 16:31:10: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.277 s to detect 9 faces
+INFO:root:2023-12-29 16:31:52: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 16:31:52: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.271 s to detect 9 faces
+INFO:root:2023-12-29 16:32:28: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 16:32:29: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.265 s to detect 9 faces
+INFO:root:2023-12-29 16:36:44: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 16:36:44: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.260 s to detect 9 faces
+INFO:root:2023-12-29 16:38:59: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 16:39:00: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.252 s to detect 9 faces
+INFO:root:2023-12-29 16:41:43: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 16:41:44: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.264 s to detect 9 faces
+INFO:root:2023-12-29 17:05:15: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:05:16: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.264 s to detect 9 faces
+INFO:root:2023-12-29 17:06:47: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 17:06:47: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.267 s to detect 9 faces
+INFO:root:2023-12-29 17:09:37: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:09:38: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.260 s to detect 9 faces
+INFO:root:2023-12-29 17:14:49: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:14:50: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.261 s to detect 9 faces
+INFO:root:2023-12-29 17:16:06: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:16:07: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.267 s to detect 9 faces
+INFO:root:2023-12-29 17:24:19: Detector: 'fr' with config: (1, 'hog') has taken: 0.059 s to detect 3 faces
+INFO:root:2023-12-29 17:24:20: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.265 s to detect 9 faces
+INFO:root:2023-12-29 17:27:20: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 17:27:20: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.268 s to detect 9 faces
+INFO:root:2023-12-29 17:28:53: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:28:53: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.263 s to detect 9 faces
+INFO:root:2023-12-29 17:30:42: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:30:43: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.258 s to detect 9 faces
+INFO:root:2023-12-29 17:30:58: Detector: 'retinaface' with config: (0.8, 'ResNet50') has taken: 13.722 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 17:32:31: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 17:32:31: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.264 s to detect 9 faces
+INFO:root:2023-12-29 17:34:03: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:34:04: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.269 s to detect 9 faces
+INFO:root:2023-12-29 17:35:18: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:35:19: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.262 s to detect 9 faces
+INFO:root:2023-12-29 17:36:49: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:36:49: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.267 s to detect 9 faces
+INFO:root:2023-12-29 17:38:27: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 17:38:28: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.261 s to detect 9 faces
+INFO:root:2023-12-29 17:39:53: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 17:39:54: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.270 s to detect 9 faces
+INFO:root:2023-12-29 17:40:56: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:40:57: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.274 s to detect 9 faces
+INFO:root:2023-12-29 17:42:33: Detector: 'fr' with config: (1, 'hog') has taken: 0.061 s to detect 3 faces
+INFO:root:2023-12-29 17:42:34: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.330 s to detect 9 faces
+INFO:root:2023-12-29 17:43:39: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 17:43:40: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.262 s to detect 9 faces
+INFO:root:2023-12-29 17:45:47: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 17:45:47: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.255 s to detect 9 faces
+INFO:root:2023-12-29 17:46:36: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 17:46:36: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.260 s to detect 9 faces
+INFO:root:2023-12-29 17:48:12: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 17:48:13: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.270 s to detect 9 faces
+INFO:root:2023-12-29 18:53:02: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 18:53:03: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.486 s to detect 9 faces
+INFO:root:2023-12-29 18:53:17: Detector: 'retinaface' with config: (0.8, 'ResNet50') has taken: 13.824 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 18:56:33: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 18:56:35: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.295 s to detect 9 faces
+INFO:root:2023-12-29 18:57:08: Detector: 'retinaface' with config: (0.8, 'ResNet50') has taken: 13.811 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 18:58:29: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 18:58:31: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.328 s to detect 9 faces
+INFO:root:2023-12-29 18:58:48: Detector: 'retinaface' with config: (0.8, 'ResNet50') has taken: 14.539 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 19:05:06: Detector: 'fr' with config: (1, 'hog') has taken: 0.059 s to detect 3 faces
+INFO:root:2023-12-29 19:05:07: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.402 s to detect 9 faces
+INFO:root:2023-12-29 19:05:35: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 19:05:36: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.268 s to detect 9 faces
+INFO:root:2023-12-29 19:05:48: Detector: 'retinaface' with config: (0.8, 'ResNet50') has taken: 12.490 s to detect 23 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 19:13:57: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 19:13:58: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.258 s to detect 9 faces
+INFO:root:2023-12-29 19:14:11: Detector: 'retinaface' with config: (0.8, 'mxnet') has taken: 12.873 s to detect 23 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 19:16:25: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 19:16:25: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.253 s to detect 9 faces
+INFO:root:2023-12-29 19:16:38: Detector: 'retinaface' with config: (0.8, 'tensorflow') has taken: 12.341 s to detect 23 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 19:19:45: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 19:19:46: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.365 s to detect 9 faces
+INFO:root:2023-12-29 19:20:00: Detector: 'retinaface' with config: (0.8, 'mxnet', True) has taken: 13.935 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 19:21:47: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 19:21:48: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.289 s to detect 9 faces
+INFO:root:2023-12-29 19:22:15: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 19:22:15: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.265 s to detect 9 faces
+INFO:root:2023-12-29 19:23:56: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 19:23:56: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.253 s to detect 9 faces
+INFO:root:2023-12-29 19:24:25: Detector: 'fr' with config: (1, 'hog') has taken: 0.059 s to detect 3 faces
+INFO:root:2023-12-29 19:24:26: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.270 s to detect 9 faces
+INFO:root:2023-12-29 19:24:40: Detector: 'retinaface' with config: (0.8, True) has taken: 13.965 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 19:38:25: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 19:38:26: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.456 s to detect 9 faces
+INFO:root:2023-12-29 19:38:41: Detector: 'retinaface' with config: (0.8, True) has taken: 14.541 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 19:40:22: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 19:40:22: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.284 s to detect 9 faces
+INFO:root:2023-12-29 19:40:37: Detector: 'retinaface' with config: (0.8, True) has taken: 14.180 s to detect 26 faces
+INFO:root:2023-12-29 19:42:39: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 19:42:39: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.260 s to detect 9 faces
+INFO:root:2023-12-29 19:43:39: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 19:43:40: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.259 s to detect 9 faces
+INFO:root:2023-12-29 19:44:36: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 19:44:36: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.263 s to detect 9 faces
+INFO:root:2023-12-29 19:45:24: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 19:45:25: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.274 s to detect 9 faces
+INFO:root:2023-12-29 19:46:42: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 19:46:42: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.272 s to detect 9 faces
+INFO:root:2023-12-29 19:49:38: Detector: 'fr' with config: (1, 'hog') has taken: 0.057 s to detect 3 faces
+INFO:root:2023-12-29 19:49:39: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.274 s to detect 9 faces
+INFO:root:2023-12-29 19:50:37: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 19:50:38: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.271 s to detect 9 faces
+INFO:root:2023-12-29 19:50:42: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.959 s to detect 14 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 19:52:55: Detector: 'fr' with config: (1, 'hog') has taken: 0.093 s to detect 3 faces
+INFO:root:2023-12-29 19:52:56: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.457 s to detect 9 faces
+INFO:root:2023-12-29 19:53:00: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.109 s to detect 14 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 20:04:07: Detector: 'fr' with config: (1, 'hog') has taken: 0.060 s to detect 3 faces
+INFO:root:2023-12-29 20:04:09: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.585 s to detect 9 faces
+INFO:root:2023-12-29 20:04:13: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.200 s to detect 14 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 20:04:59: Detector: 'fr' with config: (1, 'hog') has taken: 0.058 s to detect 3 faces
+INFO:root:2023-12-29 20:05:01: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.570 s to detect 9 faces
+INFO:root:2023-12-29 20:05:38: Detector: 'fr' with config: (1, 'hog') has taken: 0.062 s to detect 3 faces
+INFO:root:2023-12-29 20:05:40: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.562 s to detect 9 faces
+INFO:root:2023-12-29 20:05:44: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.023 s to detect 14 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 20:27:17: Detector: 'yolo8' with config: () has taken: 3.632 s to detect 20 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 20:30:22: Detector: 'yolo8' with config: () has taken: 3.644 s to detect 20 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 20:34:06: Detector: 'yolo8' with config: () has taken: 3.740 s to detect 20 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 20:36:57: Detector: 'yolo8' with config: () has taken: 3.717 s to detect 20 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 20:37:55: Detector: 'yolo8' with config: () has taken: 3.715 s to detect 20 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 20:42:46: Detector: 'yolo8' with config: () has taken: 3.664 s to detect 20 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 20:43:43: Detector: 'yolo8' with config: () has taken: 3.691 s to detect 20 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 20:44:25: Detector: 'yolo8' with config: () has taken: 3.635 s to detect 20 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 21:01:54: Detector: 'yolo8' with config: () has taken: 4.427 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 21:07:12: Detector: 'yolo8' with config: () has taken: 4.394 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 21:18:42: Detector: 'yolo8' with config: () has taken: 4.395 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 21:20:23: Detector: 'yolo8' with config: () has taken: 4.312 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 21:29:31: Detector: 'yolo8' with config: () has taken: 11.115 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 21:30:20: Detector: 'yolo8' with config: () has taken: 3.908 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 21:37:14: Detector: 'yolo8' with config: () has taken: 3.906 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 21:37:46: Detector: 'yolo8' with config: () has taken: 3.954 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 21:58:40: Detector: 'yolo8' with config: () has taken: 3.918 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 21:59:27: Detector: 'yolo8' with config: () has taken: 4.239 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:01:18: Detector: 'yolo8' with config: () has taken: 3.878 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:06:04: Detector: 'yolo8' with config: () has taken: 4.225 s to detect 18 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:08:27: Detector: 'yolo8' with config: 0.8 has taken: 4.215 s to detect 29 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:12:53: Detector: 'yolo8' with config: 0.5 has taken: 4.309 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:14:03: Detector: 'fr' with config: (1, 'hog') has taken: 0.274 s to detect 9 faces
+INFO:root:2023-12-29 22:14:06: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 3.024 s to detect 54 faces
+INFO:root:2023-12-29 22:14:20: Detector: 'retinaface' with config: (0.8, True) has taken: 14.089 s to detect 52 faces
+INFO:root:2023-12-29 22:14:25: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.545 s to detect 50 faces
+INFO:root:2023-12-29 22:14:30: Detector: 'yolo8' with config: 0.5 has taken: 4.241 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:16:02: Detector: 'fr' with config: (1, 'hog') has taken: 0.237 s to detect 9 faces
+INFO:root:2023-12-29 22:16:05: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.930 s to detect 54 faces
+INFO:root:2023-12-29 22:16:19: Detector: 'retinaface' with config: (0.8, True) has taken: 14.231 s to detect 52 faces
+INFO:root:2023-12-29 22:16:25: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.550 s to detect 50 faces
+INFO:root:2023-12-29 22:16:29: Detector: 'yolo8' with config: 0.5 has taken: 4.292 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:16:53: Detector: 'fr' with config: (1, 'hog') has taken: 0.231 s to detect 9 faces
+INFO:root:2023-12-29 22:16:56: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.978 s to detect 54 faces
+INFO:root:2023-12-29 22:17:10: Detector: 'retinaface' with config: (0.8, True) has taken: 13.571 s to detect 52 faces
+INFO:root:2023-12-29 22:17:15: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.177 s to detect 50 faces
+INFO:root:2023-12-29 22:17:19: Detector: 'yolo8' with config: 0.5 has taken: 4.227 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:18:57: Detector: 'fr' with config: (1, 'hog') has taken: 0.232 s to detect 9 faces
+INFO:root:2023-12-29 22:19:00: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.931 s to detect 54 faces
+INFO:root:2023-12-29 22:19:14: Detector: 'retinaface' with config: (0.8, True) has taken: 13.751 s to detect 52 faces
+INFO:root:2023-12-29 22:19:20: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.549 s to detect 50 faces
+INFO:root:2023-12-29 22:21:01: Detector: 'fr' with config: (1, 'hog') has taken: 0.240 s to detect 9 faces
+INFO:root:2023-12-29 22:21:04: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.923 s to detect 54 faces
+INFO:root:2023-12-29 22:21:18: Detector: 'retinaface' with config: (0.8, True) has taken: 14.108 s to detect 52 faces
+INFO:root:2023-12-29 22:21:23: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.227 s to detect 50 faces
+INFO:root:2023-12-29 22:23:06: Detector: 'yolo8' with config: 0.5 has taken: 0.459 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:29:30: Detector: 'yolo8' with config: 0.5 has taken: 0.415 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:33:31: Detector: 'yolo8' with config: 0.5 has taken: 4.298 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:48:09: Detector: 'yolo8' with config: 0.5 has taken: 4.205 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 22:54:37: Detector: 'yolo8' with config: 0.5 has taken: 4.212 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:01:40: Detector: 'yolo8' with config: 0.5 has taken: 3.938 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:03:27: Detector: 'yolo8' with config: 0.5 has taken: 4.383 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:03:41: Detector: 'yolo8' with config: 0.5 has taken: 3.734 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:03:55: Detector: 'yolo8' with config: 0.5 has taken: 3.722 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:04:26: Detector: 'yolo8' with config: 0.5 has taken: 3.846 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:04:32: Detector: 'yolo8' with config: 0.5 has taken: 3.695 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:04:38: Detector: 'yolo8' with config: 0.5 has taken: 3.670 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:04:44: Detector: 'yolo8' with config: 0.5 has taken: 3.687 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:04:50: Detector: 'yolo8' with config: 0.5 has taken: 4.004 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:05:10: Detector: 'fr' with config: (1, 'hog') has taken: 0.236 s to detect 9 faces
+INFO:root:2023-12-29 23:05:13: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 3.038 s to detect 54 faces
+INFO:root:2023-12-29 23:05:27: Detector: 'retinaface' with config: (0.8, True) has taken: 13.525 s to detect 52 faces
+INFO:root:2023-12-29 23:05:32: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.210 s to detect 50 faces
+INFO:root:2023-12-29 23:05:36: Detector: 'yolo8' with config: 0.5 has taken: 3.941 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:05:38: Detector: 'fr' with config: (1, 'hog') has taken: 0.242 s to detect 9 faces
+INFO:root:2023-12-29 23:05:40: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.721 s to detect 54 faces
+INFO:root:2023-12-29 23:05:41: Detector: 'retinaface' with config: (0.8, True) has taken: 1.177 s to detect 52 faces
+INFO:root:2023-12-29 23:05:46: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.743 s to detect 50 faces
+INFO:root:2023-12-29 23:05:50: Detector: 'yolo8' with config: 0.5 has taken: 3.745 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:05:52: Detector: 'fr' with config: (1, 'hog') has taken: 0.230 s to detect 9 faces
+INFO:root:2023-12-29 23:05:54: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.666 s to detect 54 faces
+INFO:root:2023-12-29 23:05:55: Detector: 'retinaface' with config: (0.8, True) has taken: 1.156 s to detect 52 faces
+INFO:root:2023-12-29 23:06:00: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.825 s to detect 50 faces
+INFO:root:2023-12-29 23:06:04: Detector: 'yolo8' with config: 0.5 has taken: 3.746 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:06:06: Detector: 'fr' with config: (1, 'hog') has taken: 0.230 s to detect 9 faces
+INFO:root:2023-12-29 23:06:08: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.641 s to detect 54 faces
+INFO:root:2023-12-29 23:06:09: Detector: 'retinaface' with config: (0.8, True) has taken: 1.202 s to detect 52 faces
+INFO:root:2023-12-29 23:06:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.037 s to detect 50 faces
+INFO:root:2023-12-29 23:06:18: Detector: 'yolo8' with config: 0.5 has taken: 3.699 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:06:20: Detector: 'fr' with config: (1, 'hog') has taken: 0.229 s to detect 9 faces
+INFO:root:2023-12-29 23:06:22: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.664 s to detect 54 faces
+INFO:root:2023-12-29 23:06:23: Detector: 'retinaface' with config: (0.8, True) has taken: 1.202 s to detect 52 faces
+INFO:root:2023-12-29 23:06:28: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.757 s to detect 50 faces
+INFO:root:2023-12-29 23:06:32: Detector: 'yolo8' with config: 0.5 has taken: 3.704 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:06:34: Detector: 'fr' with config: (1, 'hog') has taken: 0.224 s to detect 9 faces
+INFO:root:2023-12-29 23:06:36: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.669 s to detect 54 faces
+INFO:root:2023-12-29 23:06:37: Detector: 'retinaface' with config: (0.8, True) has taken: 1.174 s to detect 52 faces
+INFO:root:2023-12-29 23:06:42: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.093 s to detect 50 faces
+INFO:root:2023-12-29 23:06:46: Detector: 'yolo8' with config: 0.5 has taken: 4.031 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:06:49: Detector: 'fr' with config: (1, 'hog') has taken: 0.233 s to detect 9 faces
+INFO:root:2023-12-29 23:06:50: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.658 s to detect 54 faces
+INFO:root:2023-12-29 23:06:52: Detector: 'retinaface' with config: (0.8, True) has taken: 1.220 s to detect 52 faces
+INFO:root:2023-12-29 23:06:56: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.864 s to detect 50 faces
+INFO:root:2023-12-29 23:07:01: Detector: 'yolo8' with config: 0.5 has taken: 4.024 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:07:03: Detector: 'fr' with config: (1, 'hog') has taken: 0.233 s to detect 9 faces
+INFO:root:2023-12-29 23:07:05: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.679 s to detect 54 faces
+INFO:root:2023-12-29 23:07:06: Detector: 'retinaface' with config: (0.8, True) has taken: 1.159 s to detect 52 faces
+INFO:root:2023-12-29 23:07:11: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.919 s to detect 50 faces
+INFO:root:2023-12-29 23:07:15: Detector: 'yolo8' with config: 0.5 has taken: 3.778 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:07:17: Detector: 'fr' with config: (1, 'hog') has taken: 0.232 s to detect 9 faces
+INFO:root:2023-12-29 23:07:19: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.672 s to detect 54 faces
+INFO:root:2023-12-29 23:07:20: Detector: 'retinaface' with config: (0.8, True) has taken: 1.263 s to detect 52 faces
+INFO:root:2023-12-29 23:07:25: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.963 s to detect 50 faces
+INFO:root:2023-12-29 23:07:29: Detector: 'yolo8' with config: 0.5 has taken: 4.038 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:07:31: Detector: 'fr' with config: (1, 'hog') has taken: 0.229 s to detect 9 faces
+INFO:root:2023-12-29 23:07:33: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.657 s to detect 54 faces
+INFO:root:2023-12-29 23:07:34: Detector: 'retinaface' with config: (0.8, True) has taken: 1.173 s to detect 52 faces
+INFO:root:2023-12-29 23:07:39: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.813 s to detect 50 faces
+INFO:root:2023-12-29 23:07:43: Detector: 'yolo8' with config: 0.5 has taken: 3.732 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:07:45: Detector: 'fr' with config: (1, 'hog') has taken: 0.230 s to detect 9 faces
+INFO:root:2023-12-29 23:07:47: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.653 s to detect 54 faces
+INFO:root:2023-12-29 23:07:48: Detector: 'retinaface' with config: (0.8, True) has taken: 1.325 s to detect 52 faces
+INFO:root:2023-12-29 23:07:54: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.226 s to detect 50 faces
+INFO:root:2023-12-29 23:07:58: Detector: 'yolo8' with config: 0.5 has taken: 4.032 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:08:28: Detector: 'fr' with config: (1, 'hog') has taken: 0.236 s to detect 9 faces
+INFO:root:2023-12-29 23:08:31: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.882 s to detect 54 faces
+INFO:root:2023-12-29 23:08:45: Detector: 'retinaface' with config: (0.8, True) has taken: 13.327 s to detect 52 faces
+INFO:root:2023-12-29 23:08:50: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.220 s to detect 50 faces
+INFO:root:2023-12-29 23:08:54: Detector: 'yolo8' with config: 0.5 has taken: 4.172 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:11:19: Detector: 'yolo8' with config: 0.5 has taken: 4.319 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:14:04: Detector: 'yolo8' with config: 0.5 has taken: 3.911 s to detect 52 faces
+INFO:root:2023-12-29 23:15:11: Detector: 'yolo8' with config: 0.5 has taken: 3.909 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:16:30: Detector: 'dlib' with config: () has taken: 0.273 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:35:40: Detector: 'dlib' with config: () has taken: 0.443 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:36:10: Detector: 'dlib' with config: () has taken: 1.231 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:36:54: Detector: 'dlib' with config: () has taken: 16.883 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:38:15: Detector: 'dlib' with config: () has taken: 1.119 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:38:58: Detector: 'dlib' with config: () has taken: 1.144 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:39:41: Detector: 'dlib' with config: () has taken: 1.195 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:40:32: Detector: 'dlib' with config: () has taken: 1.139 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:41:30: Detector: 'dlib' with config: () has taken: 1.142 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:42:03: Detector: 'dlib' with config: () has taken: 1.124 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:43:04: Detector: 'dlib' with config: () has taken: 1.142 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:43:48: Detector: 'dlib' with config: () has taken: 1.140 s to detect 0 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:47:43: Detector: 'dlib' with config: () has taken: 1.145 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:50:14: Detector: 'dlib' with config: (2, 0.0) has taken: 1.120 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:54:41: Detector: 'fr' with config: (1, 'hog') has taken: 0.240 s to detect 9 faces
+INFO:root:2023-12-29 23:54:44: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.906 s to detect 54 faces
+INFO:root:2023-12-29 23:54:58: Detector: 'retinaface' with config: (0.8, True) has taken: 13.868 s to detect 52 faces
+INFO:root:2023-12-29 23:55:04: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.258 s to detect 50 faces
+INFO:root:2023-12-29 23:55:08: Detector: 'yolo8' with config: 0.5 has taken: 3.945 s to detect 52 faces
+INFO:root:2023-12-29 23:55:09: Detector: 'dlib' with config: (2, 0.0) has taken: 1.182 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-29 23:55:59: Detector: 'fr' with config: (2, 'hog') has taken: 0.923 s to detect 50 faces
+INFO:root:2023-12-29 23:56:02: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.911 s to detect 54 faces
+INFO:root:2023-12-29 23:56:17: Detector: 'retinaface' with config: (0.8, True) has taken: 14.621 s to detect 52 faces
+INFO:root:2023-12-29 23:56:22: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.676 s to detect 50 faces
+INFO:root:2023-12-29 23:56:27: Detector: 'yolo8' with config: 0.5 has taken: 4.294 s to detect 52 faces
+INFO:root:2023-12-29 23:56:28: Detector: 'dlib' with config: (2, 0.0) has taken: 1.313 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:00:13: Detector: 'fr' with config: (2, 'hog') has taken: 0.939 s to detect 50 faces
+INFO:root:2023-12-30 00:00:14: Detector: 'dlib' with config: (2, 0.0) has taken: 1.217 s to detect 50 faces
+INFO:root:2023-12-30 00:00:15: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 3.046 s to detect 54 faces
+INFO:root:2023-12-30 00:00:24: Detector: 'yolo8' with config: 0.5 has taken: 12.596 s to detect 52 faces
+INFO:root:2023-12-30 00:00:31: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 19.476 s to detect 50 faces
+INFO:root:2023-12-30 00:00:32: Detector: 'retinaface' with config: (0.8, True) has taken: 20.847 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:01:16: Detector: 'fr' with config: (2, 'hog') has taken: 0.925 s to detect 50 faces
+INFO:root:2023-12-30 00:01:19: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.900 s to detect 54 faces
+INFO:root:2023-12-30 00:01:33: Detector: 'retinaface' with config: (0.8, True) has taken: 13.512 s to detect 52 faces
+INFO:root:2023-12-30 00:01:38: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.214 s to detect 50 faces
+INFO:root:2023-12-30 00:01:43: Detector: 'yolo8' with config: 0.5 has taken: 4.296 s to detect 52 faces
+INFO:root:2023-12-30 00:01:44: Detector: 'dlib' with config: (2, 0.0) has taken: 1.270 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:03:52: Detector: 'fr' with config: (2, 'hog') has taken: 0.896 s to detect 50 faces
+INFO:root:2023-12-30 00:03:55: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.885 s to detect 54 faces
+INFO:root:2023-12-30 00:04:09: Detector: 'retinaface' with config: (0.8, True) has taken: 14.411 s to detect 52 faces
+INFO:root:2023-12-30 00:04:15: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.307 s to detect 50 faces
+INFO:root:2023-12-30 00:04:19: Detector: 'yolo8' with config: 0.5 has taken: 4.290 s to detect 52 faces
+INFO:root:2023-12-30 00:04:20: Detector: 'dlib' with config: (2, 0.0) has taken: 1.314 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:06:14: Detector: 'fr' with config: (2, 'hog') has taken: 0.908 s to detect 50 faces
+INFO:root:2023-12-30 00:06:17: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.899 s to detect 54 faces
+INFO:root:2023-12-30 00:06:31: Detector: 'retinaface' with config: (0.8, True) has taken: 13.445 s to detect 52 faces
+INFO:root:2023-12-30 00:06:36: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.270 s to detect 50 faces
+INFO:root:2023-12-30 00:06:41: Detector: 'yolo8' with config: 0.5 has taken: 4.279 s to detect 52 faces
+INFO:root:2023-12-30 00:06:42: Detector: 'dlib' with config: (2, 0.0) has taken: 1.295 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:08:51: Detector: 'fr' with config: (2, 'hog') has taken: 0.940 s to detect 50 faces
+INFO:root:2023-12-30 00:08:54: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.899 s to detect 54 faces
+INFO:root:2023-12-30 00:09:08: Detector: 'retinaface' with config: (0.8, True) has taken: 14.487 s to detect 52 faces
+INFO:root:2023-12-30 00:09:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.510 s to detect 50 faces
+INFO:root:2023-12-30 00:09:18: Detector: 'yolo8' with config: 0.5 has taken: 4.270 s to detect 52 faces
+INFO:root:2023-12-30 00:09:19: Detector: 'dlib' with config: (2, 0.0) has taken: 1.400 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:15:46: Detector: 'fr' with config: (2, 'hog') has taken: 0.919 s to detect 50 faces
+INFO:root:2023-12-30 00:15:49: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.995 s to detect 54 faces
+INFO:root:2023-12-30 00:16:03: Detector: 'retinaface' with config: (0.8, True) has taken: 13.804 s to detect 52 faces
+INFO:root:2023-12-30 00:16:08: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.327 s to detect 50 faces
+INFO:root:2023-12-30 00:16:13: Detector: 'yolo8' with config: 0.5 has taken: 4.343 s to detect 52 faces
+INFO:root:2023-12-30 00:16:53: Detector: 'fr' with config: (2, 'hog') has taken: 0.905 s to detect 50 faces
+INFO:root:2023-12-30 00:16:56: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.884 s to detect 54 faces
+INFO:root:2023-12-30 00:17:10: Detector: 'retinaface' with config: (0.8, True) has taken: 13.688 s to detect 52 faces
+INFO:root:2023-12-30 00:17:15: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.335 s to detect 50 faces
+INFO:root:2023-12-30 00:17:20: Detector: 'yolo8' with config: 0.5 has taken: 4.251 s to detect 52 faces
+INFO:root:2023-12-30 00:17:21: Detector: 'dlib' with config: (2, 0.0) has taken: 1.302 s to detect 50 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:18:37: Detector: 'fr' with config: (2, 'hog') has taken: 0.913 s to detect 50 faces
+INFO:root:2023-12-30 00:18:40: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.885 s to detect 54 faces
+INFO:root:2023-12-30 00:18:53: Detector: 'retinaface' with config: (0.8, True) has taken: 13.613 s to detect 52 faces
+INFO:root:2023-12-30 00:18:59: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.319 s to detect 50 faces
+INFO:root:2023-12-30 00:19:03: Detector: 'yolo8' with config: 0.5 has taken: 4.301 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:25:00: Detector: 'fr' with config: (2, 'hog') has taken: 0.907 s to detect 50 faces
+INFO:root:2023-12-30 00:25:03: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.954 s to detect 54 faces
+INFO:root:2023-12-30 00:25:18: Detector: 'retinaface' with config: (0.8, True) has taken: 13.985 s to detect 52 faces
+INFO:root:2023-12-30 00:25:23: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.311 s to detect 50 faces
+INFO:root:2023-12-30 00:25:27: Detector: 'yolo8' with config: 0.5 has taken: 3.907 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:31:15: Detector: 'fr' with config: (2, 'hog') has taken: 0.905 s to detect 50 faces
+INFO:root:2023-12-30 00:31:18: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 3.023 s to detect 54 faces
+INFO:root:2023-12-30 00:31:32: Detector: 'retinaface' with config: (0.8, True) has taken: 14.067 s to detect 52 faces
+INFO:root:2023-12-30 00:31:37: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.361 s to detect 50 faces
+INFO:root:2023-12-30 00:31:42: Detector: 'yolo8' with config: 0.5 has taken: 4.267 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:33:39: Detector: 'fr' with config: (2, 'hog') has taken: 0.923 s to detect 50 faces
+INFO:root:2023-12-30 00:33:42: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.871 s to detect 54 faces
+INFO:root:2023-12-30 00:33:55: Detector: 'retinaface' with config: (0.8, True) has taken: 13.466 s to detect 52 faces
+INFO:root:2023-12-30 00:34:01: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.356 s to detect 50 faces
+INFO:root:2023-12-30 00:34:05: Detector: 'yolo8' with config: 0.5 has taken: 4.280 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:34:06: Detector: 'fr' with config: (2, 'hog') has taken: 0.942 s to detect 25 faces
+INFO:root:2023-12-30 00:34:08: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.375 s to detect 14 faces
+INFO:root:2023-12-30 00:34:09: Detector: 'retinaface' with config: (0.8, True) has taken: 1.660 s to detect 169 faces
+INFO:root:2023-12-30 00:34:15: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.583 s to detect 41 faces
+INFO:root:2023-12-30 00:34:19: Detector: 'yolo8' with config: 0.5 has taken: 4.032 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:51:36: Detector: 'fr' with config: (2, 'hog') has taken: 0.994 s to detect 50 faces
+INFO:root:2023-12-30 00:51:39: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.972 s to detect 54 faces
+INFO:root:2023-12-30 00:51:53: Detector: 'retinaface' with config: (0.8, True) has taken: 13.595 s to detect 52 faces
+INFO:root:2023-12-30 00:51:58: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.229 s to detect 50 faces
+INFO:root:2023-12-30 00:52:02: Detector: 'yolo8' with config: 0.5 has taken: 4.245 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:52:03: Detector: 'fr' with config: (2, 'hog') has taken: 0.901 s to detect 50 faces
+INFO:root:2023-12-30 00:52:05: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.661 s to detect 54 faces
+INFO:root:2023-12-30 00:52:06: Detector: 'retinaface' with config: (0.8, True) has taken: 1.265 s to detect 52 faces
+INFO:root:2023-12-30 00:52:11: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.796 s to detect 50 faces
+INFO:root:2023-12-30 00:52:15: Detector: 'yolo8' with config: 0.5 has taken: 3.699 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:55:42: Detector: 'fr' with config: (5, 'hog') has taken: 66.756 s to detect 53 faces
+INFO:root:2023-12-30 00:55:47: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 4.533 s to detect 54 faces
+INFO:root:2023-12-30 00:56:01: Detector: 'retinaface' with config: (0.8, True) has taken: 13.949 s to detect 52 faces
+INFO:root:2023-12-30 00:56:06: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.253 s to detect 50 faces
+INFO:root:2023-12-30 00:56:10: Detector: 'yolo8' with config: 0.5 has taken: 4.303 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 00:57:22: Detector: 'fr' with config: (5, 'hog') has taken: 71.356 s to detect 53 faces
+INFO:root:2023-12-30 00:57:23: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.668 s to detect 54 faces
+INFO:root:2023-12-30 00:57:25: Detector: 'retinaface' with config: (0.8, True) has taken: 1.291 s to detect 52 faces
+INFO:root:2023-12-30 00:57:30: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.885 s to detect 50 faces
+INFO:root:2023-12-30 00:57:34: Detector: 'yolo8' with config: 0.5 has taken: 3.959 s to detect 52 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 01:04:50: Detector: 'fr' with config: (2, 'hog') has taken: 0.921 s to detect 50 faces
+INFO:root:2023-12-30 01:04:59: Detector: 'cv2' with config: (1.01, 4, (10, 10)) has taken: 9.244 s to detect 79 faces
+INFO:root:2023-12-30 01:05:13: Detector: 'retinaface' with config: (0.8, True) has taken: 13.635 s to detect 52 faces
+INFO:root:2023-12-30 01:08:01: Detector: 'fr' with config: (2, 'hog') has taken: 0.943 s to detect 25 faces
+INFO:root:2023-12-30 01:08:03: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.618 s to detect 14 faces
+INFO:root:2023-12-30 01:08:18: Detector: 'retinaface' with config: (0.8, True) has taken: 14.481 s to detect 169 faces
+INFO:root:2023-12-30 01:08:24: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.045 s to detect 41 faces
+INFO:root:2023-12-30 01:08:28: Detector: 'yolo8' with config: 0.5 has taken: 4.265 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 01:08:29: Detector: 'fr' with config: (2, 'hog') has taken: 0.917 s to detect 25 faces
+INFO:root:2023-12-30 01:08:31: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.378 s to detect 14 faces
+INFO:root:2023-12-30 01:08:32: Detector: 'retinaface' with config: (0.8, True) has taken: 1.441 s to detect 169 faces
+INFO:root:2023-12-30 01:08:38: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.574 s to detect 41 faces
+INFO:root:2023-12-30 01:08:42: Detector: 'yolo8' with config: 0.5 has taken: 3.785 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 01:10:23: Detector: 'fr' with config: (3, 'hog') has taken: 3.889 s to detect 47 faces
+INFO:root:2023-12-30 01:10:25: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.565 s to detect 14 faces
+INFO:root:2023-12-30 01:10:39: Detector: 'retinaface' with config: (0.2, True) has taken: 13.891 s to detect 228 faces
+INFO:root:2023-12-30 01:10:51: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.9) has taken: 11.986 s to detect 50 faces
+INFO:root:2023-12-30 01:10:55: Detector: 'yolo8' with config: 0.2 has taken: 4.420 s to detect 143 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 01:10:59: Detector: 'fr' with config: (3, 'hog') has taken: 3.978 s to detect 47 faces
+INFO:root:2023-12-30 01:11:01: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.376 s to detect 14 faces
+INFO:root:2023-12-30 01:11:03: Detector: 'retinaface' with config: (0.2, True) has taken: 2.019 s to detect 228 faces
+INFO:root:2023-12-30 01:11:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.9) has taken: 11.463 s to detect 50 faces
+INFO:root:2023-12-30 01:11:18: Detector: 'yolo8' with config: 0.2 has taken: 4.031 s to detect 143 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 01:12:16: Detector: 'fr' with config: (3, 'hog') has taken: 3.821 s to detect 47 faces
+INFO:root:2023-12-30 01:12:19: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.624 s to detect 14 faces
+INFO:root:2023-12-30 01:12:32: Detector: 'retinaface' with config: (0.5, True) has taken: 13.733 s to detect 195 faces
+INFO:root:2023-12-30 01:12:38: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.824 s to detect 41 faces
+INFO:root:2023-12-30 01:12:42: Detector: 'yolo8' with config: 0.5 has taken: 3.933 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 01:12:46: Detector: 'fr' with config: (3, 'hog') has taken: 3.973 s to detect 47 faces
+INFO:root:2023-12-30 01:12:48: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.367 s to detect 14 faces
+INFO:root:2023-12-30 01:12:50: Detector: 'retinaface' with config: (0.5, True) has taken: 1.651 s to detect 195 faces
+INFO:root:2023-12-30 01:12:55: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.628 s to detect 41 faces
+INFO:root:2023-12-30 01:12:59: Detector: 'yolo8' with config: 0.5 has taken: 3.808 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:04:45: Detector: 'fr' with config: (3, 'hog') has taken: 4.155 s to detect 47 faces
+INFO:root:2023-12-30 02:04:47: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.605 s to detect 14 faces
+INFO:root:2023-12-30 02:05:01: Detector: 'retinaface' with config: (0.5, True) has taken: 14.487 s to detect 195 faces
+INFO:root:2023-12-30 02:05:07: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.756 s to detect 41 faces
+INFO:root:2023-12-30 02:05:11: Detector: 'yolo8' with config: 0.5 has taken: 4.273 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:05:15: Detector: 'fr' with config: (3, 'hog') has taken: 3.852 s to detect 47 faces
+INFO:root:2023-12-30 02:05:17: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.370 s to detect 14 faces
+INFO:root:2023-12-30 02:05:18: Detector: 'retinaface' with config: (0.5, True) has taken: 1.616 s to detect 195 faces
+INFO:root:2023-12-30 02:05:24: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.348 s to detect 41 faces
+INFO:root:2023-12-30 02:05:28: Detector: 'yolo8' with config: 0.5 has taken: 4.031 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:08:24: Detector: 'fr' with config: (3, 'hog') has taken: 4.194 s to detect 47 faces
+INFO:root:2023-12-30 02:08:26: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.632 s to detect 14 faces
+INFO:root:2023-12-30 02:08:41: Detector: 'retinaface' with config: (0.5, True) has taken: 14.719 s to detect 195 faces
+INFO:root:2023-12-30 02:08:47: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.115 s to detect 41 faces
+INFO:root:2023-12-30 02:08:51: Detector: 'yolo8' with config: 0.5 has taken: 4.274 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:08:55: Detector: 'fr' with config: (3, 'hog') has taken: 3.949 s to detect 47 faces
+INFO:root:2023-12-30 02:08:56: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.372 s to detect 14 faces
+INFO:root:2023-12-30 02:08:58: Detector: 'retinaface' with config: (0.5, True) has taken: 1.666 s to detect 195 faces
+INFO:root:2023-12-30 02:09:04: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.891 s to detect 41 faces
+INFO:root:2023-12-30 02:09:08: Detector: 'yolo8' with config: 0.5 has taken: 3.774 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:11:35: Detector: 'fr' with config: (3, 'hog') has taken: 3.984 s to detect 47 faces
+INFO:root:2023-12-30 02:11:37: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.618 s to detect 14 faces
+INFO:root:2023-12-30 02:11:51: Detector: 'retinaface' with config: (0.5, True) has taken: 14.357 s to detect 195 faces
+INFO:root:2023-12-30 02:11:58: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.055 s to detect 41 faces
+INFO:root:2023-12-30 02:12:02: Detector: 'yolo8' with config: 0.5 has taken: 4.377 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:12:06: Detector: 'fr' with config: (3, 'hog') has taken: 3.931 s to detect 47 faces
+INFO:root:2023-12-30 02:12:07: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.413 s to detect 14 faces
+INFO:root:2023-12-30 02:12:09: Detector: 'retinaface' with config: (0.5, True) has taken: 1.646 s to detect 195 faces
+INFO:root:2023-12-30 02:12:15: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.761 s to detect 41 faces
+INFO:root:2023-12-30 02:12:38: Detector: 'fr' with config: (3, 'hog') has taken: 3.849 s to detect 47 faces
+INFO:root:2023-12-30 02:12:40: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.557 s to detect 14 faces
+INFO:root:2023-12-30 02:12:54: Detector: 'retinaface' with config: (0.5, True) has taken: 13.828 s to detect 195 faces
+INFO:root:2023-12-30 02:13:00: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.825 s to detect 41 faces
+INFO:root:2023-12-30 02:13:04: Detector: 'yolo8' with config: 0.5 has taken: 4.316 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:13:08: Detector: 'fr' with config: (3, 'hog') has taken: 3.846 s to detect 47 faces
+INFO:root:2023-12-30 02:13:09: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.374 s to detect 14 faces
+INFO:root:2023-12-30 02:13:11: Detector: 'retinaface' with config: (0.5, True) has taken: 1.631 s to detect 195 faces
+INFO:root:2023-12-30 02:13:16: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.401 s to detect 41 faces
+INFO:root:2023-12-30 02:13:20: Detector: 'yolo8' with config: 0.5 has taken: 3.715 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:14:23: Detector: 'fr' with config: (3, 'hog') has taken: 3.882 s to detect 47 faces
+INFO:root:2023-12-30 02:14:25: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.615 s to detect 14 faces
+INFO:root:2023-12-30 02:14:40: Detector: 'retinaface' with config: (0.5, True) has taken: 14.901 s to detect 195 faces
+INFO:root:2023-12-30 02:14:46: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.100 s to detect 41 faces
+INFO:root:2023-12-30 02:14:50: Detector: 'yolo8' with config: 0.5 has taken: 4.302 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:14:54: Detector: 'fr' with config: (3, 'hog') has taken: 3.792 s to detect 47 faces
+INFO:root:2023-12-30 02:14:56: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.387 s to detect 14 faces
+INFO:root:2023-12-30 02:14:57: Detector: 'retinaface' with config: (0.5, True) has taken: 1.659 s to detect 195 faces
+INFO:root:2023-12-30 02:15:03: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.633 s to detect 41 faces
+INFO:root:2023-12-30 02:15:07: Detector: 'yolo8' with config: 0.5 has taken: 4.096 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:18:05: Detector: 'fr' with config: (3, 'hog') has taken: 0.872 s to detect 15 faces
+INFO:root:2023-12-30 02:18:07: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.553 s to detect 9 faces
+INFO:root:2023-12-30 02:18:22: Detector: 'retinaface' with config: (0.5, True) has taken: 14.446 s to detect 26 faces
+INFO:root:2023-12-30 02:18:26: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.877 s to detect 14 faces
+INFO:root:2023-12-30 02:18:30: Detector: 'yolo8' with config: 0.5 has taken: 3.903 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:18:32: Detector: 'fr' with config: (3, 'hog') has taken: 0.876 s to detect 15 faces
+INFO:root:2023-12-30 02:18:32: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.321 s to detect 9 faces
+INFO:root:2023-12-30 02:18:34: Detector: 'retinaface' with config: (0.5, True) has taken: 1.573 s to detect 26 faces
+INFO:root:2023-12-30 02:18:38: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.526 s to detect 14 faces
+INFO:root:2023-12-30 02:18:42: Detector: 'yolo8' with config: 0.5 has taken: 4.005 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:19:56: Detector: 'fr' with config: (3, 'hog') has taken: 0.878 s to detect 15 faces
+INFO:root:2023-12-30 02:19:58: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.555 s to detect 9 faces
+INFO:root:2023-12-30 02:20:12: Detector: 'retinaface' with config: (0.5, True) has taken: 13.662 s to detect 26 faces
+INFO:root:2023-12-30 02:20:16: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.915 s to detect 14 faces
+INFO:root:2023-12-30 02:20:20: Detector: 'yolo8' with config: 0.5 has taken: 4.259 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:20:22: Detector: 'fr' with config: (3, 'hog') has taken: 0.861 s to detect 15 faces
+INFO:root:2023-12-30 02:20:22: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.322 s to detect 9 faces
+INFO:root:2023-12-30 02:20:24: Detector: 'retinaface' with config: (0.5, True) has taken: 1.626 s to detect 26 faces
+INFO:root:2023-12-30 02:20:28: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.809 s to detect 14 faces
+INFO:root:2023-12-30 02:20:33: Detector: 'yolo8' with config: 0.5 has taken: 4.049 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:21:00: Detector: 'fr' with config: (3, 'hog') has taken: 0.869 s to detect 15 faces
+INFO:root:2023-12-30 02:21:04: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.557 s to detect 9 faces
+INFO:root:2023-12-30 02:21:39: Detector: 'retinaface' with config: (0.5, True) has taken: 14.255 s to detect 26 faces
+INFO:root:2023-12-30 02:21:44: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.959 s to detect 14 faces
+INFO:root:2023-12-30 02:21:49: Detector: 'yolo8' with config: 0.5 has taken: 3.920 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:21:51: Detector: 'fr' with config: (3, 'hog') has taken: 0.870 s to detect 15 faces
+INFO:root:2023-12-30 02:21:52: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.320 s to detect 9 faces
+INFO:root:2023-12-30 02:21:54: Detector: 'retinaface' with config: (0.5, True) has taken: 1.605 s to detect 26 faces
+INFO:root:2023-12-30 02:21:59: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.564 s to detect 14 faces
+INFO:root:2023-12-30 02:22:03: Detector: 'yolo8' with config: 0.5 has taken: 3.720 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:27:15: Detector: 'fr' with config: (3, 'hog') has taken: 0.867 s to detect 15 faces
+INFO:root:2023-12-30 02:27:18: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.558 s to detect 9 faces
+INFO:root:2023-12-30 02:27:33: Detector: 'retinaface' with config: (0.5, True) has taken: 13.637 s to detect 26 faces
+INFO:root:2023-12-30 02:27:39: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.942 s to detect 14 faces
+INFO:root:2023-12-30 02:27:44: Detector: 'yolo8' with config: 0.5 has taken: 3.916 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:27:47: Detector: 'fr' with config: (3, 'hog') has taken: 0.853 s to detect 15 faces
+INFO:root:2023-12-30 02:27:48: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.322 s to detect 9 faces
+INFO:root:2023-12-30 02:27:50: Detector: 'retinaface' with config: (0.5, True) has taken: 1.603 s to detect 26 faces
+INFO:root:2023-12-30 02:27:54: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.556 s to detect 14 faces
+INFO:root:2023-12-30 02:28:00: Detector: 'yolo8' with config: 0.5 has taken: 4.027 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:30:41: Detector: 'fr' with config: (3, 'hog') has taken: 0.863 s to detect 15 faces
+INFO:root:2023-12-30 02:30:43: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.558 s to detect 9 faces
+INFO:root:2023-12-30 02:30:57: Detector: 'retinaface' with config: (0.5, True) has taken: 13.721 s to detect 26 faces
+INFO:root:2023-12-30 02:31:02: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.112 s to detect 14 faces
+INFO:root:2023-12-30 02:31:06: Detector: 'yolo8' with config: 0.5 has taken: 3.919 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:41:27: Detector: 'fr' with config: (3, 'hog') has taken: 0.884 s to detect 15 faces
+INFO:root:2023-12-30 02:41:28: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.548 s to detect 9 faces
+INFO:root:2023-12-30 02:41:42: Detector: 'retinaface' with config: (0.5, True) has taken: 13.685 s to detect 26 faces
+INFO:root:2023-12-30 02:41:47: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.896 s to detect 14 faces
+INFO:root:2023-12-30 02:41:51: Detector: 'yolo8' with config: 0.5 has taken: 3.875 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:53:55: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.996 s to detect 15 faces
+INFO:root:2023-12-30 02:53:57: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.598 s to detect 9 faces
+INFO:root:2023-12-30 02:54:12: Detector: 'retinaface' with config: (0.5, True) has taken: 14.831 s to detect 26 faces
+INFO:root:2023-12-30 02:54:16: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.188 s to detect 14 faces
+INFO:root:2023-12-30 02:54:21: Detector: 'yolo8' with config: 0.5 has taken: 4.282 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 02:59:21: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.908 s to detect 15 faces
+INFO:root:2023-12-30 02:59:52: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.888 s to detect 15 faces
+INFO:root:2023-12-30 03:06:38: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.878 s to detect 15 faces
+INFO:root:2023-12-30 03:06:42: Detector: 'fd_dsfd' with config: () has taken: 3.260 s to detect 26 faces
+INFO:root:2023-12-30 03:06:44: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.693 s to detect 9 faces
+INFO:root:2023-12-30 03:06:59: Detector: 'retinaface' with config: (0.5, True) has taken: 14.578 s to detect 26 faces
+INFO:root:2023-12-30 03:07:03: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.947 s to detect 14 faces
+INFO:root:2023-12-30 03:07:07: Detector: 'yolo8' with config: 0.5 has taken: 4.001 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:13:15: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.863 s to detect 15 faces
+INFO:root:2023-12-30 03:13:18: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 2.346 s to detect 26 faces
+INFO:root:2023-12-30 03:13:20: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.554 s to detect 9 faces
+INFO:root:2023-12-30 03:13:35: Detector: 'retinaface' with config: (0.5, True) has taken: 14.666 s to detect 26 faces
+INFO:root:2023-12-30 03:13:39: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.332 s to detect 14 faces
+INFO:root:2023-12-30 03:13:44: Detector: 'yolo8' with config: 0.5 has taken: 4.321 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:15:35: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.882 s to detect 15 faces
+INFO:root:2023-12-30 03:15:37: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 2.456 s to detect 26 faces
+INFO:root:2023-12-30 03:15:40: Detector: 'SSDMobileNet' with config: ('SSDMobileNet', 0.5, 0.3) has taken: 2.318 s to detect 26 faces
+INFO:root:2023-12-30 03:15:43: Detector: 'BlazeFace' with config: ('BlazeFace', 0.5, 0.3) has taken: 2.257 s to detect 26 faces
+INFO:root:2023-12-30 03:15:44: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.002 s to detect 9 faces
+INFO:root:2023-12-30 03:15:58: Detector: 'retinaface' with config: (0.5, True) has taken: 13.825 s to detect 26 faces
+INFO:root:2023-12-30 03:16:03: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.316 s to detect 14 faces
+INFO:root:2023-12-30 03:16:07: Detector: 'yolo8' with config: 0.5 has taken: 4.008 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:16:57: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.883 s to detect 15 faces
+INFO:root:2023-12-30 03:17:00: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 2.664 s to detect 26 faces
+INFO:root:2023-12-30 03:17:03: Detector: 'SSDMobileNet' with config: ('SSDMobileNet', 0.5, 0.3) has taken: 2.434 s to detect 26 faces
+INFO:root:2023-12-30 03:17:06: Detector: 'BlazeFace' with config: ('BlazeFace', 0.5, 0.3) has taken: 2.296 s to detect 26 faces
+INFO:root:2023-12-30 03:17:07: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.015 s to detect 9 faces
+INFO:root:2023-12-30 03:17:21: Detector: 'retinaface' with config: (0.5, True) has taken: 14.182 s to detect 26 faces
+INFO:root:2023-12-30 03:17:26: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.060 s to detect 14 faces
+INFO:root:2023-12-30 03:17:30: Detector: 'yolo8' with config: 0.5 has taken: 4.265 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:17:31: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.848 s to detect 15 faces
+INFO:root:2023-12-30 03:17:34: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 2.451 s to detect 26 faces
+INFO:root:2023-12-30 03:17:37: Detector: 'SSDMobileNet' with config: ('SSDMobileNet', 0.5, 0.3) has taken: 2.263 s to detect 26 faces
+INFO:root:2023-12-30 03:17:39: Detector: 'BlazeFace' with config: ('BlazeFace', 0.5, 0.3) has taken: 2.287 s to detect 26 faces
+INFO:root:2023-12-30 03:17:40: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.319 s to detect 9 faces
+INFO:root:2023-12-30 03:17:42: Detector: 'retinaface' with config: (0.5, True) has taken: 1.512 s to detect 26 faces
+INFO:root:2023-12-30 03:17:46: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.754 s to detect 14 faces
+INFO:root:2023-12-30 03:17:50: Detector: 'yolo8' with config: 0.5 has taken: 3.719 s to detect 26 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:20:22: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.893 s to detect 47 faces
+INFO:root:2023-12-30 03:20:28: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.531 s to detect 134 faces
+INFO:root:2023-12-30 03:20:33: Detector: 'SSDMobileNet' with config: ('SSDMobileNet', 0.5, 0.3) has taken: 5.475 s to detect 134 faces
+INFO:root:2023-12-30 03:20:39: Detector: 'BlazeFace' with config: ('BlazeFace', 0.5, 0.3) has taken: 5.476 s to detect 134 faces
+INFO:root:2023-12-30 03:20:41: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.630 s to detect 14 faces
+INFO:root:2023-12-30 03:20:55: Detector: 'retinaface' with config: (0.5, True) has taken: 13.931 s to detect 195 faces
+INFO:root:2023-12-30 03:21:01: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.936 s to detect 41 faces
+INFO:root:2023-12-30 03:21:06: Detector: 'yolo8' with config: 0.5 has taken: 4.451 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:21:10: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.837 s to detect 47 faces
+INFO:root:2023-12-30 03:21:16: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.535 s to detect 134 faces
+INFO:root:2023-12-30 03:21:22: Detector: 'SSDMobileNet' with config: ('SSDMobileNet', 0.5, 0.3) has taken: 5.970 s to detect 134 faces
+INFO:root:2023-12-30 03:21:28: Detector: 'BlazeFace' with config: ('BlazeFace', 0.5, 0.3) has taken: 6.069 s to detect 134 faces
+INFO:root:2023-12-30 03:21:29: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.418 s to detect 14 faces
+INFO:root:2023-12-30 03:21:31: Detector: 'retinaface' with config: (0.5, True) has taken: 1.906 s to detect 195 faces
+INFO:root:2023-12-30 03:21:37: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.904 s to detect 41 faces
+INFO:root:2023-12-30 03:21:41: Detector: 'yolo8' with config: 0.5 has taken: 4.053 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:23:48: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.903 s to detect 47 faces
+INFO:root:2023-12-30 03:23:53: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.590 s to detect 134 faces
+INFO:root:2023-12-30 03:25:55: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.912 s to detect 47 faces
+INFO:root:2023-12-30 03:26:01: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.663 s to detect 134 faces
+INFO:root:2023-12-30 03:26:03: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 1.970 s to detect 16 faces
+INFO:root:2023-12-30 03:26:48: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 45.393 s to detect 68 faces
+INFO:root:2023-12-30 03:26:51: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.648 s to detect 14 faces
+INFO:root:2023-12-30 03:27:07: Detector: 'retinaface' with config: (0.5, True) has taken: 15.778 s to detect 195 faces
+INFO:root:2023-12-30 03:27:13: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.982 s to detect 41 faces
+INFO:root:2023-12-30 03:27:17: Detector: 'yolo8' with config: 0.5 has taken: 4.264 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:27:21: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.911 s to detect 47 faces
+INFO:root:2023-12-30 03:27:27: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.971 s to detect 134 faces
+INFO:root:2023-12-30 03:27:28: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.696 s to detect 16 faces
+INFO:root:2023-12-30 03:27:30: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.740 s to detect 68 faces
+INFO:root:2023-12-30 03:27:31: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.444 s to detect 14 faces
+INFO:root:2023-12-30 03:27:33: Detector: 'retinaface' with config: (0.5, True) has taken: 1.721 s to detect 195 faces
+INFO:root:2023-12-30 03:27:39: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.725 s to detect 41 faces
+INFO:root:2023-12-30 03:27:43: Detector: 'yolo8' with config: 0.5 has taken: 4.122 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:30:37: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.908 s to detect 47 faces
+INFO:root:2023-12-30 03:30:42: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.5) has taken: 5.612 s to detect 134 faces
+INFO:root:2023-12-30 03:30:43: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.5) has taken: 0.602 s to detect 16 faces
+INFO:root:2023-12-30 03:30:45: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.5) has taken: 1.699 s to detect 68 faces
+INFO:root:2023-12-30 03:30:47: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.066 s to detect 14 faces
+INFO:root:2023-12-30 03:31:00: Detector: 'retinaface' with config: (0.5, True) has taken: 13.509 s to detect 195 faces
+INFO:root:2023-12-30 03:31:06: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.838 s to detect 41 faces
+INFO:root:2023-12-30 03:31:11: Detector: 'yolo8' with config: 0.5 has taken: 4.287 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:31:15: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.950 s to detect 47 faces
+INFO:root:2023-12-30 03:31:20: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.5) has taken: 5.570 s to detect 134 faces
+INFO:root:2023-12-30 03:31:21: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.5) has taken: 0.606 s to detect 16 faces
+INFO:root:2023-12-30 03:31:23: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.5) has taken: 1.726 s to detect 68 faces
+INFO:root:2023-12-30 03:31:24: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.389 s to detect 14 faces
+INFO:root:2023-12-30 03:31:26: Detector: 'retinaface' with config: (0.5, True) has taken: 1.563 s to detect 195 faces
+INFO:root:2023-12-30 03:31:31: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.599 s to detect 41 faces
+INFO:root:2023-12-30 03:31:36: Detector: 'yolo8' with config: 0.5 has taken: 4.095 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:32:30: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.840 s to detect 47 faces
+INFO:root:2023-12-30 03:32:36: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.5) has taken: 5.617 s to detect 134 faces
+INFO:root:2023-12-30 03:32:37: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.5) has taken: 0.592 s to detect 16 faces
+INFO:root:2023-12-30 03:32:38: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.5) has taken: 1.736 s to detect 68 faces
+INFO:root:2023-12-30 03:32:41: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.076 s to detect 14 faces
+INFO:root:2023-12-30 03:32:55: Detector: 'retinaface' with config: (0.5, True) has taken: 13.985 s to detect 195 faces
+INFO:root:2023-12-30 03:33:01: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.886 s to detect 41 faces
+INFO:root:2023-12-30 03:33:05: Detector: 'yolo8' with config: 0.5 has taken: 3.962 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 03:33:09: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.930 s to detect 47 faces
+INFO:root:2023-12-30 03:33:15: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.5) has taken: 5.827 s to detect 134 faces
+INFO:root:2023-12-30 03:33:15: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.5) has taken: 0.620 s to detect 16 faces
+INFO:root:2023-12-30 03:33:17: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.5) has taken: 1.769 s to detect 68 faces
+INFO:root:2023-12-30 03:33:19: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.409 s to detect 14 faces
+INFO:root:2023-12-30 03:33:20: Detector: 'retinaface' with config: (0.5, True) has taken: 1.570 s to detect 195 faces
+INFO:root:2023-12-30 03:33:26: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.525 s to detect 41 faces
+INFO:root:2023-12-30 03:33:30: Detector: 'yolo8' with config: 0.5 has taken: 4.044 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 10:49:19: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 4.077 s to detect 47 faces
+INFO:root:2023-12-30 10:49:26: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 6.978 s to detect 134 faces
+INFO:root:2023-12-30 10:49:27: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.672 s to detect 16 faces
+INFO:root:2023-12-30 10:49:29: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 2.161 s to detect 68 faces
+INFO:root:2023-12-30 10:49:33: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 3.029 s to detect 14 faces
+INFO:root:2023-12-30 10:50:00: Detector: 'retinaface' with config: (0.5, True) has taken: 27.433 s to detect 195 faces
+INFO:root:2023-12-30 10:50:06: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.923 s to detect 41 faces
+INFO:root:2023-12-30 10:50:12: Detector: 'yolo8' with config: 0.5 has taken: 5.585 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 10:50:16: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.845 s to detect 47 faces
+INFO:root:2023-12-30 10:50:21: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.401 s to detect 134 faces
+INFO:root:2023-12-30 10:50:22: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.582 s to detect 16 faces
+INFO:root:2023-12-30 10:50:23: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.689 s to detect 68 faces
+INFO:root:2023-12-30 10:50:25: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.383 s to detect 14 faces
+INFO:root:2023-12-30 10:50:27: Detector: 'retinaface' with config: (0.5, True) has taken: 1.604 s to detect 195 faces
+INFO:root:2023-12-30 10:50:32: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.289 s to detect 41 faces
+INFO:root:2023-12-30 10:50:36: Detector: 'yolo8' with config: 0.5 has taken: 3.792 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 11:56:37: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.861 s to detect 47 faces
+INFO:root:2023-12-30 11:56:43: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.978 s to detect 134 faces
+INFO:root:2023-12-30 11:56:44: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.640 s to detect 16 faces
+INFO:root:2023-12-30 11:56:46: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.760 s to detect 68 faces
+INFO:root:2023-12-30 11:56:47: Detector: 'cv2' with config: (3, 4, (10, 10)) has taken: 0.852 s to detect 0 faces
+INFO:root:2023-12-30 11:57:01: Detector: 'retinaface' with config: (0.5, True) has taken: 14.074 s to detect 195 faces
+INFO:root:2023-12-30 11:57:07: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.869 s to detect 41 faces
+INFO:root:2023-12-30 11:57:11: Detector: 'yolo8' with config: 0.5 has taken: 4.295 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 11:57:15: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.829 s to detect 47 faces
+INFO:root:2023-12-30 11:57:21: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.942 s to detect 134 faces
+INFO:root:2023-12-30 11:57:22: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.579 s to detect 16 faces
+INFO:root:2023-12-30 11:57:24: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.723 s to detect 68 faces
+INFO:root:2023-12-30 11:57:24: Detector: 'cv2' with config: (3, 4, (10, 10)) has taken: 0.154 s to detect 0 faces
+INFO:root:2023-12-30 11:57:26: Detector: 'retinaface' with config: (0.5, True) has taken: 1.713 s to detect 195 faces
+INFO:root:2023-12-30 11:57:31: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.575 s to detect 41 faces
+INFO:root:2023-12-30 11:57:35: Detector: 'yolo8' with config: 0.5 has taken: 4.071 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:23:44: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.979 s to detect 47 faces
+INFO:root:2023-12-30 15:23:51: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 6.417 s to detect 134 faces
+INFO:root:2023-12-30 15:23:52: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.660 s to detect 16 faces
+INFO:root:2023-12-30 15:23:54: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.987 s to detect 68 faces
+INFO:root:2023-12-30 15:23:56: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.143 s to detect 14 faces
+INFO:root:2023-12-30 15:24:11: Detector: 'retinaface' with config: (0.5, True) has taken: 15.238 s to detect 195 faces
+INFO:root:2023-12-30 15:24:17: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.094 s to detect 41 faces
+INFO:root:2023-12-30 15:24:22: Detector: 'yolo8' with config: 0.5 has taken: 4.630 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:24:26: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.979 s to detect 47 faces
+INFO:root:2023-12-30 15:24:32: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 6.077 s to detect 134 faces
+INFO:root:2023-12-30 15:24:33: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.638 s to detect 16 faces
+INFO:root:2023-12-30 15:24:35: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.826 s to detect 68 faces
+INFO:root:2023-12-30 15:24:36: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.405 s to detect 14 faces
+INFO:root:2023-12-30 15:24:38: Detector: 'retinaface' with config: (0.5, True) has taken: 1.659 s to detect 195 faces
+INFO:root:2023-12-30 15:24:44: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.797 s to detect 41 faces
+INFO:root:2023-12-30 15:24:48: Detector: 'yolo8' with config: 0.5 has taken: 4.112 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:25:50: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.938 s to detect 47 faces
+INFO:root:2023-12-30 15:25:56: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.583 s to detect 134 faces
+INFO:root:2023-12-30 15:25:56: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.605 s to detect 16 faces
+INFO:root:2023-12-30 15:25:58: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.694 s to detect 68 faces
+INFO:root:2023-12-30 15:26:01: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.637 s to detect 14 faces
+INFO:root:2023-12-30 15:26:15: Detector: 'retinaface' with config: (0.5, True) has taken: 13.959 s to detect 195 faces
+INFO:root:2023-12-30 15:26:21: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.896 s to detect 41 faces
+INFO:root:2023-12-30 15:26:25: Detector: 'yolo8' with config: 0.5 has taken: 3.977 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:26:29: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.976 s to detect 47 faces
+INFO:root:2023-12-30 15:26:35: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.854 s to detect 134 faces
+INFO:root:2023-12-30 15:26:35: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.617 s to detect 16 faces
+INFO:root:2023-12-30 15:26:37: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.864 s to detect 68 faces
+INFO:root:2023-12-30 15:26:39: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.411 s to detect 14 faces
+INFO:root:2023-12-30 15:26:41: Detector: 'retinaface' with config: (0.5, True) has taken: 1.651 s to detect 195 faces
+INFO:root:2023-12-30 15:26:46: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.672 s to detect 41 faces
+INFO:root:2023-12-30 15:26:51: Detector: 'yolo8' with config: 0.5 has taken: 4.124 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:28:15: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.851 s to detect 47 faces
+INFO:root:2023-12-30 15:28:21: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.708 s to detect 134 faces
+INFO:root:2023-12-30 15:28:22: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.626 s to detect 16 faces
+INFO:root:2023-12-30 15:28:24: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.733 s to detect 68 faces
+INFO:root:2023-12-30 15:28:26: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.657 s to detect 14 faces
+INFO:root:2023-12-30 15:28:41: Detector: 'retinaface' with config: (0.5, True) has taken: 14.816 s to detect 195 faces
+INFO:root:2023-12-30 15:28:47: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.158 s to detect 41 faces
+INFO:root:2023-12-30 15:28:52: Detector: 'yolo8' with config: 0.5 has taken: 4.332 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:28:56: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.840 s to detect 47 faces
+INFO:root:2023-12-30 15:29:02: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.936 s to detect 134 faces
+INFO:root:2023-12-30 15:29:02: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.598 s to detect 16 faces
+INFO:root:2023-12-30 15:29:04: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.738 s to detect 68 faces
+INFO:root:2023-12-30 15:29:06: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.440 s to detect 14 faces
+INFO:root:2023-12-30 15:29:08: Detector: 'retinaface' with config: (0.5, True) has taken: 1.708 s to detect 195 faces
+INFO:root:2023-12-30 15:29:13: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.508 s to detect 41 faces
+INFO:root:2023-12-30 15:29:17: Detector: 'yolo8' with config: 0.5 has taken: 4.135 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:30:15: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 4.009 s to detect 47 faces
+INFO:root:2023-12-30 15:30:21: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.964 s to detect 134 faces
+INFO:root:2023-12-30 15:30:22: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.646 s to detect 16 faces
+INFO:root:2023-12-30 15:30:24: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.813 s to detect 68 faces
+INFO:root:2023-12-30 15:30:26: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.659 s to detect 14 faces
+INFO:root:2023-12-30 15:30:41: Detector: 'retinaface' with config: (0.5, True) has taken: 14.697 s to detect 195 faces
+INFO:root:2023-12-30 15:30:47: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.136 s to detect 41 faces
+INFO:root:2023-12-30 15:30:52: Detector: 'yolo8' with config: 0.5 has taken: 4.290 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:30:56: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.808 s to detect 47 faces
+INFO:root:2023-12-30 15:31:01: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.672 s to detect 134 faces
+INFO:root:2023-12-30 15:31:02: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.625 s to detect 16 faces
+INFO:root:2023-12-30 15:31:04: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.840 s to detect 68 faces
+INFO:root:2023-12-30 15:31:06: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.425 s to detect 14 faces
+INFO:root:2023-12-30 15:31:07: Detector: 'retinaface' with config: (0.5, True) has taken: 1.819 s to detect 195 faces
+INFO:root:2023-12-30 15:31:13: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.612 s to detect 41 faces
+INFO:root:2023-12-30 15:31:17: Detector: 'yolo8' with config: 0.5 has taken: 4.125 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:32:26: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.932 s to detect 47 faces
+INFO:root:2023-12-30 15:32:33: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 6.090 s to detect 134 faces
+INFO:root:2023-12-30 15:32:33: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.645 s to detect 16 faces
+INFO:root:2023-12-30 15:32:35: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.791 s to detect 68 faces
+INFO:root:2023-12-30 15:32:38: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.687 s to detect 14 faces
+INFO:root:2023-12-30 15:32:53: Detector: 'retinaface' with config: (0.5, True) has taken: 14.631 s to detect 195 faces
+INFO:root:2023-12-30 15:32:59: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.121 s to detect 41 faces
+INFO:root:2023-12-30 15:33:03: Detector: 'yolo8' with config: 0.5 has taken: 4.355 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:33:07: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 4.047 s to detect 47 faces
+INFO:root:2023-12-30 15:33:14: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 6.122 s to detect 134 faces
+INFO:root:2023-12-30 15:33:14: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.599 s to detect 16 faces
+INFO:root:2023-12-30 15:33:16: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.768 s to detect 68 faces
+INFO:root:2023-12-30 15:33:18: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.443 s to detect 14 faces
+INFO:root:2023-12-30 15:33:19: Detector: 'retinaface' with config: (0.5, True) has taken: 1.629 s to detect 195 faces
+INFO:root:2023-12-30 15:33:25: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.751 s to detect 41 faces
+INFO:root:2023-12-30 15:33:29: Detector: 'yolo8' with config: 0.5 has taken: 4.107 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:33:55: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.944 s to detect 47 faces
+INFO:root:2023-12-30 15:34:01: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 6.184 s to detect 134 faces
+INFO:root:2023-12-30 15:34:02: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.663 s to detect 16 faces
+INFO:root:2023-12-30 15:34:04: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.952 s to detect 68 faces
+INFO:root:2023-12-30 15:34:07: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.670 s to detect 14 faces
+INFO:root:2023-12-30 15:34:22: Detector: 'retinaface' with config: (0.5, True) has taken: 14.526 s to detect 195 faces
+INFO:root:2023-12-30 15:34:28: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.887 s to detect 41 faces
+INFO:root:2023-12-30 15:34:32: Detector: 'yolo8' with config: 0.5 has taken: 4.264 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:34:36: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.836 s to detect 47 faces
+INFO:root:2023-12-30 15:34:42: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.766 s to detect 134 faces
+INFO:root:2023-12-30 15:34:42: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.607 s to detect 16 faces
+INFO:root:2023-12-30 15:34:44: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.739 s to detect 68 faces
+INFO:root:2023-12-30 15:34:45: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.397 s to detect 14 faces
+INFO:root:2023-12-30 15:34:47: Detector: 'retinaface' with config: (0.5, True) has taken: 1.835 s to detect 195 faces
+INFO:root:2023-12-30 15:34:53: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.508 s to detect 41 faces
+INFO:root:2023-12-30 15:34:57: Detector: 'yolo8' with config: 0.5 has taken: 4.072 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:35:21: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.842 s to detect 47 faces
+INFO:root:2023-12-30 15:35:27: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.710 s to detect 134 faces
+INFO:root:2023-12-30 15:35:28: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.684 s to detect 16 faces
+INFO:root:2023-12-30 15:35:29: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.789 s to detect 68 faces
+INFO:root:2023-12-30 15:35:32: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.675 s to detect 14 faces
+INFO:root:2023-12-30 15:35:47: Detector: 'retinaface' with config: (0.5, True) has taken: 14.715 s to detect 195 faces
+INFO:root:2023-12-30 15:35:53: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.797 s to detect 41 faces
+INFO:root:2023-12-30 15:35:57: Detector: 'yolo8' with config: 0.5 has taken: 4.008 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-30 15:36:01: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.867 s to detect 47 faces
+INFO:root:2023-12-30 15:36:07: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.638 s to detect 134 faces
+INFO:root:2023-12-30 15:36:07: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.587 s to detect 16 faces
+INFO:root:2023-12-30 15:36:09: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.720 s to detect 68 faces
+INFO:root:2023-12-30 15:36:10: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.381 s to detect 14 faces
+INFO:root:2023-12-30 15:36:12: Detector: 'retinaface' with config: (0.5, True) has taken: 1.687 s to detect 195 faces
+INFO:root:2023-12-30 15:36:18: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.456 s to detect 41 faces
+INFO:root:2023-12-30 15:36:21: Detector: 'yolo8' with config: 0.5 has taken: 3.776 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-31 23:06:54: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.942 s to detect 47 faces
+INFO:root:2023-12-31 23:07:00: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.911 s to detect 134 faces
+INFO:root:2023-12-31 23:07:01: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.655 s to detect 16 faces
+INFO:root:2023-12-31 23:07:03: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.765 s to detect 68 faces
+INFO:root:2023-12-31 23:07:05: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.447 s to detect 14 faces
+INFO:root:2023-12-31 23:07:20: Detector: 'retinaface' with config: (0.5, True) has taken: 15.133 s to detect 195 faces
+INFO:root:2023-12-31 23:07:26: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.873 s to detect 41 faces
+INFO:root:2023-12-31 23:09:06: Detector: 'yolo8' with config: 0.5 has taken: 4.502 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-31 23:09:10: Detector: 'yolo8' with config: 0.5 has taken: 3.771 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-31 23:11:30: Detector: 'yolo8' with config: 0.5 has taken: 4.268 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2023-12-31 23:11:35: Detector: 'yolo8' with config: 0.5 has taken: 4.061 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 11:07:37: Detector: 'yolo8' with config: 0.5 has taken: 4.632 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 11:07:40: Detector: 'yolo8' with config: 0.5 has taken: 3.715 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 11:09:10: Detector: 'yolo8' with config: 0.5 has taken: 4.263 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 11:09:14: Detector: 'yolo8' with config: 0.5 has taken: 3.720 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 12:28:56: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.811 s to detect 47 faces
+INFO:root:2024-01-01 12:29:03: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 6.004 s to detect 134 faces
+INFO:root:2024-01-01 12:29:03: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.608 s to detect 16 faces
+INFO:root:2024-01-01 12:29:05: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.753 s to detect 68 faces
+INFO:root:2024-01-01 12:29:08: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.396 s to detect 14 faces
+INFO:root:2024-01-01 12:29:22: Detector: 'retinaface' with config: (0.5, True) has taken: 14.455 s to detect 195 faces
+INFO:root:2024-01-01 12:29:28: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.063 s to detect 41 faces
+INFO:root:2024-01-01 12:29:33: Detector: 'yolo8' with config: 0.5 has taken: 4.431 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 12:29:37: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.900 s to detect 47 faces
+INFO:root:2024-01-01 12:29:43: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 6.116 s to detect 134 faces
+INFO:root:2024-01-01 12:29:44: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.648 s to detect 16 faces
+INFO:root:2024-01-01 12:29:46: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.876 s to detect 68 faces
+INFO:root:2024-01-01 12:29:47: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.426 s to detect 14 faces
+INFO:root:2024-01-01 12:29:49: Detector: 'retinaface' with config: (0.5, True) has taken: 1.763 s to detect 195 faces
+INFO:root:2024-01-01 12:29:55: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.055 s to detect 41 faces
+INFO:root:2024-01-01 12:29:59: Detector: 'yolo8' with config: 0.5 has taken: 4.113 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 12:34:13: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.902 s to detect 47 faces
+INFO:root:2024-01-01 12:34:19: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.671 s to detect 134 faces
+INFO:root:2024-01-01 12:34:20: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.618 s to detect 16 faces
+INFO:root:2024-01-01 12:34:22: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.692 s to detect 68 faces
+INFO:root:2024-01-01 12:34:24: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.644 s to detect 14 faces
+INFO:root:2024-01-01 12:34:38: Detector: 'retinaface' with config: (0.5, True) has taken: 13.924 s to detect 195 faces
+INFO:root:2024-01-01 12:34:44: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.842 s to detect 41 faces
+INFO:root:2024-01-01 12:34:49: Detector: 'yolo8' with config: 0.5 has taken: 4.292 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 12:34:52: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.817 s to detect 47 faces
+INFO:root:2024-01-01 12:34:58: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.614 s to detect 134 faces
+INFO:root:2024-01-01 12:34:59: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.593 s to detect 16 faces
+INFO:root:2024-01-01 12:35:01: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.720 s to detect 68 faces
+INFO:root:2024-01-01 12:35:02: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.389 s to detect 14 faces
+INFO:root:2024-01-01 12:35:04: Detector: 'retinaface' with config: (0.5, True) has taken: 1.603 s to detect 195 faces
+INFO:root:2024-01-01 12:35:09: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.667 s to detect 41 faces
+INFO:root:2024-01-01 12:35:14: Detector: 'yolo8' with config: 0.5 has taken: 4.047 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 12:36:05: Detector: 'yolo8' with config: 0.5 has taken: 3.888 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 12:36:09: Detector: 'yolo8' with config: 0.5 has taken: 3.709 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 12:40:16: Detector: 'yolo8' with config: 0.5 has taken: 3.942 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 12:40:20: Detector: 'yolo8' with config: 0.5 has taken: 4.031 s to detect 73 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 12:42:19: Detector: 'yolo8' with config: 0.5 has taken: 3.887 s to detect 73 faces
+INFO:root:2024-01-01 12:47:33: Detector: 'yolo8' with config: 0.5 has taken: 3.925 s to detect 73 faces
+INFO:root:2024-01-01 12:48:34: Detector: 'yolo8' with config: 0.5 has taken: 3.896 s to detect 73 faces
+INFO:root:2024-01-01 12:49:57: Detector: 'yolo8' with config: 0.5 has taken: 3.881 s to detect 73 faces
+INFO:root:2024-01-01 12:51:19: Detector: 'yolo8' with config: 0.5 has taken: 3.864 s to detect 73 faces
+INFO:root:2024-01-01 12:54:25: Detector: 'yolo8' with config: 0.5 has taken: 4.215 s to detect 73 faces
+INFO:root:2024-01-01 12:55:14: Detector: 'yolo8' with config: 0.5 has taken: 3.901 s to detect 73 faces
+INFO:root:2024-01-01 12:58:01: Detector: 'yolo8' with config: 0.5 has taken: 4.212 s to detect 4 faces
+INFO:root:2024-01-01 12:59:00: Detector: 'yolo8' with config: 0.2 has taken: 3.854 s to detect 5 faces
+INFO:root:2024-01-01 13:14:59: Detector: 'yolo8' with config: 0.2 has taken: 4.266 s to detect 5 faces
+INFO:root:2024-01-01 13:15:43: Detector: 'yolo8' with config: 0.2 has taken: 4.290 s to detect 5 faces
+INFO:root:2024-01-01 13:18:03: Detector: 'yolo8' with config: 0.2 has taken: 4.296 s to detect 5 faces
+INFO:root:2024-01-01 13:23:12: Detector: 'yolo8' with config: 0.2 has taken: 4.304 s to detect 5 faces
+INFO:root:2024-01-01 13:25:14: Detector: 'yolo8' with config: 0.2 has taken: 4.284 s to detect 5 faces
+INFO:root:2024-01-01 13:27:36: Detector: 'yolo8' with config: 0.2 has taken: 4.329 s to detect 5 faces
+INFO:root:2024-01-01 13:30:04: Detector: 'yolo8' with config: 0.2 has taken: 4.287 s to detect 5 faces
+INFO:root:2024-01-01 13:32:35: Detector: 'yolo8' with config: 0.2 has taken: 4.293 s to detect 5 faces
+INFO:root:2024-01-01 13:40:40: Detector: 'yolo8' with config: 0.2 has taken: 4.323 s to detect 5 faces
+INFO:root:2024-01-01 13:42:14: Detector: 'yolo8' with config: 0.2 has taken: 4.396 s to detect 1 faces
+INFO:root:2024-01-01 13:42:46: Detector: 'yolo8' with config: 0.2 has taken: 4.463 s to detect 1 faces
+INFO:root:2024-01-01 13:44:09: Detector: 'yolo8' with config: 0.2 has taken: 4.301 s to detect 1 faces
+INFO:root:2024-01-01 14:16:18: Detector: 'yolo8' with config: 0.2 has taken: 4.202 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:16:22: Detector: 'yolo8' with config: 0.2 has taken: 4.112 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:21:18: Detector: 'yolo8' with config: 0.2 has taken: 3.888 s to detect 1 faces
+INFO:root:2024-01-01 14:21:18: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.016 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:21:22: Detector: 'yolo8' with config: 0.2 has taken: 4.050 s to detect 1 faces
+INFO:root:2024-01-01 14:21:22: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.016 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:24:35: Detector: 'yolo8' with config: 0.2 has taken: 4.297 s to detect 1 faces
+INFO:root:2024-01-01 14:24:35: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.015 s to detect 1 faces
+INFO:root:2024-01-01 14:25:29: Detector: 'yolo8' with config: 0.2 has taken: 4.184 s to detect 1 faces
+INFO:root:2024-01-01 14:25:29: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.012 s to detect 1 faces
+INFO:root:2024-01-01 14:25:31: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.314 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:25:35: Detector: 'yolo8' with config: 0.2 has taken: 4.025 s to detect 1 faces
+INFO:root:2024-01-01 14:25:35: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.017 s to detect 1 faces
+INFO:root:2024-01-01 14:25:35: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.030 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:29:09: Detector: 'yolo8' with config: 0.2 has taken: 4.185 s to detect 1 faces
+INFO:root:2024-01-01 14:29:09: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.013 s to detect 1 faces
+INFO:root:2024-01-01 14:29:10: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.710 s to detect 1 faces
+INFO:root:2024-01-01 14:29:13: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 2.934 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:29:17: Detector: 'yolo8' with config: 0.2 has taken: 4.087 s to detect 1 faces
+INFO:root:2024-01-01 14:29:17: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.016 s to detect 1 faces
+INFO:root:2024-01-01 14:29:17: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.027 s to detect 1 faces
+INFO:root:2024-01-01 14:29:20: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 2.642 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:33:04: Detector: 'yolo8' with config: 0.2 has taken: 4.174 s to detect 1 faces
+INFO:root:2024-01-01 14:33:04: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.016 s to detect 1 faces
+INFO:root:2024-01-01 14:33:05: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.310 s to detect 1 faces
+INFO:root:2024-01-01 14:33:08: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.117 s to detect 1 faces
+INFO:root:2024-01-01 14:33:22: Detector: 'retinaface' with config: (0.5, True) has taken: 14.054 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:33:27: Detector: 'yolo8' with config: 0.2 has taken: 4.086 s to detect 1 faces
+INFO:root:2024-01-01 14:33:27: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.013 s to detect 1 faces
+INFO:root:2024-01-01 14:33:27: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.030 s to detect 1 faces
+INFO:root:2024-01-01 14:33:29: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 2.868 s to detect 1 faces
+INFO:root:2024-01-01 14:33:31: Detector: 'retinaface' with config: (0.5, True) has taken: 1.263 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:37:12: Detector: 'yolo8' with config: 0.2 has taken: 4.195 s to detect 1 faces
+INFO:root:2024-01-01 14:37:12: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.018 s to detect 1 faces
+INFO:root:2024-01-01 14:37:13: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.280 s to detect 1 faces
+INFO:root:2024-01-01 14:37:16: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 2.910 s to detect 1 faces
+INFO:root:2024-01-01 14:37:30: Detector: 'retinaface' with config: (0.5, True) has taken: 13.405 s to detect 1 faces
+INFO:root:2024-01-01 14:37:32: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 2.446 s to detect 1 faces
+INFO:root:2024-01-01 14:37:32: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.092 s to detect 1 faces
+INFO:root:2024-01-01 14:37:33: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 0.419 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:37:37: Detector: 'yolo8' with config: 0.2 has taken: 4.043 s to detect 1 faces
+INFO:root:2024-01-01 14:37:37: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.015 s to detect 1 faces
+INFO:root:2024-01-01 14:37:37: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 0.033 s to detect 1 faces
+INFO:root:2024-01-01 14:37:39: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 2.677 s to detect 1 faces
+INFO:root:2024-01-01 14:37:40: Detector: 'retinaface' with config: (0.5, True) has taken: 1.128 s to detect 1 faces
+INFO:root:2024-01-01 14:37:42: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 1.395 s to detect 1 faces
+INFO:root:2024-01-01 14:37:42: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.079 s to detect 1 faces
+INFO:root:2024-01-01 14:37:42: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 0.419 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 14:40:24: Detector: 'yolo8' with config: 0.2 has taken: 3.901 s to detect 1 faces
+INFO:root:2024-01-01 14:40:24: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 0.016 s to detect 1 faces
+INFO:root:2024-01-01 14:40:26: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 1.288 s to detect 1 faces
+INFO:root:2024-01-01 14:40:29: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 3.375 s to detect 1 faces
+INFO:root:2024-01-01 14:40:43: Detector: 'retinaface' with config: (0.5, True) has taken: 13.982 s to detect 1 faces
+INFO:root:2024-01-01 14:40:44: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 1.449 s to detect 1 faces
+INFO:root:2024-01-01 14:40:44: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.102 s to detect 1 faces
+INFO:root:2024-01-01 14:40:45: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 0.428 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:24:28: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 0.632 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:28:24: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 0.635 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:28:54: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 0.622 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:28:55: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 0.492 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:30:35: Detector: 'retinaface' with config: (0.5, True) has taken: 13.636 s to detect 1 faces
+INFO:root:2024-01-01 15:30:36: Detector: 'retinaface' with config: (0.5, True) has taken: 1.144 s to detect 1 faces
+INFO:root:2024-01-01 15:31:29: Detector: 'retinaface' with config: (0.5, True) has taken: 14.478 s to detect 195 faces
+INFO:root:2024-01-01 15:31:31: Detector: 'retinaface' with config: (0.5, True) has taken: 1.636 s to detect 195 faces
+INFO:root:2024-01-01 15:37:35: Detector: 'retinaface' with config: (0.5, True) has taken: 14.840 s to detect 195 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:37:36: Detector: 'retinaface' with config: (0.5, True) has taken: 1.696 s to detect 195 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:39:07: Detector: 'yolo8' with config: 0.2 has taken: 4.455 s to detect 143 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:39:11: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 3.969 s to detect 47 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:39:13: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.418 s to detect 14 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:39:19: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.897 s to detect 41 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:39:33: Detector: 'retinaface' with config: (0.5, True) has taken: 13.991 s to detect 195 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:39:39: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 5.812 s to detect 134 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:39:40: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.652 s to detect 16 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 15:39:42: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.700 s to detect 68 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 17:22:46: Detector: 'yolo8' with config: 0.2 has taken: 4.305 s to detect 143 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 17:22:51: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 4.063 s to detect 47 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 17:22:53: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 2.668 s to detect 14 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 17:22:59: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.973 s to detect 41 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 17:23:14: Detector: 'retinaface' with config: (0.5, True) has taken: 14.471 s to detect 195 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 17:23:20: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 6.356 s to detect 134 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 17:23:21: Detector: 'RetinaNetMobileNetV1' with config: ('RetinaNetMobileNetV1', 0.5, 0.3) has taken: 0.592 s to detect 16 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 17:23:23: Detector: 'RetinaNetResNet50' with config: ('RetinaNetResNet50', 0.5, 0.3) has taken: 1.904 s to detect 68 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 17:30:10: Detector: 'yolo8' with config: 0.2 has taken: 3.886 s to detect 143 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 17:52:01: Detector: 'yolo8' with config: 0.2 has taken: 4.209 s to detect 143 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:15:03: Detector: 'yolo8' with config: 0.2 has taken: 4.221 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:15:29: Detector: 'yolo8' with config: 0.2 has taken: 4.184 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:21:38: Detector: 'yolo8' with config: 0.2 has taken: 4.232 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:22:43: Detector: 'yolo8' with config: 0.2 has taken: 4.292 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:24:40: Detector: 'yolo8' with config: 0.2 has taken: 3.866 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:25:23: Detector: 'yolo8' with config: 0.2 has taken: 4.233 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:29:24: Detector: 'yolo8' with config: 0.2 has taken: 4.309 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:32:26: Detector: 'yolo8' with config: 0.2 has taken: 4.259 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:34:59: Detector: 'yolo8' with config: 0.2 has taken: 4.333 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:36:25: Detector: 'yolo8' with config: 0.2 has taken: 3.921 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:40:30: Detector: 'yolo8' with config: 0.2 has taken: 4.179 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:41:05: Detector: 'yolo8' with config: 0.2 has taken: 3.923 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:47:06: Detector: 'yolo8' with config: 0.2 has taken: 4.187 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:49:13: Detector: 'yolo8' with config: 0.2 has taken: 4.219 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:50:09: Detector: 'yolo8' with config: 0.2 has taken: 4.171 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:51:15: Detector: 'yolo8' with config: 0.2 has taken: 4.151 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:52:33: Detector: 'yolo8' with config: 0.2 has taken: 3.935 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:54:24: Detector: 'yolo8' with config: 0.2 has taken: 4.253 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:56:04: Detector: 'yolo8' with config: 0.2 has taken: 4.321 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:57:53: Detector: 'yolo8' with config: 0.2 has taken: 4.284 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 18:59:28: Detector: 'yolo8' with config: 0.2 has taken: 4.298 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:02:31: Detector: 'yolo8' with config: 0.2 has taken: 4.293 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:03:12: Detector: 'yolo8' with config: 0.2 has taken: 4.278 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:05:28: Detector: 'yolo8' with config: 0.2 has taken: 4.318 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:08:06: Detector: 'yolo8' with config: 0.2 has taken: 4.288 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:09:07: Detector: 'yolo8' with config: 0.2 has taken: 4.238 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:11:26: Detector: 'yolo8' with config: 0.2 has taken: 4.220 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:12:09: Detector: 'yolo8' with config: 0.2 has taken: 4.359 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:12:37: Detector: 'yolo8' with config: 0.2 has taken: 4.409 s to detect 2 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:14:24: Detector: 'yolo8' with config: 0.2 has taken: 4.160 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:17:17: Detector: 'yolo8' with config: 0.2 has taken: 4.311 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:20:15: Detector: 'yolo8' with config: 0.2 has taken: 4.289 s to detect 54 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:28:54: Detector: 'yolo8' with config: 0.2 has taken: 4.174 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:32:14: Detector: 'yolo8' with config: 0.2 has taken: 4.157 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:36:18: Detector: 'yolo8' with config: 0.2 has taken: 3.871 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:37:01: Detector: 'yolo8' with config: 0.2 has taken: 3.858 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:37:44: Detector: 'yolo8' with config: 0.2 has taken: 3.900 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:42:31: Detector: 'yolo8' with config: 0.2 has taken: 4.161 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:43:02: Detector: 'yolo8' with config: 0.2 has taken: 3.883 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:43:36: Detector: 'yolo8' with config: 0.2 has taken: 4.162 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:44:42: Detector: 'yolo8' with config: 0.2 has taken: 4.198 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:45:52: Detector: 'yolo8' with config: 0.2 has taken: 3.899 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:46:49: Detector: 'yolo8' with config: 0.2 has taken: 3.904 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:52:49: Detector: 'yolo8' with config: 0.2 has taken: 4.231 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:54:25: Detector: 'yolo8' with config: 0.2 has taken: 4.192 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:55:11: Detector: 'yolo8' with config: 0.2 has taken: 3.885 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:55:47: Detector: 'yolo8' with config: 0.2 has taken: 3.901 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 19:58:13: Detector: 'yolo8' with config: 0.2 has taken: 4.294 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:00:25: Detector: 'yolo8' with config: 0.2 has taken: 3.856 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:01:37: Detector: 'yolo8' with config: 0.2 has taken: 4.194 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:05:31: Detector: 'yolo8' with config: 0.2 has taken: 3.885 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:06:37: Detector: 'yolo8' with config: 0.2 has taken: 3.871 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:08:41: Detector: 'yolo8' with config: 0.2 has taken: 4.192 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:11:25: Detector: 'yolo8' with config: 0.2 has taken: 3.908 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:12:20: Detector: 'yolo8' with config: 0.2 has taken: 3.879 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:20:28: Detector: 'yolo8' with config: 0.2 has taken: 3.879 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:23:12: Detector: 'yolo8' with config: 0.2 has taken: 3.889 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:28:32: Detector: 'yolo8' with config: 0.2 has taken: 4.306 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:29:16: Detector: 'yolo8' with config: 0.2 has taken: 4.303 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:30:03: Detector: 'yolo8' with config: 0.2 has taken: 4.271 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:30:39: Detector: 'yolo8' with config: 0.2 has taken: 4.215 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:31:35: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 6.989 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:32:15: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.193 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:37:31: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.156 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:41:48: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.384 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:43:32: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.318 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:44:29: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.215 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:45:20: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.346 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:47:38: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.119 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:49:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.159 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:50:24: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.159 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:52:19: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.144 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:55:17: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.368 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 20:57:08: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.255 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:04:57: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.325 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:06:05: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.112 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:11:17: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.731 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:14:32: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.945 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:15:43: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.381 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:17:59: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.919 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:21:52: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.669 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:22:45: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.069 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:27:04: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.903 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:27:55: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.922 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:29:22: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.084 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:32:20: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.725 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:35:19: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.515 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:36:38: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.125 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:39:28: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.180 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:45:20: Detector: 'retinaface' with config: (0.5, True) has taken: 13.855 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 21:50:58: Detector: 'retinaface' with config: (0.5, True) has taken: 13.537 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 22:02:29: Detector: 'retinaface' with config: (0.5, True) has taken: 13.588 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 22:06:18: Detector: 'retinaface' with config: (0.5, True) has taken: 13.701 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 22:07:23: Detector: 'retinaface' with config: (0.5, True) has taken: 13.932 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 22:20:23: Detector: 'retinaface' with config: (0.5, True) has taken: 13.719 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 22:21:46: Detector: 'retinaface' with config: (0.5, True) has taken: 14.335 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 22:23:48: Detector: 'retinaface' with config: (0.5, True) has taken: 13.485 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 22:26:15: Detector: 'retinaface' with config: (0.5, True) has taken: 13.497 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 22:29:16: Detector: 'retinaface' with config: (0.5, True) has taken: 13.482 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:01:54: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.601 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:04:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.923 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:06:01: Detector: 'retinaface' with config: (0.5, True) has taken: 13.597 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:09:45: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 46.326 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:13:58: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.846 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:25:12: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.815 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:26:31: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.725 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:31:02: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.852 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:33:05: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.318 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:39:01: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.052 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:42:58: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.655 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:44:29: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.974 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:47:08: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.007 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-01 23:54:26: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.846 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:06:21: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.919 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:07:57: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.913 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:09:24: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.894 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:17:31: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.552 s to detect 4 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:18:46: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.552 s to detect 4 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:24:12: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.791 s to detect 4 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:24:59: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.685 s to detect 4 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:29:35: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.619 s to detect 4 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:38:09: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.643 s to detect 4 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:40:50: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.092 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:46:13: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.264 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:48:42: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.527 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 00:52:40: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.889 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 01:04:11: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.822 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 01:04:54: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.846 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 01:06:20: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.853 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 01:08:20: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.384 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:09:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.875 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:11:26: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.047 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:22:23: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.011 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:24:58: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.903 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:28:36: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.889 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:31:40: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.925 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:34:56: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.931 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:36:47: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.296 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:38:22: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.910 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:43:18: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.876 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:51:06: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.963 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 07:56:23: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.966 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:02:27: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.344 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:03:45: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.344 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:04:53: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.351 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:06:01: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.346 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:09:09: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.321 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:15:24: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.391 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:17:44: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.710 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:20:05: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.209 s to detect 4 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:21:34: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.206 s to detect 4 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:23:59: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.235 s to detect 4 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:26:32: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.146 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:28:08: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.150 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:36:44: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.595 s to detect 8 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:50:42: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.179 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:53:05: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.020 s to detect 3 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:54:09: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.685 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 08:55:54: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.700 s to detect 9 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 09:06:26: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.838 s to detect 9 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 09:08:05: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.821 s to detect 9 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:02:46: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.240 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:04:08: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.431 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:05:36: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.871 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:07:04: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.949 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:09:55: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.922 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:13:23: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.699 s to detect 1 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:27:02: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.075 s to detect 32 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:28:26: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 7.664 s to detect 104 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:30:39: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 5.869 s to detect 57 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:34:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.245 s to detect 13 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:38:15: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.194 s to detect 13 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 10:39:33: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.212 s to detect 13 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 11:32:39: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.499 s to detect 13 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 11:34:13: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.393 s to detect 13 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 11:42:16: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.576 s to detect 13 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 11:42:59: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.715 s to detect 13 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 11:49:44: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.327 s to detect 13 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 11:53:27: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.534 s to detect 13 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 11:57:00: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.534 s to detect 8 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:00:47: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.258 s to detect 8 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:01:43: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.411 s to detect 8 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:05:25: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.335 s to detect 8 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:07:40: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.303 s to detect 8 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:09:40: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 13.153 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:11:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.720 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:18:52: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.910 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:20:53: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.508 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:22:16: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 13.095 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:23:30: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.547 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:25:02: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.988 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:42:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.802 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:43:22: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.858 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:44:23: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.917 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:45:52: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 7.019 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:46:31: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.941 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:47:56: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.876 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:54:15: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.742 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:55:36: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.770 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 12:59:46: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.662 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:03:47: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.815 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:06:19: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.759 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:08:02: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.857 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:10:07: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 7.078 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:12:42: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.981 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:15:55: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.880 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:18:07: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.343 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:19:01: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.635 s to detect 7 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:21:43: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.638 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:24:48: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.495 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:26:39: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.803 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:28:51: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.681 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:30:23: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.665 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:31:57: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.708 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 13:33:50: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.786 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 14:31:21: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 13.252 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 14:37:40: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.694 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 14:47:53: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.632 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 14:55:50: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.600 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:00:09: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.606 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:06:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 12.756 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:14:11: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 11.887 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:24:02: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 10.171 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:29:35: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.979 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:32:17: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.045 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:33:25: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.039 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:46:17: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.045 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:50:11: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.074 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:53:16: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 4.276 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 15:55:21: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.115 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:06:21: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 7.921 s to detect 104 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:11:34: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 7.926 s to detect 104 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:17:52: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 7.994 s to detect 104 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:20:12: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 35.296 s to detect 104 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:23:18: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.543 s to detect 104 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:25:18: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 7.935 s to detect 104 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:27:32: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.420 s to detect 104 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:30:10: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 7.949 s to detect 104 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:32:48: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.090 s to detect 104 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:34:55: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.149 s to detect 57 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:44:16: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.085 s to detect 57 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:49:07: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 6.091 s to detect 57 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:50:59: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 10.292 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:52:02: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.116 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:53:31: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.047 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 16:55:50: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.101 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 17:08:47: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.298 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 17:18:25: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.234 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 19:49:23: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.140 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 19:50:11: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.113 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 20:46:10: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.418 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 20:50:56: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.153 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 20:59:33: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.244 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 21:02:15: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.115 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 21:04:03: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.163 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 21:08:37: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.167 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 21:11:12: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.945 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 21:13:15: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.963 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 21:15:10: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.981 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 21:16:29: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.811 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 21:18:58: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.947 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 21:20:39: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.291 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:06:41: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 10.235 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:09:25: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.076 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:13:25: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.060 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:14:17: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.156 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:15:59: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.955 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:17:48: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.082 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:34:21: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.082 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:34:58: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.927 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:36:32: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.970 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:38:57: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 45.276 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:40:53: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.946 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:53:16: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.153 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:55:11: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.952 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:56:27: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.928 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-02 23:59:26: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.965 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:01:13: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.914 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:36:26: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.444 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:40:43: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.040 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:43:48: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.721 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:45:16: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.066 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:47:20: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.952 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:49:14: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.490 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:51:03: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.158 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:52:41: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.954 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:53:29: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.034 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:54:23: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.970 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:55:41: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.246 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:57:02: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.983 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 00:59:57: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.041 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:00:35: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.940 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:02:20: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.919 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:04:36: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.424 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:05:43: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.037 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:07:23: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.077 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:08:53: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.115 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:10:08: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.925 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:11:31: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.922 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:19:24: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.932 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:20:20: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.926 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:23:33: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.949 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:30:11: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.459 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:33:42: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.453 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:36:38: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.320 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:38:48: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.235 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:41:43: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.322 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-03 01:43:53: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.275 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:40:09: Detector: 'yolo8' with config: 0.2 has taken: 5.098 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:40:59: Detector: 'fr_dlib' with config: (3, 'hog') has taken: 49.440 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:41:12: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 13.022 s to detect 10 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:42:13: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 60.811 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:42:38: Detector: 'retinaface' with config: (0.5, True) has taken: 24.492 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:43:38: Detector: 'yolo8' with config: 0.2 has taken: 4.495 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:43:41: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 2.661 s to detect 4 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:43:48: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 6.553 s to detect 10 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:43:58: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 9.328 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:44:12: Detector: 'retinaface' with config: (0.5, True) has taken: 13.449 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-04 10:44:59: Detector: 'DSFDDetector' with config: ('DSFDDetector', 0.5, 0.3) has taken: 47.363 s to detect 5 faces
+INFO:root:
+############################################
+

@@ -1,0 +1,5 @@
+# Ignore the output generated from running the code
+output/
+
+# Ignore chached file from python
+__pycache__/

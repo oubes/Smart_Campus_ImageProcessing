@@ -86,9 +86,9 @@ def Detect(detector_name):
         'CV2': (CV2.cv2_model, vars.detector_config.cv2),
         'MTCNN': (MTCNN.mtcnn_model, vars.detector_config.mtcnn),
         'Retinaface': (Retinaface.retinaface_model, vars.detector_config.retinaface),
-        'DSFDDetector': (FD.fd_model, vars.detector_config.fd_dsfd),
-        'fd_RetinaNetMobileNetV1': (FD.fd_model, vars.detector_config.fd_RetinaNetMobileNetV1),
-        'RetinaNetResNet50': (FD.fd_model, vars.detector_config.fd_RetinaNetResNet50)
+        # 'DSFDDetector': (FD.fd_model, vars.detector_config.fd_dsfd),
+        # 'RetinaNetMobileNetV1': (FD.fd_model, vars.detector_config.fd_RetinaNetMobileNetV1),
+        # 'RetinaNetResNet50': (FD.fd_model, vars.detector_config.fd_RetinaNetResNet50)
     }
 
     if detector_name in detectors:

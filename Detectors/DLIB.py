@@ -8,7 +8,7 @@ class fr_dlib_model(face_detector):
         """Detect faces in the grayscale image using the face_recognition library and the detector configuration."""
         upsampling, model_type = detector_config
         detector_name = 'fr_dlib'
-        detections = face_recognition.face_locations(gray_img, upsampling, model_type)
+        detections = face_recognition.face_locations(rgb_img, upsampling, model_type)
         face_locations = []
         for face in detections:
             y1, x2, y2, x1 = face

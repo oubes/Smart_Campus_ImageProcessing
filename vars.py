@@ -14,11 +14,11 @@ class file_config:
 class detector_config:
     fr_dlib = (1, 'hog') # (up_sampling, model_type)
     # (1 -> 6, 'hog' or 'cnn')
-    fd_dsfd = ("DSFDDetector", 0.5, 0.3) # (detector, confidence_threshold, nms_iou_threshold)
-    # ('DSFDDetector', 0.01 -> 0.99, 0.01 -> 0.99)
-    fd_RetinaNetMobileNetV1 = ("RetinaNetMobileNetV1", 0.5, 0.3) # (detector, confidence_threshold, nms_iou_threshold)
-    # ('RetinaNetMobileNetV1', 0.01 -> 0.99, 0.01 -> 0.99)
-    fd_RetinaNetResNet50 = ("RetinaNetResNet50", 0.5, 0.3) # (detector, confidence_threshold, nms_iou_threshold)
+    # fd_dsfd = ("DSFDDetector", 0.5, 0.3) # (detector, confidence_threshold, nms_iou_threshold)
+    # # ('DSFDDetector', 0.01 -> 0.99, 0.01 -> 0.99)
+    # fd_RetinaNetMobileNetV1 = ("RetinaNetMobileNetV1", 0.5, 0.3) # (detector, confidence_threshold, nms_iou_threshold)
+    # # ('RetinaNetMobileNetV1', 0.01 -> 0.99, 0.01 -> 0.99)
+    # fd_RetinaNetResNet50 = ("RetinaNetResNet50", 0.5, 0.3) # (detector, confidence_threshold, nms_iou_threshold)
     # ('RetinaNetResNet50', 0.01 -> 0.99, 0.01 -> 0.99)
     cv2 = (1.05, 4, (10, 10)) # (scale_factor, min_nh, min_win_size)
     # (1.01 -> 3, 1 -> 25, (1, 1) -> (50, 50))
@@ -29,5 +29,9 @@ class detector_config:
     yolo8 = (0.2) # (threshold)
     # (0.01 -> 0.99)
 
+class recognizer_config:
+    fr_dlib = ((0.55), (3, 'large')) # (threshold, encoding_model, resample)
+    # (40% -> 80%,, 1 -> 10, small/large)
+
 class handling_config:
-    conf = (False, True, False) # (plot_active, output_gen, url_active)
+    conf = (False, False, False) # (plot_active, output_gen, url_active)

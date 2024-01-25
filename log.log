@@ -4021,3 +4021,23 @@ INFO:root:2024-01-26 00:07:58: Detector: 'retinaface' with config: (0.5, True) h
 INFO:root:
 ############################################
 
+INFO:root:2024-01-26 00:12:01: Detector: 'retinaface' with config: (0.5, True) has taken: 13.104 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:19:18: Detector: 'retinaface' with config: (0.5, True) has taken: 12.863 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:20:21: Detector: 'retinaface' with config: (0.5, True) has taken: 12.718 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:21:40: Detector: 'retinaface' with config: (0.5, True) has taken: 12.934 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:22:30: Detector: 'retinaface' with config: (0.5, True) has taken: 12.854 s to detect 6 faces
+INFO:root:
+############################################
+

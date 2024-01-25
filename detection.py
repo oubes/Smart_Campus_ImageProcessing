@@ -37,18 +37,23 @@ class face_detector(ABC):
     def _generate_output(self, rgb_img: np.ndarray, face_locations: list, detector_name: str):
         """Generate the output images and plots based on the face locations, the detector name, and the style."""
         if self.out_gen is True:
-            current_detected_faces_dir = os.path.join('detected_faces', datetime_filename, detector_name)
-            toolbox.dir(self.out_path, current_detected_faces_dir).create()
-            current_output_imgs_dir = os.path.join('output_imgs', datetime_filename)
-            toolbox.dir(self.out_path, current_output_imgs_dir).create()
-
-            toolbox.img().crop_imgs(rgb_img, os.path.join(self.out_path, current_detected_faces_dir, 'face'), face_locations)
-            toolbox.img().draw_borders(rgb_img, face_locations)
-            toolbox.img().create(os.path.join(self.out_path, current_output_imgs_dir, f'{detector_name}'), rgb_img)
+            self._create_output_dirs(detector_name)
+            self._crop_and_draw_imgs(rgb_img, face_locations, detector_name)
 
         if self.plot_active is True:
             toolbox.img().draw_borders(rgb_img, face_locations)
             toolbox.img().plot(rgb_img, detector_name)
+
+    def _create_output_dirs(self, detector_name):
+        current_detected_faces_dir = os.path.join('detected_faces', datetime_filename, detector_name)
+        toolbox.dir(self.out_path, current_detected_faces_dir).create()
+        current_output_imgs_dir = os.path.join('output_imgs', datetime_filename)
+        toolbox.dir(self.out_path, current_output_imgs_dir).create()
+
+    def _crop_and_draw_imgs(self, rgb_img, face_locations, detector_name):
+        toolbox.img().crop_imgs(rgb_img, os.path.join(self.out_path, current_detected_faces_dir, 'face'), face_locations)
+        toolbox.img().draw_borders(rgb_img, face_locations)
+        toolbox.img().create(os.path.join(self.out_path, current_output_imgs_dir, f'{detector_name}'), rgb_img)
     
     @abstractclassmethod
     def detector(self, gray_img: np.ndarray, detector_config: tuple, img: np.ndarray):

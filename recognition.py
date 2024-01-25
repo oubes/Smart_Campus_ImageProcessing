@@ -43,19 +43,21 @@ class face_recognizer(ABC):
     def output_img_handler(self, unlabeled_face_img, fl):
         image = unlabeled_face_img.copy()
         for i in range(len(self.unlabeled_face_encoded_img)):
-            if self.best_match_names[i] is not None:
+            if self.best_match_names[i] != 'Unknown':
                 print(f'The correct identity for Face({i+1}) is {self.best_match_names[i]} with confidance: {(self.best_match_confidences[i])*100: .2f}%')  # Print the person's name
-                image = cv.putText(
-                    image,
-                    self.best_match_names[i]+f",{self.best_match_confidences[i]*100: .2f}%",  # Use the person's name
-                    (fl[i][0]-80, fl[i][1]-30),
-                    cv.FONT_HERSHEY_SIMPLEX,
-                    1.4,
-                    (255, 0, 0), 
-                    4,
-                    cv.LINE_AA
-                )
-                toolbox.img().draw_borders(image, [fl[i]])
+            else:
+                print(f'The identity for Face({i+1}) is Unknown')
+            image = cv.putText(
+                image,
+                self.best_match_names[i]+f",{self.best_match_confidences[i]*100: .2f}%",  # Use the person's name
+                (fl[i][0]-80, fl[i][1]-30),
+                cv.FONT_HERSHEY_SIMPLEX,
+                1.4,
+                (255, 0, 0), 
+                4,
+                cv.LINE_AA
+            )
+            toolbox.img().draw_borders(image, [fl[i]])
 
         img = cv.cvtColor(image, cv.COLOR_RGB2BGR)
 
@@ -68,7 +70,7 @@ class face_recognizer(ABC):
         self.unlabeled_face_encoded_img, unlabeled_face_img = self.img_encoding(self.unlabeled_path, vars.file_config.input_img_name, self.config, self.face_locations)
         # Assuming unlabeled_face_encoded_img and fl are defined
         self.best_match_confidences = [0] * len(self.unlabeled_face_encoded_img)
-        self.best_match_names = [None] * len(self.unlabeled_face_encoded_img)
+        self.best_match_names = ['Unknown'] * len(self.unlabeled_face_encoded_img)
         t2 = time.perf_counter()
         # Loop over each person's profile
         for person in os.listdir(self.labeled_path):

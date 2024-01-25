@@ -27,10 +27,6 @@ class face_recognizer(ABC):
         self._print_times(t1, t2, t3)
         self._output_img_handler()  
 
-    @abstractclassmethod
-    def encoder(self, img, face_locations, re_sample, model):
-        pass
-
     def _initialize_face_locations_and_encodings(self):
         self.fl, self.face_locations = self.detection(self.detector_name)
         self.unlabeled_face_encoded_img, self.unlabeled_face_img = self._img_encoding(self.unlabeled_path, vars.file_config.input_img_name, self.config, self.face_locations)
@@ -49,6 +45,10 @@ class face_recognizer(ABC):
             face_locations = [(0, width, height, 0)]
         face_encoded_img = self.encoder(img, face_locations, re_sample, model) #dlib
         return face_encoded_img, img
+    
+    @abstractclassmethod
+    def encoder(self, img, face_locations, re_sample, model):
+        pass
 
     def _process_profiles(self):
         for person in os.listdir(self.labeled_path):

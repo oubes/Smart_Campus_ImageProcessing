@@ -4,6 +4,7 @@ import vars
 import toolbox
 import time
 from abc import ABC, abstractclassmethod
+import pickle
 
 # def img_preprocessing():
 #     pass
@@ -17,14 +18,14 @@ class face_recognizer(ABC):
 
     def img_encoding(self, path, input_img_name, config, face_locations=None, full_img=False):
         re_sample, model = config
-        t1 = time.perf_counter()
         img = toolbox.img().read(os.path.join(path, input_img_name))
         if full_img:
             height, width, _ = img.shape
             face_locations = [(0, width, height, 0)]
+        t1 = time.perf_counter()
         face_encoded_img = self.encoder(img, face_locations, re_sample, model) #dlib
         t2 = time.perf_counter()
-        print(t2 - t1)
+        # print(t2 - t1)
         return face_encoded_img, img
 
     @abstractclassmethod
@@ -62,25 +63,42 @@ class face_recognizer(ABC):
         toolbox.img().plot(resized_img, 'Image')
 
     def run(self):
+        t1 = time.perf_counter()
         fl, self.face_locations = self.detection(self.detector_name)
         self.unlabeled_face_encoded_img, unlabeled_face_img = self.img_encoding(self.unlabeled_path, vars.file_config.input_img_name, self.config, self.face_locations)
         # Assuming unlabeled_face_encoded_img and fl are defined
         self.best_match_confidences = [0] * len(self.unlabeled_face_encoded_img)
         self.best_match_names = [None] * len(self.unlabeled_face_encoded_img)
+        t2 = time.perf_counter()
         # Loop over each person's profile
         for person in os.listdir(self.labeled_path):
             person_path = os.path.join(self.labeled_path, person, 'cropped_img')
-            for labeled_face_name in os.listdir(person_path):
-                labeled_face_encoded_img, _ = self.img_encoding(person_path, labeled_face_name, self.config, full_img=True)
+            encoded_images = []
+            if not os.path.exists(f'{os.path.join(person_path, person)}_encoded.pkl'):
+                for labeled_face_name in os.listdir(person_path):
+                    labeled_face_encoded_img, _ = self.img_encoding(person_path, labeled_face_name, self.config, full_img=True)
+                    encoded_images.append(labeled_face_encoded_img)
+                with open(f'{os.path.join(person_path, person)}_encoded.pkl', 'wb') as f:
+                    pickle.dump(encoded_images, f)
+            else:
+                print(f"File {person}_encoded.pkl already exists.")
                 
+            with open(f'{os.path.join(person_path, person)}_encoded.pkl', 'rb') as f:
+                # print(f'{os.path.join(person_path, person)}_encoded.pkl')
+                encoded_images = pickle.load(f)
+                # print(encoded_images)
+            for encoding in encoded_images:
                 for i in range(len(self.unlabeled_face_encoded_img)):
-                    matches, confidence = self.compare_faces(labeled_face_encoded_img, self.unlabeled_face_encoded_img[i], self.threshold)
-                    print(f'{fl[i]} -> Face({i+1}) <-> {person} <-> {labeled_face_name} -> {matches} with confidence: {(confidence[0])*100: .2f}%')
+                    matches, confidence = self.compare_faces(encoding, self.unlabeled_face_encoded_img[i], self.threshold)
+                    print(f'{fl[i]} -> Face({i+1}) <-> {person} <-> {matches} with confidence: {(confidence[0])*100: .2f}%')
                     if matches[0] and (confidence[0]) > self.best_match_confidences[i]:
                         self.best_match_confidences[i] = confidence[0]
                         self.best_match_names[i] = person
+        t3 = time.perf_counter()
+        print(f'Detection Time: {(t2-t1):.3f} s')
+        print(f'Recognition Time: {(t3-t2):.3f} s')
         self.output_img_handler(unlabeled_face_img, fl)
-
+        
 
 def Recognize(detector_name, recognizer_name):
     import vars

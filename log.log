@@ -3185,3 +3185,191 @@ INFO:root:2024-01-25 01:58:18: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.
 INFO:root:
 ############################################
 
+INFO:root:2024-01-25 15:59:37: Detector: 'yolo8' with config: [0.2] has taken: 4.119 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 16:01:37: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.857 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:08:00: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 6.976 s to detect 10 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:09:55: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 6.515 s to detect 10 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:10:51: Detector: 'yolo8' with config: 0.2 has taken: 3.862 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:11:39: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.813 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:12:28: Detector: 'cv2' with config: (1.05, 4, (10, 10)) has taken: 6.533 s to detect 10 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:13:30: Detector: 'mtcnn' with config: (10, [0.6, 0.7, 0.7], 0.709) has taken: 8.931 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:14:25: Detector: 'retinaface' with config: (0.5, True) has taken: 12.996 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:15:24: Detector: 'retinaface' with config: (0.5, True) has taken: 12.836 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:16:10: Detector: 'retinaface' with config: (0.5, True) has taken: 1.523 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:25:23: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.747 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:33:21: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.783 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:35:08: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.735 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 17:59:20: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.748 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:04:45: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.734 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:06:45: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.720 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:07:33: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.728 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:09:16: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.813 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:11:14: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.800 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:13:48: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.761 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:15:07: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.809 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:16:58: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.788 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:20:06: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.770 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:21:24: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.778 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:23:43: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.733 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:26:00: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.820 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:27:05: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.880 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:27:50: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.823 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:29:48: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.822 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:33:38: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.844 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:34:08: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.774 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:34:20: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.799 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:44:20: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.843 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:44:33: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.876 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:45:42: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.772 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:46:01: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.827 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:51:43: Detector: 'retinaface' with config: (0.5, True) has taken: 12.669 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:51:51: Detector: 'retinaface' with config: (0.5, True) has taken: 1.487 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:55:02: Detector: 'retinaface' with config: (0.5, True) has taken: 12.728 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:55:11: Detector: 'retinaface' with config: (0.5, True) has taken: 1.535 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:56:07: Detector: 'retinaface' with config: (0.5, True) has taken: 12.915 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 18:56:27: Detector: 'retinaface' with config: (0.5, True) has taken: 1.597 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 19:00:52: Detector: 'retinaface' with config: (0.5, True) has taken: 12.764 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 19:01:01: Detector: 'retinaface' with config: (0.5, True) has taken: 1.459 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 19:01:53: Detector: 'retinaface' with config: (0.5, True) has taken: 12.765 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-25 19:02:15: Detector: 'retinaface' with config: (0.5, True) has taken: 1.779 s to detect 5 faces
+INFO:root:
+############################################
+

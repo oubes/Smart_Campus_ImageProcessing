@@ -2,6 +2,9 @@ from recognition import face_recognizer
 import face_recognition
 from detection import Detect
 import toolbox
+import os
+import vars
+import pickle
 
 class fr_dlib_model(face_recognizer):
     def compare_faces(self, labeled_face_encoded_img, unlabeled_face_encoded_img, threshold):

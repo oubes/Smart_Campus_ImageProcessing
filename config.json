@@ -1,5 +1,6 @@
 {
 	"DirectoryConfig":{
+		"InputImgName": "IMG_20231225_132648",
 		"InputDirectory": "input/dataset/unlabeled",
 		"OutputDirectory": "output",
 		"LabeledDirectory": "input/dataset/labeled"
@@ -34,7 +35,7 @@
 			"threshold": 0.5,
 			"upsampleScale": 1
 		},
-		"MTCCN": {
+		"MTCNN": {
 			"minFaceSize": 10,
 			"thresholds": [
 					0.6,

@@ -2,7 +2,7 @@ import os
 
 
 class file_config:
-    input_img_name = 'IMG_20231225_132607.jpg'
+    input_img_name = 'IMG_20231225_132648.jpg'
     input_imgs_dir = 'input/dataset/unlabeled'
     input_img_path = os.path.join(input_imgs_dir, input_img_name)
     labeled_dataset_dir = 'input/dataset/labeled'
@@ -12,22 +12,22 @@ class file_config:
     
     
 class detector_config:
-    fr_dlib = (1, 'hog') # (up_sampling, model_type)
+    fr_dlib = [1, 'hog'] # (up_sampling, model_type)
     # (1 -> 6, 'hog' or 'cnn')
-    fd_dsfd = ("DSFDDetector", 0.5, 0.3) # (detector, confidence_threshold, nms_iou_threshold)
+    fd_dsfd = ["DSFDDetector", 0.5, 0.3] # (detector, confidence_threshold, nms_iou_threshold)
     # ('DSFDDetector', 0.01 -> 0.99, 0.01 -> 0.99)
-    fd_RetinaNetMobileNetV1 = ("RetinaNetMobileNetV1", 0.5, 0.3) # (detector, confidence_threshold, nms_iou_threshold)
+    fd_RetinaNetMobileNetV1 = ["RetinaNetMobileNetV1", 0.5, 0.3] # (detector, confidence_threshold, nms_iou_threshold)
     # ('RetinaNetMobileNetV1', 0.01 -> 0.99, 0.01 -> 0.99)
-    fd_RetinaNetResNet50 = ("RetinaNetResNet50", 0.5, 0.3) # (detector, confidence_threshold, nms_iou_threshold)
+    fd_RetinaNetResNet50 = ["RetinaNetResNet50", 0.5, 0.3] # (detector, confidence_threshold, nms_iou_threshold)
     # ('RetinaNetResNet50', 0.01 -> 0.99, 0.01 -> 0.99)
-    cv2 = (1.05, 4, (10, 10)) # (scale_factor, min_nh, min_win_size)
+    cv2 = [1.05, 4, [10, 10]] # (scale_factor, min_nh, min_win_size)
     # (1.01 -> 3, 1 -> 25, (1, 1) -> (50, 50))
-    retinaface = (0.5, True) # (threshold, upsampling)
+    retinaface = [0.5, True] # (threshold, upsampling)
     # (0.01 - 0.99, True or False)
-    mtcnn = (10, [0.6, 0.7, 0.7], 0.709) # (min_face_size, steps_threshold, scale_factor)
+    mtcnn = [10, [0.6, 0.7, 0.7], 0.709] # (min_face_size, steps_threshold, scale_factor)
     # (1 -> 50, [0.01 -> 0.99, 0.01 -> 0.99, 0.01 -> 0.99], 0.33 -> 1)
     yolo8 = (0.2) # (threshold)
     # (0.01 -> 0.99)
 
 class handling_config:
-    conf = (False, True, False) # (plot_active, output_gen, url_active)
+    conf = [False, True, False] # (plot_active, output_gen, url_active)

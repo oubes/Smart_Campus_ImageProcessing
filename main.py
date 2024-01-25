@@ -12,4 +12,3 @@ if __name__ == "__main__":
 
     from recognition import Recognize
     Recognize(detector_name = 'Retinaface', recognizer_name = 'DLIB')
-    Recognize(detector_name = 'Retinaface', recognizer_name = 'DLIB')

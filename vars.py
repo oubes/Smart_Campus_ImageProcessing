@@ -2,7 +2,7 @@ import os
 
 
 class file_config:
-    input_img_name = 'IMG_20231225_132648.jpg'
+    input_img_name = 'IMG_20231225_132606.jpg'
     input_imgs_dir = 'input/dataset/unlabeled'
     input_img_path = os.path.join(input_imgs_dir, input_img_name)
     labeled_dataset_dir = 'input/dataset/labeled'

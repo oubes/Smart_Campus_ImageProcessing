@@ -4041,3 +4041,51 @@ INFO:root:2024-01-26 00:22:30: Detector: 'retinaface' with config: (0.5, True) h
 INFO:root:
 ############################################
 
+INFO:root:2024-01-26 00:40:39: Detector: 'retinaface' with config: (0.5, True) has taken: 12.700 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:41:43: Detector: 'retinaface' with config: (0.5, True) has taken: 12.786 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:44:19: Detector: 'retinaface' with config: (0.5, True) has taken: 12.713 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:48:03: Detector: 'retinaface' with config: (0.5, True) has taken: 12.879 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:50:47: Detector: 'retinaface' with config: (0.5, True) has taken: 13.278 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:52:24: Detector: 'retinaface' with config: (0.5, True) has taken: 12.767 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:55:24: Detector: 'retinaface' with config: (0.5, True) has taken: 12.795 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:57:14: Detector: 'retinaface' with config: (0.5, True) has taken: 12.660 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 00:59:07: Detector: 'retinaface' with config: (0.5, True) has taken: 12.863 s to detect 6 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 01:00:15: Detector: 'retinaface' with config: (0.5, True) has taken: 12.672 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 01:01:36: Detector: 'retinaface' with config: (0.5, True) has taken: 12.833 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 01:03:58: Detector: 'retinaface' with config: (0.5, True) has taken: 13.715 s to detect 5 faces
+INFO:root:
+############################################
+

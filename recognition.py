@@ -53,33 +53,44 @@ class face_recognizer(ABC):
     def _process_profiles(self):
         for person in os.listdir(self.labeled_path):
             person_path = os.path.join(self.labeled_path, person, 'cropped_img')
-            encoded_images = self._create_encoded_file(person_path, person)
+            encoded_images_dict = self._create_encoded_file(person_path, person)
+            # Extract only the encoded images from the dictionary
+            encoded_images = list(encoded_images_dict.values())
             self._compare_and_update_best_match(encoded_images, person)
 
     def _create_encoded_file(self, person_path, person):
-        encoded_images = []
-        if (not os.path.exists(f'{os.path.join(person_path, person)}_encoded.pkl')) or (self.encoding_update == True):
-            encoded_images = self._read_encoded_file(person_path, person)
-        else:
-            print(f"File {person}_encoded.pkl already exists.")
-            with open(f'{os.path.join(person_path, person)}_encoded.pkl', 'rb') as f:
+        encoded_images = {}
+        encoded_file_path = f'{os.path.join(person_path, person)}_encoded.pkl'
+        if os.path.exists(encoded_file_path):
+            with open(encoded_file_path, 'rb') as f:
                 encoded_images = pickle.load(f)
+            current_images = set([f for f in os.listdir(person_path) if os.path.splitext(f)[1] != '.pkl'])
+            if current_images == set(encoded_images.keys()) and not self.encoding_update:
+                print(f"File {person}_encoded.pkl already exists and no new images found.")
+            else:
+                print(f"New or updated images found for {person}. Updating encodings.")
+                encoded_images = self._read_and_encode_images(person_path, person)
+                with open(encoded_file_path, 'wb') as f:
+                    pickle.dump(encoded_images, f)
+        else:
+            print(f"No encoded file found for {person}. Creating new encodings.")
+            encoded_images = self._read_and_encode_images(person_path, person)
+            with open(encoded_file_path, 'wb') as f:
+                pickle.dump(encoded_images, f)
         return encoded_images
 
-    def _read_encoded_file(self, person_path, person):
-        encoded_images = []
+    def _read_and_encode_images(self, person_path, person):
+        encoded_images = {}
         for labeled_face_name in [f for f in os.listdir(person_path) if os.path.splitext(f)[1] != '.pkl']:
             labeled_face_encoded_img, _ = self._img_encoding(person_path, labeled_face_name, self.config, full_img=True)
-            encoded_images.append(labeled_face_encoded_img)
-        with open(f'{os.path.join(person_path, person)}_encoded.pkl', 'wb') as f:
-            pickle.dump(encoded_images, f)
+            encoded_images[labeled_face_name] = labeled_face_encoded_img
         return encoded_images
 
     def _compare_and_update_best_match(self, encoded_images, person):
         for encoding in encoded_images:
             for i in range(len(self.unlabeled_face_encoded_img)):
                 matches, confidence = self.compare_faces(encoding, self.unlabeled_face_encoded_img[i], self.threshold)
-                print(f'{self.fl[i]} -> Face({i+1}) <-> {person} <-> {matches} with confidence: {(confidence[0])*100: .2f}%')
+                # print(f'{self.fl[i]} -> Face({i+1}) <-> {person} <-> {matches} with confidence: {(confidence[0])*100: .2f}%')
                 if matches[0] and (confidence[0]) > self.best_match_confidences[i]:
                     self.best_match_confidences[i] = confidence[0]
                     self.best_match_names[i] = person

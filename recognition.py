@@ -38,12 +38,12 @@ class face_recognizer(ABC):
         pass
 
     def _img_encoding(self, path, input_img_name, config, face_locations=None, full_img=False):
-        re_sample, model = config
+        self.re_sample, self.model = config
         img = toolbox.img().read(os.path.join(path, input_img_name))
         if full_img:
             height, width, _ = img.shape
             face_locations = [(0, width, height, 0)]
-        face_encoded_img = self.encoder(img, face_locations, re_sample, model) #dlib
+        face_encoded_img = self.encoder(img, face_locations, self.re_sample, self.model) #dlib
         return face_encoded_img, img
     
     @abstractclassmethod
@@ -59,25 +59,27 @@ class face_recognizer(ABC):
             self._compare_and_update_best_match(encoded_images, person)
 
     def _create_encoded_file(self, person_path, person):
-        encoded_images = {}
+        data = {}
         encoded_file_path = f'{os.path.join(person_path, person)}_encoded.pkl'
         if os.path.exists(encoded_file_path):
             with open(encoded_file_path, 'rb') as f:
-                encoded_images = pickle.load(f)
+                data = pickle.load(f)
             current_images = set([f for f in os.listdir(person_path) if os.path.splitext(f)[1] != '.pkl'])
-            if current_images == set(encoded_images.keys()) and not self.encoding_update:
-                print(f"File {person}_encoded.pkl already exists and no new images found.")
+            if current_images == set(data.get('encoded_images', {}).keys()) and not self.encoding_update and data.get('config') == {'re_sample': self.re_sample, 'model': self.model}:
+                print(f"File {person}_encoded.pkl already exists and no new images or config changes found.")
             else:
-                print(f"New or updated images found for {person}. Updating encodings.")
-                encoded_images = self._read_and_encode_images(person_path, person)
+                print(f"New or updated images found or config changed for {person}. Updating encodings.")
+                data['encoded_images'] = self._read_and_encode_images(person_path, person)
+                data['config'] = {'re_sample': self.re_sample, 'model': self.model}
                 with open(encoded_file_path, 'wb') as f:
-                    pickle.dump(encoded_images, f)
+                    pickle.dump(data, f)
         else:
             print(f"No encoded file found for {person}. Creating new encodings.")
-            encoded_images = self._read_and_encode_images(person_path, person)
+            data['encoded_images'] = self._read_and_encode_images(person_path, person)
+            data['config'] = {'re_sample': self.re_sample, 'model': self.model}
             with open(encoded_file_path, 'wb') as f:
-                pickle.dump(encoded_images, f)
-        return encoded_images
+                pickle.dump(data, f)
+        return data['encoded_images']
 
     def _read_and_encode_images(self, person_path, person):
         encoded_images = {}
@@ -163,8 +165,7 @@ def Recognize(detector_name, recognizer_name):
         raise ValueError(f"Unknown recognizer: {recognizer_name}")
 
 # preprocessing (imp = 3/5: Quality)
-# pre-encoding for labeled imgs [1 file -> person] (imp = 1/5: speed)
-# code optimization and enhancing [main -> func(), config file:  -> Detector: , Generalization: Orgnization]
+# code optimization and enhancing [config file -> Detector]
 # Adding more models for recognition
 # Connection with server
 # Project discussion slides

@@ -10,7 +10,7 @@ class file_config:
     output_imgs_dir = 'output'
       
 class detector_config:
-    fr_dlib = (3, 'hog') 
+    fr_dlib = (1, 'hog') 
     # (up_sampling, model_type)
     # (1 -> 6, 'hog' or 'cnn')
     cv2 = (1.05, 4, (10, 10)) 
@@ -27,7 +27,7 @@ class detector_config:
     # (0.01 -> 0.99)
 
 class recognizer_config:
-    fr_dlib = ((0.55), ((4, 'large'), (False))) # (threshold, (resample, encoding_model, encoding_update))
+    fr_dlib = ((0.55), ((6, 'large'), (False))) # (threshold, (resample, encoding_model, encoding_update))
     # (40% -> 80%,, 1 -> 10, small/large)
 
 class handling_config:

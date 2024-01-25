@@ -11,4 +11,4 @@ if __name__ == "__main__":
 # DLIB.fr_dlib_model(detector_name = 'MTCNN').run()
 
     from recognition import Recognize
-    Recognize(detector_name = 'Retinaface', recognizer_name = 'DLIB')
+    Recognize(detector_name = 'DLIB', recognizer_name = 'DLIB')

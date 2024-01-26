@@ -25,7 +25,8 @@ class face_recognizer(ABC):
         self._process_profiles()
         t3 = time.perf_counter()
         self._print_times(t1, t2, t3)
-        self._output_img_handler()  
+        known_names = self._output_img_handler()
+        return known_names
 
     def _initialize_face_locations_and_encodings(self):
         self.fl, self.face_locations = self.detection(self.detector_name)
@@ -127,6 +128,7 @@ class face_recognizer(ABC):
         img = cv.cvtColor(image, cv.COLOR_RGB2BGR)    
         resized_img = self._resize_image(img)
         toolbox.img().plot(resized_img, 'Image')
+        return [name for name in self.best_match_names if name != 'Unknown']
 
     def _resize_image(self, image):
         h, w, _ = image.shape
@@ -160,9 +162,10 @@ def Recognize(detector_name, recognizer_name):
             detector_name = detector_name,
             recognizer_config = vars.recognizer_config.fr_dlib
         )
-        model.run()
+        names = model.run()
     else:
         raise ValueError(f"Unknown recognizer: {recognizer_name}")
+    return names
 
 # preprocessing (imp = 3/5: Quality)
 # code optimization and enhancing [config file -> Detector]

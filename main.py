@@ -1,4 +1,4 @@
-from detection import Detect
+# from detection import Detect
 # from Recognizers import DLIB
 
 # models = ['YOLOv8', 'DLIB', 'CV2', 'MTCNN', 'Retinaface']

@@ -4,8 +4,15 @@ import vars
 import toolbox
 import time
 from abc import ABC, abstractclassmethod
-import pickle
+# import pickle
 import numpy as np
+import json
+
+class NumpyEncoder(json.JSONEncoder):
+        def default(self, obj):
+            if isinstance(obj, np.ndarray):
+                return obj.tolist()
+            return json.JSONEncoder.default(self, obj)
 
 # def img_preprocessing():
 #     pass
@@ -61,33 +68,39 @@ class face_recognizer(ABC):
 
     def _create_encoded_file(self, person_path, person):
         data = {}
-        encoded_file_path = f'{os.path.join(person_path, person)}_encoded.pkl'
+        encoded_file_path = f'{os.path.join(person_path, person)}_encoded.json'
         if os.path.exists(encoded_file_path):
-            with open(encoded_file_path, 'rb') as f:
-                data = pickle.load(f)
-            current_images = set([f for f in os.listdir(person_path) if os.path.splitext(f)[1] != '.pkl'])
+            with open(encoded_file_path, 'r') as f:
+                data = json.load(f)
+            current_images = set([f for f in os.listdir(person_path) if os.path.splitext(f)[1].lower() in ['.jpg', '.jpeg', '.png']])
             if current_images == set(data.get('encoded_images', {}).keys()) and not self.encoding_update and data.get('config') == {'re_sample': self.re_sample, 'model': self.model}:
-                print(f"File {person}_encoded.pkl already exists and no new images or config changes found.")
+                print(f"File {person}_encoded.json already exists and no new images or config changes found.")
             else:
                 print(f"New or updated images found or config changed for {person}. Updating encodings.")
                 data['encoded_images'] = self._read_and_encode_images(person_path, person)
                 data['config'] = {'re_sample': self.re_sample, 'model': self.model}
-                with open(encoded_file_path, 'wb') as f:
-                    pickle.dump(data, f)
+                with open(encoded_file_path, 'w') as f:
+                    json.dump(data, f, cls=NumpyEncoder)
         else:
             print(f"No encoded file found for {person}. Creating new encodings.")
             data['encoded_images'] = self._read_and_encode_images(person_path, person)
             data['config'] = {'re_sample': self.re_sample, 'model': self.model}
-            with open(encoded_file_path, 'wb') as f:
-                pickle.dump(data, f)
+            with open(encoded_file_path, 'w') as f:
+                json.dump(data, f, cls=NumpyEncoder)
+        if person == 'Eslam Hakel':
+            data['encoded_images']
         return data['encoded_images']
 
     def _read_and_encode_images(self, person_path, person):
         encoded_images = {}
-        for labeled_face_name in [f for f in os.listdir(person_path) if os.path.splitext(f)[1] != '.pkl']:
+        for labeled_face_name in [f for f in os.listdir(person_path) if os.path.splitext(f)[1].lower() in ['.jpg', '.jpeg', '.png']]:
             labeled_face_encoded_img, _ = self._img_encoding(person_path, labeled_face_name, self.config, full_img=True)
+            # Check if labeled_face_encoded_img is a numpy array before converting
+            if isinstance(labeled_face_encoded_img, np.ndarray):
+                labeled_face_encoded_img = labeled_face_encoded_img.tolist()
             encoded_images[labeled_face_name] = labeled_face_encoded_img
         return encoded_images
+
 
     def _compare_and_update_best_match(self, encoded_images, person):
         for encoding in encoded_images:
@@ -165,6 +178,7 @@ def Recognize(detector_name, recognizer_name):
         names = model.run()
     else:
         raise ValueError(f"Unknown recognizer: {recognizer_name}")
+
     return names
 
 # preprocessing (imp = 3/5: Quality)

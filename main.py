@@ -11,5 +11,7 @@ if __name__ == "__main__":
 # DLIB.fr_dlib_model(detector_name = 'MTCNN').run()
 
     from recognition import Recognize
-    known_names = Recognize(detector_name = 'DLIB', recognizer_name = 'DLIB')
+    Detectors = ['YOLOv8', 'DLIB', 'CV2', 'MTCNN', 'Retinaface']
+    Recognizers = ['DLIB']
+    known_names = Recognize(detector_name = Detectors[1], recognizer_name = Recognizers[0])
     print(known_names)

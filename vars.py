@@ -27,7 +27,8 @@ class detector_config:
     # (0.01 -> 0.99)
 
 class recognizer_config:
-    fr_dlib = ((0.55), ((6, 'large'), (False))) # (threshold, (resample, encoding_model, encoding_update))
+    fr_dlib = ((0.55), ((8, 'large'), (False))) 
+    # (threshold, (resample, encoding_model, encoding_update))
     # (40% -> 80%,, 1 -> 10, small/large)
 
 class handling_config:

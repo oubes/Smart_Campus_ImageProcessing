@@ -1,26 +1,26 @@
 {
 	"DirectoryConfig":{
-		"InputImgName": "IMG_20231225_132648",
+		"InputImgName": "IMG_20231225_132648.jpg",
 		"InputDirectory": "input/dataset/unlabeled",
 		"OutputDirectory": "output",
 		"LabeledDirectory": "input/dataset/labeled"
 	},
 	"FaceDetectorConfig": {
-		"FR_Dlib": {
+		"Dlib": {
 			"upsampling": 1,
 			"model": "hog"
 		},
-		"FD_DSFD": {
+		"DSFD": {
 			"detector": "DSFDDetector",
 			"confidenceThreshold": 0.5,
 			"nmsThreshold": 0.3
 		},
-		"FD_RetinaNetMobileNetV1": {
+		"RetinaNetMobileNetV1": {
 			"detector": "RetinaNetMobileNetV1",
 			"confidenceThreshold": 0.5,
 			"nmsThreshold": 0.3
 		},
-		"FD_RetinaNetResNet50": {
+		"RetinaNetResNet50": {
 			"detector": "RetinaNetResNet50",
 			"confidenceThreshold": 0.5,
 			"nmsThreshold": 0.3

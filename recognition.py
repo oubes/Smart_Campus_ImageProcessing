@@ -79,12 +79,14 @@ class face_recognizer(ABC):
                 print(f"New or updated images found or config changed for {person}. Updating encodings.")
                 data['encoded_images'] = self._read_and_encode_images(person_path, person)
                 data['config'] = {'re_sample': self.re_sample, 'model': self.model}
+                data['person_name'] = person
                 with open(encoded_file_path, 'w') as f:
                     json.dump(data, f, cls=NumpyEncoder)
         else:
             print(f"No encoded file found for {person}. Creating new encodings.")
             data['encoded_images'] = self._read_and_encode_images(person_path, person)
             data['config'] = {'re_sample': self.re_sample, 'model': self.model}
+            data['person_name'] = person
             with open(encoded_file_path, 'w') as f:
                 json.dump(data, f, cls=NumpyEncoder)
         if person == 'Eslam Hakel':

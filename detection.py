@@ -45,15 +45,15 @@ class face_detector(ABC):
             toolbox.img().plot(rgb_img, detector_name)
 
     def _create_output_dirs(self, detector_name):
-        current_detected_faces_dir = os.path.join('detected_faces', datetime_filename, detector_name)
-        toolbox.dir(self.out_path, current_detected_faces_dir).create()
-        current_output_imgs_dir = os.path.join('output_imgs', datetime_filename)
-        toolbox.dir(self.out_path, current_output_imgs_dir).create()
+        self.current_detected_faces_dir = os.path.join('detected_faces', datetime_filename, detector_name)
+        toolbox.dir(self.out_path, self.current_detected_faces_dir).create()
+        self.current_output_imgs_dir = os.path.join('output_imgs', datetime_filename)
+        toolbox.dir(self.out_path, self.current_output_imgs_dir).create()
 
     def _crop_and_draw_imgs(self, rgb_img, face_locations, detector_name):
-        toolbox.img().crop_imgs(rgb_img, os.path.join(self.out_path, current_detected_faces_dir, 'face'), face_locations)
+        toolbox.img().crop_imgs(rgb_img, os.path.join(self.out_path, self.current_detected_faces_dir, 'face'), face_locations)
         toolbox.img().draw_borders(rgb_img, face_locations)
-        toolbox.img().create(os.path.join(self.out_path, current_output_imgs_dir, f'{detector_name}'), rgb_img)
+        toolbox.img().create(os.path.join(self.out_path, self.current_output_imgs_dir, f'{detector_name}'), rgb_img)
     
     @abstractclassmethod
     def detector(self, gray_img: np.ndarray, detector_config: tuple, img: np.ndarray):
@@ -81,38 +81,7 @@ class face_detector(ABC):
         return face_locations, faces_count, taken_time
     
 
-def Detect(detector_name):
-    import vars
-    from Detectors import YOLOv8, DLIB, CV2, MTCNN, Retinaface, FD
-
-    detectors = {
-        'YOLOv8': (YOLOv8.yolo8_model, vars.detector_config.yolo8),
-        'DLIB': (DLIB.fr_dlib_model, vars.detector_config.fr_dlib),
-        'CV2': (CV2.cv2_model, vars.detector_config.cv2),
-        'MTCNN': (MTCNN.mtcnn_model, vars.detector_config.mtcnn),
-        'Retinaface': (Retinaface.retinaface_model, vars.detector_config.retinaface),
-        # 'DSFDDetector': (FD.fd_model, vars.detector_config.fd_dsfd),
-        # 'RetinaNetMobileNetV1': (FD.fd_model, vars.detector_config.fd_RetinaNetMobileNetV1),
-        # 'RetinaNetResNet50': (FD.fd_model, vars.detector_config.fd_RetinaNetResNet50)
-    }
-
-    if detector_name in detectors:
-        model_class, detector_config = detectors[detector_name]
-        model = model_class(
-            in_img_path = vars.file_config.input_img_path,
-            out_path = vars.file_config.output_imgs_dir,
-            handling_config = vars.handling_config.conf,
-            detector_config = detector_config,
-            img_url = vars.file_config.input_img_url
-        )
-        face_locations, faces_count, taken_time = model.run()
-    else:
-        raise ValueError(f"Unknown detector: {detector_name}")
-
-    # Log the results
-    toolbox.logger().footer()
-
-    return face_locations, faces_count, taken_time   
+  
 
 
 

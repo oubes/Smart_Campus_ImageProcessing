@@ -4,7 +4,6 @@ import vars
 import toolbox
 import time
 from abc import ABC, abstractclassmethod
-# import pickle
 import numpy as np
 import json
 
@@ -158,30 +157,7 @@ class face_recognizer(ABC):
                 h = h * ratio; w = w * ratio
         return cv.resize(image, (int(w), int(h)), interpolation = cv.INTER_AREA)
 
-def Recognize(detector_name, recognizer_name):
-    import vars
-    from Recognizers import DLIB
-    # OpenFace, FaceNet, DeepFace, ArcFace
 
-    recognizers = {
-        'DLIB': (DLIB.fr_dlib_model, vars.recognizer_config.fr_dlib),
-        # 'OpenFace': (OpenFace.openface_model, vars.recognizer_config.openface),
-        # 'FaceNet': (FaceNet.facenet_model, vars.recognizer_config.facenet),
-        # 'DeepFace': (DeepFace.deepface_model, vars.recognizer_config.deepface),
-        # 'ArcFace': (ArcFace.arcface_model, vars.recognizer_config.arcface)
-    }
-
-    if recognizer_name in recognizers:
-        model_class, recognizer_config = recognizers[recognizer_name]
-        model = model_class(
-            detector_name = detector_name,
-            recognizer_config = vars.recognizer_config.fr_dlib
-        )
-        names = model.run()
-    else:
-        raise ValueError(f"Unknown recognizer: {recognizer_name}")
-
-    return names
 
 # preprocessing (imp = 3/5: Quality)
 # code optimization and enhancing [config file -> Detector]

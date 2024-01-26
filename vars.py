@@ -3,9 +3,9 @@ import os
 
 class file_config:
     input_img_name = 'IMG_20231225_132606.jpg'
-    input_imgs_dir = 'input/dataset/unlabeled'
+    input_imgs_dir = 'dataset/unlabeled'
     input_img_path = os.path.join(input_imgs_dir, input_img_name)
-    labeled_dataset_dir = 'input/dataset/labeled'
+    labeled_dataset_dir = 'dataset/labeled'
     input_img_url = 'https://media.istockphoto.com/id/1369917180/photo/large-group-of-college-students-listening-to-their-professor-on-a-class.jpg?s=612x612&w=0&k=20&c=VKWAFCEmSzPWf0Xx-o4uVgo2opkrhMemIxjhFuUueGE='
     output_imgs_dir = 'output'
       

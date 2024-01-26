@@ -4225,3 +4225,11 @@ INFO:root:2024-01-26 15:10:25: Detector: 'fr_dlib' with config: (1, 'hog') has t
 INFO:root:
 ############################################
 
+INFO:root:2024-01-26 15:47:50: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 4.031 s to detect 5 faces
+INFO:root:
+############################################
+
+INFO:root:2024-01-26 16:27:14: Detector: 'fr_dlib' with config: (1, 'hog') has taken: 3.860 s to detect 5 faces
+INFO:root:
+############################################
+

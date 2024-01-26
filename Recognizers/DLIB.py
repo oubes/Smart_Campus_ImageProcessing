@@ -1,6 +1,6 @@
 from recognition import face_recognizer
 import face_recognition
-from detection import Detect
+from tasks import Detect
 import toolbox
 import os
 import vars

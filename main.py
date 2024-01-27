@@ -11,4 +11,4 @@ while True:
     print(known_names)
 
     # Sleep for a while before re-reading the file
-    time.sleep(1)  # Sleep for 10 seconds
+    time.sleep(0)  # Sleep for 10 seconds

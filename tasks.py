@@ -1,5 +1,5 @@
 import toolbox
-import vars
+from vars import config
 from datetime import datetime
 import os
 
@@ -10,11 +10,11 @@ def Detect(detector_name):
     from Detectors import YOLOv8, DLIB, CV2, MTCNN, Retinaface #, FD
 
     detectors = {
-        'YOLOv8': (YOLOv8.yolo8_model, vars.detector_config.yolo8),
-        'DLIB': (DLIB.fr_dlib_model, vars.detector_config.fr_dlib),
-        'CV2': (CV2.cv2_model, vars.detector_config.cv2),
-        'MTCNN': (MTCNN.mtcnn_model, vars.detector_config.mtcnn),
-        'Retinaface': (Retinaface.retinaface_model, vars.detector_config.retinaface),
+        'YOLOv8': (YOLOv8.yolo8_model, config["DetectorConfig"]["YOLOv8"]),
+        'DLIB': (DLIB.fr_dlib_model, config["DetectorConfig"]["DLIB"]),
+        'CV2': (CV2.cv2_model, config["DetectorConfig"]["CV2"]),
+        'MTCNN': (MTCNN.mtcnn_model, config["DetectorConfig"]["MTCNN"]),
+        'Retinaface': (Retinaface.retinaface_model, config["DetectorConfig"]["RetinaFace"]),
         # 'DSFDDetector': (FD.fd_model, vars.detector_config.fd_dsfd),
         # 'RetinaNetMobileNetV1': (FD.fd_model, vars.detector_config.fd_RetinaNetMobileNetV1),
         # 'RetinaNetResNet50': (FD.fd_model, vars.detector_config.fd_RetinaNetResNet50)
@@ -24,7 +24,7 @@ def Detect(detector_name):
         model_class, detector_config = detectors[detector_name]
         model = model_class(
             detector_config = detector_config,
-            img_url = vars.file_config.input_img_url
+            img_url = config["ImgConfig"]["InputImgUrl"]
         )
         face_locations, faces_count, rgb_img = model.run()
     else:
@@ -40,7 +40,7 @@ def Recognize(detector_name, recognizer_name):
     # OpenFace, FaceNet, DeepFace, ArcFace
 
     recognizers = {
-        'DLIB': (DLIB.fr_dlib_model, vars.recognizer_config.fr_dlib),
+        'DLIB': (DLIB.fr_dlib_model, config["RecognizerConfig"]["DLIB"])
         # 'OpenFace': (OpenFace.openface_model, vars.recognizer_config.openface),
         # 'FaceNet': (FaceNet.facenet_model, vars.recognizer_config.facenet),
         # 'DeepFace': (DeepFace.deepface_model, vars.recognizer_config.deepface),
@@ -51,7 +51,7 @@ def Recognize(detector_name, recognizer_name):
         model_class, recognizer_config = recognizers[recognizer_name]
         model = model_class(
             detector_name = detector_name,
-            recognizer_config = vars.recognizer_config.fr_dlib
+            recognizer_config = config["RecognizerConfig"]["DLIB"]
         )
         names = model.run()
     else:

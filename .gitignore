@@ -2,4 +2,11 @@
 output/
 
 # Ignore chached file from python
+__pycache__/*
+Detectors/__pycache__/*
+Recognizers/__pycache__/*
 __pycache__/
+Detectors/__pycache__/
+Recognizers/__pycache__/
+
+*.log

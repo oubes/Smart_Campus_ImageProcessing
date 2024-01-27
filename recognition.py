@@ -1,6 +1,6 @@
 import os
 import cv2 as cv
-import vars
+from vars import config
 import toolbox
 import time
 from abc import ABC, abstractclassmethod
@@ -19,10 +19,11 @@ class face_recognizer(ABC):
     def __init__(self, detector_name, recognizer_config):
         self.file_directory = os.path.dirname(os.path.abspath(__file__))
         # self.unlabeled_path = os.path.join(self.file_directory, vars.file_config.input_imgs_dir)
-        self.labeled_path = os.path.join(self.file_directory, vars.file_config.labeled_dataset_dir)
+        self.labeled_path = os.path.join(self.file_directory, config["ImgConfig"]["LabeledDirectory"])
         self.detector_name = detector_name
-        self.threshold, self.config = recognizer_config
-        self.config, self.encoding_update = self.config
+        self.threshold = recognizer_config["threshold"]
+        self.config = (recognizer_config["resample"], recognizer_config["encodingModel"])
+        self.encoding_update = recognizer_config["encodingUpdate"]
 
     def run(self):
         t1 = time.perf_counter()

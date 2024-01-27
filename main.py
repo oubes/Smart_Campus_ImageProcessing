@@ -11,6 +11,6 @@
 # DLIB.fr_dlib_model(detector_name = 'MTCNN').run()
 
 from tasks import Recognize
-import vars
-known_names = Recognize(detector_name = vars.handling_config.detector_name, recognizer_name = vars.handling_config.recognizer_name)
+from vars import config
+known_names = Recognize(detector_name = config['HandlingConfig']['detectorName'], recognizer_name = config['HandlingConfig']['recognizerName'])
 print(known_names)

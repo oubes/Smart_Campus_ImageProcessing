@@ -14,7 +14,7 @@ def Detect(detector_name):
         'DLIB': (DLIB.fr_dlib_model, config["DetectorConfig"]["DLIB"]),
         'CV2': (CV2.cv2_model, config["DetectorConfig"]["CV2"]),
         'MTCNN': (MTCNN.mtcnn_model, config["DetectorConfig"]["MTCNN"]),
-        'Retinaface': (Retinaface.retinaface_model, config["DetectorConfig"]["RetinaFace"]),
+        'RetinaFace': (Retinaface.retinaface_model, config["DetectorConfig"]["RetinaFace"]),
         # 'DSFDDetector': (FD.fd_model, vars.detector_config.fd_dsfd),
         # 'RetinaNetMobileNetV1': (FD.fd_model, vars.detector_config.fd_RetinaNetMobileNetV1),
         # 'RetinaNetResNet50': (FD.fd_model, vars.detector_config.fd_RetinaNetResNet50)

@@ -13,7 +13,7 @@ config = {}
 
 config = read_json('config.json')
 
-detectror_config = config["DetectorConfig"]
+detector_config = config["DetectorConfig"]
 recognizer_config = config["RecognizerConfig"]
 handling_config = config["HandlingConfig"]
 image_config = config["ImgConfig"]

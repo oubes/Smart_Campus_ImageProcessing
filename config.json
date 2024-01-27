@@ -10,7 +10,7 @@
         "Recognizers": [
             "DLIB"
         ],
-        "detectorName": "DLIB",
+        "detectorName": "YOLOv8",
         "recognizerName": "DLIB"
 	},
 	"ImgConfig":{

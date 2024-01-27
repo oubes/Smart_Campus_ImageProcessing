@@ -3,7 +3,6 @@ import face_recognition
 from tasks import Detect
 import toolbox
 import os
-from vars import config
 import pickle
 
 class fr_dlib_model(face_recognizer):

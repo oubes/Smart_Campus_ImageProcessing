@@ -1,5 +1,5 @@
 import toolbox
-from vars import config
+
 from datetime import datetime
 import os
 
@@ -7,6 +7,8 @@ datetime_filename = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
 file_directory = os.path.dirname(os.path.abspath(__file__))
 
 def Detect(detector_name):
+    from vars import read_json
+    config = read_json('config.json')
     from Detectors import YOLOv8, DLIB, CV2, MTCNN, Retinaface #, FD
 
     detectors = {
@@ -36,6 +38,8 @@ def Detect(detector_name):
     return face_locations, faces_count, rgb_img 
 
 def Recognize(detector_name, recognizer_name):
+    from vars import read_json
+    config = read_json('config.json')
     from Recognizers import DLIB
     # OpenFace, FaceNet, DeepFace, ArcFace
 

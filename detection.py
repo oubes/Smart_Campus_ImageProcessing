@@ -37,7 +37,7 @@ class face_detector(ABC):
         taken_time = t2 - t1
         faces_count = len(face_locations)
         
-        msg = f"Detector: '{detector_name}' with config: {detector_config} has taken: {taken_time:.3f} s to detect {faces_count} faces"
+        msg = f"Detector: '{detector_name}' with config: {detector_config} has taken [Detector pure time]: {taken_time:.3f} s to detect {faces_count} faces"
         print(msg)
 
         toolbox.logger().add(f'{msg}')

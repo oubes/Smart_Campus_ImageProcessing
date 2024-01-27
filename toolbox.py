@@ -3,7 +3,7 @@ import cv2 as cv
 import os
 from datetime import datetime
 import urllib.request
-import math
+import shutil
 import numpy as np
 
 class dir:
@@ -19,9 +19,17 @@ class img:
     def __init__(self):
         pass
     
-    def read(self, img_path: str, gray=False):
-        bgr_img = cv.imread(img_path)
+    def read(self, img_input: str, gray=False):
+        if isinstance(img_input, str):
+            bgr_img = cv.imread(img_input)
+        # If the input is a numpy array, assume it's an image
+        elif isinstance(img_input, np.ndarray):
+            bgr_img = img_input
+        else:
+            raise ValueError("Input should be an image path (str) or an image object (numpy.ndarray)")
+
         rgb_img = cv.cvtColor(bgr_img, cv.COLOR_BGR2RGB)
+
         if gray is True:
             try:
                 gray_img = cv.cvtColor(rgb_img, cv.COLOR_BGR2GRAY)

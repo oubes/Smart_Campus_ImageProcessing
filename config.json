@@ -10,7 +10,7 @@
         "Recognizers": [
             "DLIB"
         ],
-        "detectorName": "RetinaFace",
+        "detectorName": "DLIB",
         "recognizerName": "DLIB"
 	},
 	"ImgConfig":{
@@ -47,7 +47,7 @@
 	},
     "RecognizerConfig": {
         "DLIB": {
-            "threshold": 0.55,
+            "threshold": 0.54,
             "resample": 8,
             "encodingModel": "large",
             "encodingUpdate": 0

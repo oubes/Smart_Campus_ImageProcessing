@@ -11,7 +11,8 @@ class fr_dlib_model(face_recognizer):
         matches = list(confidence >= threshold)
         return matches, confidence
     
-    def encoder(self, img, face_locations, re_sample, model):
+    def encoder(self, image, face_locations, re_sample, model):
+        img = toolbox.img().read(image)
         face_encoded_img = face_recognition.face_encodings(img, face_locations, re_sample, model) #dlib
         return face_encoded_img
     

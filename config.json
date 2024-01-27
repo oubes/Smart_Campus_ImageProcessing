@@ -19,7 +19,7 @@
 	},
 	"DetectorConfig": {
 		"DLIB": {
-			"upsampling": 1,
+			"upsampling": 3,
 			"model": "hog"
 		},
 		"CV2": {

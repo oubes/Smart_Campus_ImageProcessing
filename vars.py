@@ -13,14 +13,8 @@ config = {}
 
 config = read_json('config.json')
 
-# Print the read configuration
-for model in config['HandlingConfig']['Detectors']:
-    print(model)
-    print(config['DetectorConfig'][model])
-
-for model in config['HandlingConfig']['Recognizers']:
-    print(model)
-    print(config['RecognizerConfig'][model])
-
-# Initialize the variables of each model using the config file
+detectror_config = config["DetectorConfig"]
+recognizer_config = config["RecognizerConfig"]
+handling_config = config["HandlingConfig"]
+image_config = config["ImgConfig"]
 

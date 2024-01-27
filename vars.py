@@ -4,7 +4,7 @@ class file_config:
     input_img_url = 'https://i.postimg.cc/9fjyyMjP/IMG-20231225-132606.jpg'
       
 class detector_config:
-    fr_dlib = [1, 'hog'] 
+    fr_dlib = [3, 'hog'] 
     # (up_sampling, model_type)
     # (1 -> 6, 'hog' or 'cnn')
     cv2 = [1.05, 4, (10, 10)]

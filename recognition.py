@@ -131,9 +131,9 @@ class face_recognizer(ABC):
                 text = self.best_match_names[i]+f",{self.best_match_confidences[i]*100: .2f}%",  # Use the person's name
                 org = (self.fl[i][0]-80, self.fl[i][1]-30),
                 fontFace = cv.FONT_HERSHEY_SIMPLEX,
-                fontScale = 1.4,
+                fontScale = 0.8,
                 color = (255, 0, 0), 
-                thickness = 3,
+                thickness = 1,
                 lineType = cv.LINE_AA
             )
             toolbox.img().draw_borders(image, [self.fl[i]])

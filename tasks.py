@@ -23,20 +23,17 @@ def Detect(detector_name):
     if detector_name in detectors:
         model_class, detector_config = detectors[detector_name]
         model = model_class(
-            in_img_path = vars.file_config.input_img_path,
-            out_path = vars.file_config.output_imgs_dir,
-            handling_config = vars.handling_config.conf,
             detector_config = detector_config,
             img_url = vars.file_config.input_img_url
         )
-        face_locations, faces_count, taken_time = model.run()
+        face_locations, faces_count, rgb_img = model.run()
     else:
         raise ValueError(f"Unknown detector: {detector_name}")
 
     # Log the results
     toolbox.logger().footer()
 
-    return face_locations, faces_count, taken_time 
+    return face_locations, faces_count, rgb_img 
 
 def Recognize(detector_name, recognizer_name):
     from Recognizers import DLIB
@@ -61,9 +58,3 @@ def Recognize(detector_name, recognizer_name):
         raise ValueError(f"Unknown recognizer: {recognizer_name}")
 
     return names
-
-def collect_store_images(img_url):
-    downloaded_img_name = toolbox.url_img(img_url, os.path.join(file_directory, 'downloads', datetime_filename)).download()
-
-def process_images():
-    pass

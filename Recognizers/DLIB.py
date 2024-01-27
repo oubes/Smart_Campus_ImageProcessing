@@ -17,6 +17,6 @@ class fr_dlib_model(face_recognizer):
         return face_encoded_img
     
     def detection(self, detector_name):
-        fl, _, _ = Detect(detector_name) # x1 y1 x2 y2
+        fl, _, rgb_img = Detect(detector_name) # x1 y1 x2 y2
         face_locations = toolbox.img().points2rotation_format(fl) # y1, x2, y2, x1
-        return fl, face_locations
+        return fl, face_locations, rgb_img

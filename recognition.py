@@ -18,7 +18,7 @@ class NumpyEncoder(json.JSONEncoder):
 class face_recognizer(ABC):
     def __init__(self, detector_name, recognizer_config):
         self.file_directory = os.path.dirname(os.path.abspath(__file__))
-        self.unlabeled_path = os.path.join(self.file_directory, vars.file_config.input_imgs_dir)
+        # self.unlabeled_path = os.path.join(self.file_directory, vars.file_config.input_imgs_dir)
         self.labeled_path = os.path.join(self.file_directory, vars.file_config.labeled_dataset_dir)
         self.detector_name = detector_name
         self.threshold, self.config = recognizer_config
@@ -35,8 +35,8 @@ class face_recognizer(ABC):
         return known_names
 
     def _initialize_face_locations_and_encodings(self):
-        self.fl, self.face_locations = self.detection(self.detector_name)
-        self.unlabeled_face_encoded_img, self.unlabeled_face_img = self._img_encoding(self.unlabeled_path, vars.file_config.input_img_name, self.config, self.face_locations)
+        self.fl, self.face_locations, self.rgb_img = self.detection(self.detector_name)
+        self.unlabeled_face_encoded_img, self.unlabeled_face_img = self._img_encoding(self.rgb_img, self.config, self.face_locations)
         self.best_match_confidences = [0] * len(self.unlabeled_face_encoded_img)
         self.best_match_names = ['Unknown'] * len(self.unlabeled_face_encoded_img)
 
@@ -44,9 +44,8 @@ class face_recognizer(ABC):
     def detection(self, detector_name):
         pass
 
-    def _img_encoding(self, path, input_img_name, config, face_locations=None, full_img=False):
+    def _img_encoding(self, img, config, face_locations=None, full_img=False):
         self.re_sample, self.model = config
-        img = toolbox.img().read(os.path.join(path, input_img_name))
         if full_img:
             height, width, _ = img.shape
             face_locations = [(0, width, height, 0)]
@@ -121,7 +120,7 @@ class face_recognizer(ABC):
         print(f'Recognition Time: {(t3-t2):.3f} s')     
 
     def _output_img_handler(self):
-        image = self.unlabeled_face_img.copy()
+        image = self.rgb_img
         for i in range(len(self.unlabeled_face_encoded_img)):
             if self.best_match_names[i] != 'Unknown':
                 print(f'The correct identity for Face({i+1}) is {self.best_match_names[i]} with confidance: {(self.best_match_confidences[i])*100: .2f}%')  # Print the person's name
@@ -141,7 +140,7 @@ class face_recognizer(ABC):
 
         img = cv.cvtColor(image, cv.COLOR_RGB2BGR)    
         resized_img = self._resize_image(img)
-        toolbox.img().plot(resized_img, 'Image')
+        # toolbox.img().plot(resized_img, 'Image')
         return [name for name in self.best_match_names if name != 'Unknown']
 
     def _resize_image(self, image):

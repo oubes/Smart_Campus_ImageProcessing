@@ -12,14 +12,30 @@ def read_json(file):
 def write_json(data, file):
     with open(file, "w") as jsonfile:
         json.dump(data, jsonfile)
-        print("Write successfull")
+        print("Configuation was Written successfully")
 
 def init():
+    models = ["cv2", "DSFD", "Dlib", "MTCNN", "RetinaFace", "RetinaNetMobileNetV1", "RetinaNetResNet50", "YOLOv8"]
+    if vars.handling_config.conf[3]:
+        edit_config()
     config = read_json("config.json")
 
     # Print the current loaded configuration
     for key in config["FaceDetectorConfig"]:
         print(key, f'\t', config["FaceDetectorConfig"][key])
+
+    for model in models:
+        if config["FaceDetectorConfig"][model]["Enable"]:
+            for option in config["FaceDetectorConfig"][model]:
+                
+
+
+
+    for model in models:
+        for option in config["FaceDetectorConfig"][model]:
+            int i = 0
+            vars.detector_config[model][i] = config["FaceDetectorConfig"][model][option]
+            i += 1
 
     # CV2
     vars.detector_config.cv2[0]    = config["FaceDetectorConfig"]["cv2"]["scaleFactor"]
@@ -32,7 +48,7 @@ def init():
     vars.detector_config.fd_dsfd[1] = config["FaceDetectorConfig"]["DSFD"]["confidenceThreshold"]
     vars.detector_config.fd_dsfd[2] = config["FaceDetectorConfig"]["DSFD"]["nmsThreshold"]
 
-    # DLIB
+    # Dlib
     vars.detector_config.fr_dlib[0] = config["FaceDetectorConfig"]["Dlib"]["upsampling"]
     vars.detector_config.fr_dlib[1] = config["FaceDetectorConfig"]["Dlib"]["model"]
 
@@ -59,7 +75,6 @@ def init():
 
     # YOLOv8
     vars.detector_config.yolo8 = config["FaceDetectorConfig"]["YOLOv8"]["confidenceThreshold"]
-    #vars.detector_config.yolo8[0] = tuple(vars.detector_config.yolo8[0])
 
     ####################################################################################################################
     #

@@ -1,4 +1,5 @@
 import os
+# change classes into dictionaries
 
 
 class file_config:
@@ -30,4 +31,4 @@ class detector_config:
     # (0.01 -> 0.99)
 
 class handling_config:
-    conf = [False, True, False] # (plot_active, output_gen, url_active)
+    conf = [False, True, False, True] # (plot_active, output_gen, url_active, edit_config)

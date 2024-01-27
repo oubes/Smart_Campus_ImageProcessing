@@ -7,35 +7,42 @@
 	},
 	"FaceDetectorConfig": {
 		"Dlib": {
+            "Enable": 1,
 			"upsampling": 1,
 			"model": "hog"
 		},
 		"DSFD": {
+            "Enable": 1,
 			"detector": "DSFDDetector",
 			"confidenceThreshold": 0.5,
 			"nmsThreshold": 0.3
 		},
 		"RetinaNetMobileNetV1": {
+            "Enable": 1,
 			"detector": "RetinaNetMobileNetV1",
 			"confidenceThreshold": 0.5,
 			"nmsThreshold": 0.3
 		},
 		"RetinaNetResNet50": {
+            "Enable": 1,
 			"detector": "RetinaNetResNet50",
 			"confidenceThreshold": 0.5,
 			"nmsThreshold": 0.3
 		},
 		"cv2": {
+            "Enable": 1,
 			"scaleFactor": 1.05,
 			"minNeighbors": 4,
 			"minLength": 10,
 			"minWidth": 10
 		},
 		"RetinaFace": {
+            "Enable": 1,
 			"threshold": 0.5,
 			"upsampleScale": 1
 		},
 		"MTCNN": {
+            "Enable": 1,
 			"minFaceSize": 10,
 			"thresholds": [
 					0.6,
@@ -45,6 +52,7 @@
 			"scaleFactor": 0.709
 		},
 		"YOLOv8": {
+            "Enable": 1,
 			"confidenceThreshold": 0.2
 		}
 	},

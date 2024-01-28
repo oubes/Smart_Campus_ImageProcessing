@@ -1,4 +1,4 @@
-from api import Recognize
+from tasks import Recognize
 import time
 
 while True:

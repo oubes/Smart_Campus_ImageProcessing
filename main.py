@@ -5,7 +5,7 @@ while True:
     # Load the config
     from vars import read_json
     config = read_json('config.json')
-    if(config['ImgConfig']['InputImgUrl']).startswith('http://') or (config['ImgConfig']['InputImgUrl']).startswith('https://'):
+    if(config['ImgConfig']['InputImgUrl']).startswith(('http://', 'https://')):
         known_names = Recognize(detector_name = config['HandlingConfig']['detectorName'], recognizer_name = config['HandlingConfig']['recognizerName'])
         print(known_names)
 

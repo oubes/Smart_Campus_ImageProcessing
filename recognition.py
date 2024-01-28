@@ -39,16 +39,16 @@ class face_recognizer(ABC):
     def _initialize_face_locations_and_encodings(self):
         self.fl, self.face_locations, self.rgb_img = self.detection(self.detector_name)
         t1 = time.perf_counter()
-        self.unlabeled_face_encoded_img, self.unlabeled_face_img = self._img_encoding(self.rgb_img, self.config, self.face_locations)
+        self.unlabeled_face_encoded_img, self.unlabeled_face_img = self._img_encoding(self.rgb_img, self.face_locations)
         t2 = time.perf_counter(); self.d_encoding_time = t2-t1 
-        self.best_match_confidences = [0] * len(self.unlabeled_face_encoded_img)
-        self.best_match_names = ['Unknown'] * len(self.unlabeled_face_encoded_img)
+        self.best_match_confidences = np.zeros(len(self.unlabeled_face_encoded_img))
+        self.best_match_names = np.full(len(self.unlabeled_face_encoded_img), 'Unknown', dtype='U20')
 
     @abstractclassmethod
     def detection(self, detector_name):
         pass
 
-    def _img_encoding(self, img, config, face_locations=None, full_img=False):
+    def _img_encoding(self, img, face_locations=None, full_img=False):
         self.re_sample, self.model = self.config
         if full_img:
             image = toolbox.img().read(img)
@@ -66,8 +66,9 @@ class face_recognizer(ABC):
             person_path = os.path.join(self.labeled_path, person, 'cropped_img')
             encoded_images_dict = self._create_encoded_file(person_path, person)
             # Extract only the encoded images from the dictionary
-            encoded_images = list(encoded_images_dict.values())
+            encoded_images = np.array(list(encoded_images_dict.values()))
             self._compare_and_update_best_match(encoded_images, person)
+
 
     def _create_encoded_file(self, person_path, person):
         data = {}
@@ -99,7 +100,7 @@ class face_recognizer(ABC):
     def _read_and_encode_images(self, person_path):
         encoded_images = {}
         for labeled_face_name in [f for f in os.listdir(person_path) if os.path.splitext(f)[1].lower() in ['.jpg', '.jpeg', '.png']]:
-            labeled_face_encoded_img, _ = self._img_encoding(os.path.join(person_path, labeled_face_name), self.config, full_img=True)
+            labeled_face_encoded_img, _ = self._img_encoding(os.path.join(person_path, labeled_face_name), full_img=True)
             # Check if labeled_face_encoded_img is a numpy array before converting
             if isinstance(labeled_face_encoded_img, np.ndarray):
                 labeled_face_encoded_img = labeled_face_encoded_img.tolist()

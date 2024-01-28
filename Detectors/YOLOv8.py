@@ -1,11 +1,11 @@
 from detection import face_detector
 from ultralytics import YOLO
 import numpy as np
-from vars import detector_config
+from vars import config
 
 class yolo8_model(face_detector):
     def detector(self, gray_img: np.ndarray, detector_config: tuple, rgb_img: np.ndarray):
-        threshold = detector_config["YOLOv8"]["confidenceThreshold"]
+        threshold = config["DetectorConfig"]["YOLOv8"]["confidenceThreshold"]
         model = YOLO("yolov8n-face.pt")
         results = model(rgb_img)
         conf = results[0].boxes.conf

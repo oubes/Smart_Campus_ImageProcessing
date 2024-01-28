@@ -12,5 +12,7 @@
 
 from tasks import Recognize
 from vars import config
+
 known_names = Recognize(detector_name = config['HandlingConfig']['detectorName'], recognizer_name = config['HandlingConfig']['recognizerName'])
+
 print(known_names)

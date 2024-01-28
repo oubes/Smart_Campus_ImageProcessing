@@ -1,13 +1,13 @@
 from detection import face_detector
 from mtcnn import MTCNN
 import numpy as np
-from vars import detector_config
+from vars import config
 
 class mtcnn_model(face_detector):
     def detector(self, gray_img: np.ndarray, detector_config: tuple, rgb_img: np.ndarray):
-        min_face_size = detector_config["MTCNN"]["minFaceSize"]
-        steps_threshold = detector_config["MTCNN"]["thresholds"]
-        scale_factor = detector_config["MTCNN"]["scaleFactor"]
+        min_face_size = config["DetectorConfig"]["MTCNN"]["minFaceSize"]
+        steps_threshold = config["DetectorConfig"]["MTCNN"]["thresholds"]
+        scale_factor = config["DetectorConfig"]["MTCNN"]["scaleFactor"]
         model = MTCNN(min_face_size=min_face_size, steps_threshold=steps_threshold, scale_factor=scale_factor)
         faces = model.detect_faces(rgb_img)
         detector_name = 'mtcnn'

@@ -1,18 +1,14 @@
-# from detection import Detect
-# from Recognizers import DLIB
-
-# models = ['YOLOv8', 'DLIB', 'CV2', 'MTCNN', 'Retinaface']
-
-# if __name__ == "__main__":
-    
-#     for model in models:
-#         face_locations, faces_count, taken_time = Detect(model)    
-# from Recognizers import DLIB
-# DLIB.fr_dlib_model(detector_name = 'MTCNN').run()
-
 from tasks import Recognize
-from vars import config
+import time
 
-known_names = Recognize(detector_name = config['HandlingConfig']['detectorName'], recognizer_name = config['HandlingConfig']['recognizerName'])
+while True:
+    # Load the config
+    from vars import read_json
+    config = read_json('config.json')
+    if(config['ImgConfig']['InputImgUrl']).startswith(('http://', 'https://')):
+        known_names = Recognize(detector_name = config['HandlingConfig']['detectorName'], recognizer_name = config['HandlingConfig']['recognizerName'])
+        print(known_names)
 
-print(known_names)
+    else:
+        time.sleep(1)
+        print('Wait for 1 sec and try again')

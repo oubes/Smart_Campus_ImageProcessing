@@ -5,7 +5,7 @@ from vars import config
 
 class fr_dlib_model(face_detector):
     """A subclass of face_detector that uses the face_recognition library."""
-    def detector(self, gray_img: np.ndarray, detector_config: tuple, rgb_img: np.ndarray):
+    def detector(self, gray_img: np.ndarray, detector_config: dict, rgb_img: np.ndarray):
         """Detect faces in the grayscale image using the face_recognition library and the detector configuration."""
         upsampling = config["DetectorConfig"]["DLIB"]["upsampling"]
         model_type = config["DetectorConfig"]["DLIB"]["model"]

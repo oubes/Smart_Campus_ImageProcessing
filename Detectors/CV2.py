@@ -5,7 +5,7 @@ from vars import config
 
 class cv2_model(face_detector):
     """A subclass of face_detector that uses the OpenCV library."""
-    def detector(self, gray_img: np.ndarray, detector_config: tuple, rgb_img: np.ndarray):
+    def detector(self, gray_img: np.ndarray, detector_config: dict, rgb_img: np.ndarray):
         """Detect faces in the grayscale image using the OpenCV library and the detector configuration."""
         sf = config["DetectorConfig"]["CV2"]["scaleFactor"]
         min_nh = config["DetectorConfig"]["CV2"]["minNeighbors"]

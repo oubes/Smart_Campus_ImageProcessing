@@ -24,6 +24,7 @@ class face_recognizer(ABC):
         self.threshold = recognizer_config["threshold"]
         self.config = (recognizer_config["resample"], recognizer_config["encodingModel"])
         self.encoding_update = recognizer_config["encodingUpdate"]
+        self.d_encoding_time = 0
 
     def run(self):
         t1 = time.perf_counter()
@@ -31,24 +32,27 @@ class face_recognizer(ABC):
         t2 = time.perf_counter()
         self._process_profiles()
         t3 = time.perf_counter()
-        self._print_times(t1, t2, t3)
+        self._print_times(t1, t2, t3, self.d_encoding_time)
         known_names = self._output_img_handler()
         return known_names
 
     def _initialize_face_locations_and_encodings(self):
         self.fl, self.face_locations, self.rgb_img = self.detection(self.detector_name)
-        self.unlabeled_face_encoded_img, self.unlabeled_face_img = self._img_encoding(self.rgb_img, self.config, self.face_locations)
-        self.best_match_confidences = [0] * len(self.unlabeled_face_encoded_img)
-        self.best_match_names = ['Unknown'] * len(self.unlabeled_face_encoded_img)
+        t1 = time.perf_counter()
+        self.unlabeled_face_encoded_img, self.unlabeled_face_img = self._img_encoding(self.rgb_img, self.face_locations)
+        t2 = time.perf_counter(); self.d_encoding_time = t2-t1 
+        self.best_match_confidences = np.zeros(len(self.unlabeled_face_encoded_img))
+        self.best_match_names = np.full(len(self.unlabeled_face_encoded_img), 'Unknown', dtype='U20')
 
     @abstractclassmethod
     def detection(self, detector_name):
         pass
 
-    def _img_encoding(self, img, config, face_locations=None, full_img=False):
-        self.re_sample, self.model = config
+    def _img_encoding(self, img, face_locations=None, full_img=False):
+        self.re_sample, self.model = self.config
         if full_img:
-            height, width, _ = img.shape
+            image = toolbox.img().read(img)
+            height, width, _ = image.shape
             face_locations = [(0, width, height, 0)]
         face_encoded_img = self.encoder(img, face_locations, self.re_sample, self.model) #dlib
         return face_encoded_img, img
@@ -62,8 +66,9 @@ class face_recognizer(ABC):
             person_path = os.path.join(self.labeled_path, person, 'cropped_img')
             encoded_images_dict = self._create_encoded_file(person_path, person)
             # Extract only the encoded images from the dictionary
-            encoded_images = list(encoded_images_dict.values())
+            encoded_images = np.array(list(encoded_images_dict.values()))
             self._compare_and_update_best_match(encoded_images, person)
+
 
     def _create_encoded_file(self, person_path, person):
         data = {}
@@ -76,14 +81,14 @@ class face_recognizer(ABC):
                 print(f"File {person}_encoded.json already exists and no new images or config changes found.")
             else:
                 print(f"New or updated images found or config changed for {person}. Updating encodings.")
-                data['encoded_images'] = self._read_and_encode_images(person_path, person)
+                data['encoded_images'] = self._read_and_encode_images(person_path)
                 data['config'] = {'re_sample': self.re_sample, 'model': self.model}
                 data['person_name'] = person
                 with open(encoded_file_path, 'w') as f:
                     json.dump(data, f, cls=NumpyEncoder)
         else:
             print(f"No encoded file found for {person}. Creating new encodings.")
-            data['encoded_images'] = self._read_and_encode_images(person_path, person)
+            data['encoded_images'] = self._read_and_encode_images(person_path)
             data['config'] = {'re_sample': self.re_sample, 'model': self.model}
             data['person_name'] = person
             with open(encoded_file_path, 'w') as f:
@@ -92,10 +97,10 @@ class face_recognizer(ABC):
             data['encoded_images']
         return data['encoded_images']
 
-    def _read_and_encode_images(self, person_path, person):
+    def _read_and_encode_images(self, person_path):
         encoded_images = {}
         for labeled_face_name in [f for f in os.listdir(person_path) if os.path.splitext(f)[1].lower() in ['.jpg', '.jpeg', '.png']]:
-            labeled_face_encoded_img, _ = self._img_encoding(person_path, labeled_face_name, self.config, full_img=True)
+            labeled_face_encoded_img, _ = self._img_encoding(os.path.join(person_path, labeled_face_name), full_img=True)
             # Check if labeled_face_encoded_img is a numpy array before converting
             if isinstance(labeled_face_encoded_img, np.ndarray):
                 labeled_face_encoded_img = labeled_face_encoded_img.tolist()
@@ -116,8 +121,9 @@ class face_recognizer(ABC):
     def compare_faces(self, labeled_face_encoded_img, unlabeled_face_encoded_img, threshold):
         pass
 
-    def _print_times(self, t1, t2, t3):
-        print(f'Detection Time: {(t2-t1):.3f} s')
+    def _print_times(self, t1, t2, t3, d_encoding_time):
+        print(f'Detection Time: {(t2-t1-d_encoding_time):.3f} s')
+        print(f'Dectection -> Encoding Time: {(d_encoding_time):.3f} s')
         print(f'Recognition Time: {(t3-t2):.3f} s')     
 
     def _output_img_handler(self):

@@ -1,6 +1,6 @@
 from recognition import face_recognizer
 import face_recognition
-from tasks import Detect
+from api import Detect
 import toolbox
 
 class fr_dlib_model(face_recognizer):

@@ -67,11 +67,8 @@ class img:
             print('No img was found in the given path')
 
     def points2rotation_format(self, fl):
-        face_locations = []
-        for face_location in fl:
-            facial_area = face_location
-            x1, y1, x2, y2 = facial_area
-            face_locations.append([y1, x2, y2, x1])  
+        fl = np.array(fl)
+        face_locations = fl[:, [1, 2, 3, 0]]
         return face_locations
 
 class logger:

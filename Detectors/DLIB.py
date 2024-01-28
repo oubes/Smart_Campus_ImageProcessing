@@ -10,8 +10,5 @@ class fr_dlib_model(face_detector):
         model_type = detector_config["model"]
         detector_name = 'fr_dlib'
         detections = face_recognition.face_locations(rgb_img, upsampling, model_type)
-        face_locations = []
-        for face in detections:
-            y1, x2, y2, x1 = face
-            face_locations.append([x1, y1, x2, y2])
+        face_locations = np.array(detections, dtype='uint16')[:, [3, 0, 1, 2]]
         return face_locations, detector_name, detector_config

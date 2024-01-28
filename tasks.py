@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 import toolbox
 from datetime import datetime
-import os
 import importlib
 
 def Detect(detector_name):
@@ -58,7 +56,6 @@ def Recognize(detector_name, recognizer_name):
         raise ValueError(f"Unknown recognizer: {recognizer_name}")
 
     return names
-=======
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
@@ -146,4 +143,3 @@ def detect(detector: str, recognizer: str, config: Config):
             continue
         res = Recognize(detector_name = detector, recognizer_name = recognizer)
         return res
->>>>>>> f49a4c95b82bf17b826552dd203e0242b964bb0c

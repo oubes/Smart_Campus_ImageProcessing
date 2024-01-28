@@ -3,7 +3,6 @@ import cv2 as cv
 import os
 from datetime import datetime
 import urllib.request
-import shutil
 import numpy as np
 
 class dir:

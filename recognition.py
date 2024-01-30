@@ -147,7 +147,7 @@ class face_recognizer(ABC):
 
         img = cv.cvtColor(image, cv.COLOR_RGB2BGR)    
         resized_img = self._resize_image(img)
-        # toolbox.img().plot(resized_img, 'Image')
+        toolbox.img().plot(resized_img, 'Image')
         return [name for name in self.best_match_names if name != 'Unknown']
 
     def _resize_image(self, image):

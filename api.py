@@ -11,7 +11,7 @@ recognizers = ["DLIB"]
 class Config(BaseModel):
     # Should contain all <optional> & <required> config for all models
     # Each model should read the config that it requires only
-    img: str = config["ImgConfig"]["InputImgUrl"]
+    img: str 
     imgs: list
     ############
     # Detection

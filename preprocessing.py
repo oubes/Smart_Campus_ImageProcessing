@@ -124,8 +124,10 @@ def save_augmented_imaged(image_url):
     if(not(is_single_person(image_url))):
         print('Please use a valid personal photo')
     else:
-        image = toolbox.url_img(image_url, datetime.now().strftime("%Y-%m-%d %H-%M-%S")).download()
+        img_name = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
+        image = toolbox.url_img(image_url, img_name).download()
         preprocessed_images = image_augmentation(image)
+        toolbox.img().remove(img_name + '.jpg')
 
         # Save or use augmented images for training
         for i, augmented_image in enumerate(preprocessed_images):

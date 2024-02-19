@@ -16,11 +16,12 @@ class NumpyEncoder(json.JSONEncoder):
 # def img_preprocessing():
 #     pass
 class face_recognizer(ABC):
-    def __init__(self, detector_name, recognizer_config):
+    def __init__(self, detector_name, recognizer_config, img_url):
         self.file_directory = os.path.dirname(os.path.abspath(__file__))
         # self.unlabeled_path = os.path.join(self.file_directory, vars.file_config.input_imgs_dir)
         self.labeled_path = os.path.join(self.file_directory, config["ImgConfig"]["LabeledDirectory"])
         self.detector_name = detector_name
+        self.img_url = img_url
         self.threshold = recognizer_config["threshold"]
         self.config = (recognizer_config["resample"], recognizer_config["encodingModel"])
         self.encoding_update = recognizer_config["encodingUpdate"]
@@ -37,7 +38,7 @@ class face_recognizer(ABC):
         return known_names
 
     def _initialize_face_locations_and_encodings(self):
-        self.fl, self.face_locations, self.rgb_img = self.detection(self.detector_name)
+        self.fl, self.face_locations, self.rgb_img = self.detection(self.detector_name, self.img_url)
         t1 = time.perf_counter()
         self.unlabeled_face_encoded_img, self.unlabeled_face_img = self._img_encoding(self.rgb_img, self.face_locations)
         t2 = time.perf_counter(); self.d_encoding_time = t2-t1 
@@ -136,9 +137,9 @@ class face_recognizer(ABC):
             image = cv.putText(
                 img = image,
                 text = self.best_match_names[i]+f",{self.best_match_confidences[i]*100: .2f}%",  # Use the person's name
-                org = (self.fl[i][0]-80, self.fl[i][1]-30),
+                org = (self.fl[i][0]-40, self.fl[i][1]-30),
                 fontFace = cv.FONT_HERSHEY_SIMPLEX,
-                fontScale = 0.8,
+                fontScale = 0.3,
                 color = (255, 0, 0), 
                 thickness = 1,
                 lineType = cv.LINE_AA

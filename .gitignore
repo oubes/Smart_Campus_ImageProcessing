@@ -1,5 +1,6 @@
 # Ignore the output generated from running the code
 output/
+tmp/
 
 # Ignore chached file from python
 __pycache__/*

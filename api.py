@@ -22,6 +22,7 @@ class Config(BaseModel):
     cv2_scale: float = host_config["DetectorConfig"]["CV2"]["scaleFactor"]
     cv2_min_neighbors: int = host_config["DetectorConfig"]["CV2"]["minNeighbors"]
     cv2_min_size: tuple = (host_config["DetectorConfig"]["CV2"]["minLength"], host_config["DetectorConfig"]["CV2"]["minWidth"])
+
     # DLIB
     dlib_upsample: int = host_config["DetectorConfig"]["DLIB"]["upsampling"]
     dlib_model: str = host_config["DetectorConfig"]["DLIB"]["model"]
@@ -58,7 +59,6 @@ def json(code, res):
 def index():
     return "Hello World!"
 
-
 @app.post("/detect")
 def detect(config: Config):
     if config.detector not in detectors:
@@ -66,7 +66,7 @@ def detect(config: Config):
             404,
             {
                 "error": "NOT_FOUND",
-                "message": f"Couldn't find detection model '{detector}'"
+                "message": f"Couldn't find detection model '{config.detector}'"
             }
         )
     if config.recognizer not in recognizers:
@@ -74,7 +74,7 @@ def detect(config: Config):
             404,
             {
                 "error": "NOT_FOUND",
-                "message": f"Couldn't find recognition model '{recognizer}'"
+                "message": f"Couldn't find recognition model '{config.recognizer}'"
             }
         )
 
@@ -83,3 +83,11 @@ def detect(config: Config):
             continue
         res = Recognize(detector_name = config.detector, recognizer_name = config.recognizer)
         return res
+
+
+
+# Connect to server
+# Connect to database
+# Change code accordingly
+# Encoding to database and updating the database
+

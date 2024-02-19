@@ -1,5 +1,4 @@
 import toolbox
-from datetime import datetime
 import importlib
 
 def Detect(detector_name, img_url):

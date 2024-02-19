@@ -52,5 +52,27 @@
             "encodingModel": "large",
             "encodingUpdate": 0
         }
+    },
+	"PerprocessingConfig": {
+        "BRIGHTNESS": {
+            "value1": 0.2,
+            "value2": 0.5
+        },
+		"CONTRAST": {
+            "value1": 0.4,
+            "value2": 0.75
+        },
+		"KERNAL": {
+            "value1": 1,
+            "value2": 5
+        },
+		"GAMMA": {
+            "value1": 0.8,
+            "value2": 1.2
+        },
+		"SATURATION": {
+            "value1": 0.8,
+            "value2": 1.2
+        }
     }
 }

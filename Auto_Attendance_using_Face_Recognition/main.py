@@ -1,6 +1,7 @@
 from tasks import Recognize
 from preprocessing import save_augmented_imaged
 
+
 # while True:
 #     # Load the config
 #     from vars import read_json

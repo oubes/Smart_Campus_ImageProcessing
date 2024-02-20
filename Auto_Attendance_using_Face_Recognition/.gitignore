@@ -1,5 +1,6 @@
 # Ignore the output generated from running the code
 output/
+tmp/
 Augmented_imgs/
 
 # Ignore chached file from python
@@ -11,3 +12,4 @@ Detectors/__pycache__/
 Recognizers/__pycache__/
 
 *.log
+*.env

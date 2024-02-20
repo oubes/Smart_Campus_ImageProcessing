@@ -10,7 +10,7 @@
         "Recognizers": [
             "DLIB"
         ],
-        "detectorName": "YOLOv8",
+        "detectorName": "RetinaFace",
         "recognizerName": "DLIB"
 	},
 	"ImgConfig":{

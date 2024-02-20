@@ -1,9 +1,13 @@
+import requests
+import json
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 from vars import config
 from tasks import Recognize
+import os
+from dotenv import load_dotenv
 
 host_config = config
 detectors = ["DLIB", "CV2", "RetinaFace", "MTCNN", "YOLOv8"]
@@ -49,6 +53,36 @@ class Config(BaseModel):
 
 app = FastAPI()
 
+load_dotenv()
+payload = json.dumps({
+    "username": os.environ.get("USERNAME"),
+    "password": os.environ.get("PASSWORD")
+})
+headers = {
+    'Content-Type': 'application/json'
+}
+base_url = os.environ.get("BASE_URL")
+response = requests.request("POST", base_url + "api/users/login", headers=headers, data=payload)
+accessToken = response.json()["accessToken"]
+
+
+# add authorization token to the header
+headers = {
+    'Content-Type': 'application/json',
+    'Authorization': f'Bearer {accessToken}'
+}
+apiToken = "1234"
+
+body = json.dumps({
+    "token": apiToken
+})
+response = requests.request("POST", base_url + "api/controllers/recognizer-token", headers=headers, data=body)
+if not response.ok:
+    print(response.text)
+    print("Error in getting token")
+    exit(1)
+
+
 def json(code, res):
     return JSONResponse(
         status_code=code,
@@ -59,8 +93,18 @@ def json(code, res):
 def index():
     return "Hello World!"
 
+
+
 @app.post("/detect")
-def detect(config: Config):
+def detect(config: Config, token: str):
+    if token != "1234":
+        return json(
+            401,
+            {
+                "error": "UNAUTHORIZED",
+                "message": "Invalid token"
+            }
+        )
     if config.detector not in detectors:
         return json(
             404,
@@ -78,6 +122,12 @@ def detect(config: Config):
             }
         )
 
+    print(config)
+    return json(
+        200,
+        []
+    )
+
     for (i, def_detector) in enumerate(detectors):
         if def_detector != config.detector:
             continue
@@ -85,7 +135,7 @@ def detect(config: Config):
         return res
 
 
-
+# TODO
 # Connect to server
 # Connect to database
 # Change code accordingly

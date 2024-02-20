@@ -11,3 +11,4 @@ Detectors/__pycache__/
 Recognizers/__pycache__/
 
 *.log
+*.env

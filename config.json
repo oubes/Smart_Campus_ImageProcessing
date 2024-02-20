@@ -10,7 +10,7 @@
         "Recognizers": [
             "DLIB"
         ],
-        "detectorName": "DLIB",
+        "detectorName": "RetinaFace",
         "recognizerName": "DLIB"
 	},
 	"ImgConfig":{

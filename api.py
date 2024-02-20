@@ -17,7 +17,6 @@ class Config(BaseModel):
     # Should contain all <optional> & <required> host_config for all models
     # Each model should read the host_config that it requires only
     img: str
-    imgs: list
     detector: str
     recognizer: str
     ############
@@ -71,7 +70,7 @@ headers = {
     'Content-Type': 'application/json',
     'Authorization': f'Bearer {accessToken}'
 }
-apiToken = "1234"
+apiToken = "abcd"
 
 body = json.dumps({
     "token": apiToken
@@ -96,8 +95,8 @@ def index():
 
 
 @app.post("/detect")
-def detect(config: Config, token: str):
-    if token != "1234":
+def detect(config: Config, token: str | None = None):
+    if token != apiToken:
         return json(
             401,
             {

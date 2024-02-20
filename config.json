@@ -15,7 +15,7 @@
 	},
 	"ImgConfig":{
 		"LabeledDirectory": "dataset/labeled",
-        "InputImgUrl": "https://i.postimg.cc/9fjyyMjP/IMG-20231225-132606.jpg"
+        "InputImgUrl": "https://i.postimg.cc/mrrByXS1/Whats-App-Image-2024-01-30-at-11-01-35-PM.jpg"
 	},
 	"DetectorConfig": {
 		"DLIB": {
@@ -47,10 +47,32 @@
 	},
     "RecognizerConfig": {
         "DLIB": {
-            "threshold": 0.54,
+            "threshold": 0.5,
             "resample": 8,
             "encodingModel": "large",
             "encodingUpdate": 0
+        }
+    },
+	"PerprocessingConfig": {
+        "BRIGHTNESS": {
+            "lowest_brightness": 0.2,
+            "highest_brightness": 0.5
+        },
+		"CONTRAST": {
+            "lowest_contrast": 0.4,
+            "highest_contrast": 0.75
+        },
+		"KERNAL": {
+            "lowest_gaussian_blur": 1,
+            "highest_gaussian_blur": 5
+        },
+		"GAMMA": {
+            "lowest_color_jittering": 0.8,
+            "highest_color_jittering": 1.2
+        },
+		"SATURATION": {
+            "lowest_saturation": 0.8,
+            "highest_saturation": 1.2
         }
     }
 }

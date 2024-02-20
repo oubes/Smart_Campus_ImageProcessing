@@ -1,8 +1,7 @@
 import toolbox
-from datetime import datetime
 import importlib
 
-def Detect(detector_name):
+def Detect(detector_name, img_url):
     from vars import read_json
     config = read_json('config.json')
 
@@ -20,7 +19,7 @@ def Detect(detector_name):
         model_class = getattr(DetectorModule, model_name)
         model = model_class(
             detector_config = detector_config,
-            img_url = config["ImgConfig"]["InputImgUrl"]
+            img_url = img_url
         )
         face_locations, faces_count, rgb_img = model.run()
     else:
@@ -31,7 +30,7 @@ def Detect(detector_name):
 
     return face_locations, faces_count, rgb_img
 
-def Recognize(detector_name, recognizer_name):
+def Recognize(detector_name, recognizer_name, img_url):
     from vars import read_json
     config = read_json('config.json')
     from Recognizers import DLIB
@@ -49,7 +48,8 @@ def Recognize(detector_name, recognizer_name):
         model_class, recognizer_config = recognizers[recognizer_name]
         model = model_class(
             detector_name = detector_name,
-            recognizer_config = config["RecognizerConfig"]["DLIB"]
+            recognizer_config = config["RecognizerConfig"]["DLIB"],
+            img_url=img_url
         )
         names = model.run()
     else:

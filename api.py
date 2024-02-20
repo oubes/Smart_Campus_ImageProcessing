@@ -19,6 +19,7 @@ class Config(BaseModel):
     img: str
     detector: str
     recognizer: str
+
     ############
     # Detection
     # CV2

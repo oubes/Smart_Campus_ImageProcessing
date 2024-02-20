@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import easyocr
 import cv2
 import os
-# import numpy as np
+import numpy as np
 # import matplotlib.pyplot as plt
 
 
@@ -30,26 +30,27 @@ class LPR:
         except IndexError:
             print('Cropping Failed due to empty bounding box')
     
-    def crop_imgs(self, img, boxs, style='xyxy'):
+    def crop_imgs(self, img: np.ndarray, boxs: list, style: str ='xyxy'):
         cropped_imgs = []
         for box in boxs:
             cropped_imgs.append(self._crop_img(img=img, box=box, style=style))
         return cropped_imgs
     
-    def crop_multi_imgs(self, imgs, boxs, style='xyxy'):
+    def crop_multi_imgs(self, imgs: list, boxs: list, style: str ='xyxy'):
         lps = []
         for img, box in zip(imgs, boxs):
             lps.append(self._crop_img(img=img, box=box, style=style))
         return lps
     
-    def detect_cars(self, img):
+    def detect_cars(self, img: np.ndarray):
         coco_results = self.coco_model(img)
         all_boxes = coco_results[0].boxes.xyxy
         all_labels = coco_results[0].boxes.cls
-        car_boxes = [box for box, label in zip(all_boxes, all_labels) if label == 2]
+        desired_labels = (1, 2, 3, 5) # 1: 'bicycle', 2: 'car', 3: 'motorcycle', 5: 'bus'
+        car_boxes = [box for box, label in zip(all_boxes, all_labels) if label in desired_labels]
         return car_boxes
     
-    def _detect_lp(self, img):
+    def _detect_lp(self, img: np.ndarray):
         try:
             lp_results = self.lpd_model(img)
             lp_box = lp_results[0].boxes.xyxy[0]
@@ -57,7 +58,7 @@ class LPR:
         except IndexError:
             print('No lp found')
     
-    def detect_lps(self, imgs):
+    def detect_lps(self, imgs: list):
         lps_box = []
         for img in imgs:
             lps_box.append(self._detect_lp(img=img))
@@ -65,10 +66,12 @@ class LPR:
     
     def _recognize_lp(self, lp_img: list):
         if lp_img is not None:
+            lp_text = ""
             result = self.reader.readtext(lp_img, allowlist=self.allow_list)
-            for idx, res in enumerate(result):
+            for res in result:
                 _, text, conf = res
-                print(f'{idx+1}: Text: {text}, Conf: {conf}')
+                lp_text += text
+            print(f'LP Text: {lp_text}, confidence: {conf}')
             
     def recognize_lps(self, lp_imgs: list):
         lps = []
@@ -84,20 +87,18 @@ class LPR:
         cropped_lps = self.crop_multi_imgs(cropped_cars, lps_box)
         self.recognize_lps(cropped_lps)
         
-allowlist_en = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ -'
-allowlist_ar = 'أبجدةهوزحطيكلمنسعفصقرشتثخذضظغ٠١٢٣٤٥٦٧٨٩ -'
+allowlists = {
+    'en': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ -',
+    'ar': 'أبجدةهوزحطيكلمنسعفصقرشتثخذضظغ٠١٢٣٤٥٦٧٨٩ -'
+}
 
 def dft(lang):
-    if lang == 'ar':
-        for idx, img in enumerate(os.listdir('imgs/ar_lp')):
+    if lang == 'ar' or 'en':
+        for idx, img in enumerate(os.listdir(f'imgs/{lang}_lp')):
             print(f'Img number {idx+1}, Name: {img}')
-            lpr_model = LPR(img=f'imgs/ar_lp/{img}', lang=['ar'], allow_list=allowlist_ar)
+            lpr_model = LPR(img=f'imgs/{lang}_lp/{img}', lang=[lang], allow_list=allowlists[lang])
             lpr_model.run()
-
-    elif lang == 'en':
-        for idx, img in enumerate(os.listdir('imgs/en_lp')):
-            print(f'Img number {idx+1}, Name: {img}')
-            lpr_model = LPR(img=f'imgs/en_lp/{img}', lang=['en'], allow_list=allowlist_en)
-            lpr_model.run()
+    else:
+        print("unsupported language")
 
 dft('en')

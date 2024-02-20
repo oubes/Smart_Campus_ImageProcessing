@@ -3,10 +3,23 @@ import easyocr
 import cv2
 import os
 import numpy as np
+from vars import read_json
 # import matplotlib.pyplot as plt
 
 class LPR:
     """A class for license plate recognition using YOLO and easyocr."""
+    
+    coco_model = YOLO('pretrained_models/yolov8s.pt')
+    lpd_model = YOLO('pretrained_models/license_plate_detector.pt')
+    _reader = None
+    _lang = None
+    
+    @property
+    def reader(self):
+        if self._reader is None or self._lang != self.lang:
+            self._reader = easyocr.Reader(self.lang, verbose=False, quantize=True)
+            self._lang = self.lang
+        return self._reader
 
     def __init__(self, img, lang: list, allow_list: list):
         """Initialize the LPR class with the image, language, and allowed characters.
@@ -24,10 +37,8 @@ class LPR:
         lpd_model (YOLO): The YOLO model for license plate detection.
         """
         self.img = img
+        self.lang = lang
         self.allow_list = allow_list
-        self.reader = easyocr.Reader(lang, verbose=False, quantize=True)
-        self.coco_model = YOLO(r'pretrained_models/yolov8s.pt')
-        self.lpd_model = YOLO(r'pretrained_models/license_plate_detector.pt')
     
     def read_img(self):
         """Read the image file and convert it to RGB format.
@@ -188,27 +199,32 @@ class LPR:
         cropped_lps = self.crop_multi_imgs(cropped_cars, lps_box)
         return self.recognize_lps(cropped_lps)
 
-allowlists = {
-    'en': '1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ -',
-    'ar': 'أبجدةهوزحطيكلمنسعفصقرشتثخذضظغ٠١٢٣٤٥٦٧٨٩ -',
-    'en_lps_values': ['YH72 ZDL', 'OW23PCZ', '297 MBC', 'LB73 AOG', 'QASHQAI', 'RK71 EZZ', 'W-021-JA', 'MH 47 TC 124', 'FRONX', 'YE 72 ZRG']
-}
-
 def dft(lang):
     """Run the LPR system on a list of images for a given language.
 
     Parameters:
     lang (str): The language to use for OCR.
     """
+    config = read_json('config.json')
+    langs = config['LprConfig']['langs']
+    print(langs)
+    allow_list = ""
+    for lang in langs:
+        allow_list += config['LprConfig']['allowlists'][lang]
+    print(allow_list)
     if lang == 'ar' or 'en':
         lps_list = []
         for idx, img in enumerate(os.listdir(f'imgs/{lang}_lp')):
             print(f'Img number {idx+1}, Name: {img}')
-            lpr_model = LPR(img=f'imgs/{lang}_lp/{img}', lang=[lang], allow_list=allowlists[lang])
+            lpr_model = LPR(img=f'imgs/{lang}_lp/{img}', lang=[lang], allow_list=allow_list)
             lps_list.append(lpr_model.run())
         flattened_list = [item for sublist in lps_list for item in sublist]
         print(flattened_list)
     else:
         print("unsupported language")
 
-dft('en')
+if __name__ == "__main__":
+    
+    dft('en')
+
+

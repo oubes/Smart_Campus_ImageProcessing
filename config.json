@@ -55,24 +55,24 @@
     },
 	"PerprocessingConfig": {
         "BRIGHTNESS": {
-            "value1": 0.2,
-            "value2": 0.5
+            "lowest_brightness": 0.2,
+            "highest_brightness": 0.5
         },
 		"CONTRAST": {
-            "value1": 0.4,
-            "value2": 0.75
+            "lowest_contrast": 0.4,
+            "highest_contrast": 0.75
         },
 		"KERNAL": {
-            "value1": 1,
-            "value2": 5
+            "lowest_gaussian_blur": 1,
+            "highest_gaussian_blur": 5
         },
 		"GAMMA": {
-            "value1": 0.8,
-            "value2": 1.2
+            "lowest_color_jittering": 0.8,
+            "highest_color_jittering": 1.2
         },
 		"SATURATION": {
-            "value1": 0.8,
-            "value2": 1.2
+            "lowest_saturation": 0.8,
+            "highest_saturation": 1.2
         }
     }
 }

@@ -32,13 +32,11 @@ class LPR:
         """
         self.img = img
         self.lang = lang
-        print(lang)
         self.vehicles = allow_vehicles
         self.allow_list = allow_list
-        print(allow_list)
         self.config = config
         if str(self.lang) not in LPR.readers:
-            LPR.readers[str(self.lang)] = easyocr.Reader(self.lang, verbose=False, quantize=True)
+            LPR.readers[str(self.lang)] = easyocr.Reader(self.lang, verbose=False)
         self.reader = LPR.readers[str(self.lang)]
     
     def read_img(self) -> np.ndarray:
@@ -96,10 +94,10 @@ class LPR:
         Returns:
         car_boxes (np.ndarray): The list of bounding boxes for cars.
         """
-        coco_results = self.coco_model(img)
+        coco_results = self.coco_model(img, verbose=False)
         all_boxes = np.array(coco_results[0].boxes.xyxy)
         all_labels = np.array(coco_results[0].boxes.cls)
-        desired_labels = np.array(self.vehicles) # 1: 'bicycle', 2: 'car', 3: 'motorcycle', 5: 'bus'
+        desired_labels = np.array(self.vehicles)
         idx = np.where(np.isin(all_labels, desired_labels))[0]
         return all_boxes[idx]
     
@@ -113,7 +111,7 @@ class LPR:
         lp_box (np.ndarray): The bounding box for the license plate.
         """
         try:
-            lp_results = self.lpd_model(img)
+            lp_results = self.lpd_model(img, verbose=False)
             lp_box = lp_results[0].boxes.xyxy[0]
             lp_box = lp_box.detach().numpy().astype(np.int16)
             return lp_box
@@ -246,7 +244,6 @@ def dft(lang):
     """
     config = read_json('config.json')
     langs = config['LprConfig']['langs']
-    print(langs)
     allow_list = ""
     for lang in langs:
         allow_list += config['LprConfig']['allowLists'][lang]

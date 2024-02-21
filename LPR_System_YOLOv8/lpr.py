@@ -14,7 +14,7 @@ class LPR:
     lpd_model = YOLO('pretrained_models/license_plate_detector.pt')
     readers = {}
 
-    def __init__(self, img:str, lang: list, allow_list: list, allow_vehicles: list):
+    def __init__(self, img:str, lang: list, allow_list: list, allow_vehicles: list, config: dict):
         """Initialize the LPR class with the image, language, and allowed characters.
 
         Parameters:
@@ -34,6 +34,7 @@ class LPR:
         self.lang = lang
         self.vehicles = allow_vehicles
         self.allow_list = allow_list
+        self.config = config
         if str(self.lang) not in LPR.readers:
             LPR.readers[str(self.lang)] = easyocr.Reader(self.lang, verbose=False, quantize=True)
         self.reader = LPR.readers[str(self.lang)]
@@ -181,11 +182,11 @@ class LPR:
         Returns:
         lps_imgs_enhanced (list): The list of license plate numbers.
         """
-        
+        upsample = self.config['LprConfig']['enhance']['upsample']
         lps_imgs_enhanced = []
         for img in lps_imgs:
             gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            img_upscale = scipy.ndimage.zoom(gray_img, 5, order=3)
+            img_upscale = scipy.ndimage.zoom(gray_img, upsample, order=3)
             img_alignment = self.lp_alignment(img_upscale)
             lps_imgs_enhanced.append(img_alignment)
             # plt.imshow(cv2.cvtColor(img_alignment, cv2.COLOR_BGR2RGB))
@@ -233,7 +234,6 @@ class LPR:
         lps_recognized = self.compare(lps_clean, lps_dB)
         return lps_recognized
 
-
 # Start Testing Area
 def dft(lang):
     """Run the LPR system on a list of images for a given language.
@@ -250,7 +250,15 @@ def dft(lang):
         lps_list = []
         for idx, img in enumerate(os.listdir(f'imgs/{lang}_lp')):
             print(f'Img number {idx+1}, Name: {img}')
-            lpr_model = LPR(img=f'imgs/{lang}_lp/{img}', lang=[lang], allow_list=allow_list, allow_vehicles=config['LprConfig']['allowVehicles'])
+            
+            lpr_model = LPR(
+                img=f'imgs/{lang}_lp/{img}',
+                lang=[lang],
+                allow_list=allow_list,
+                allow_vehicles=config['LprConfig']['allowVehicles'],
+                config=config
+            )
+            
             lps_list.append(lpr_model.run())
         flattened_list = [item for sublist in lps_list for item in sublist]
         print(flattened_list)

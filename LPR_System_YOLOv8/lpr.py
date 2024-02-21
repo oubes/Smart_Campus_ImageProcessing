@@ -82,7 +82,7 @@ class LPR:
             cropped_imgs.append(self._crop_img(img=img, box=box, style=style))
         return cropped_imgs
     
-    def crop_multi_imgs(self, imgs: list, boxes: list, style: str ='xyxy') -> list:
+    def crop_imgs(self, imgs: list, boxes: list, style: str ='xyxy') -> list:
         """Crop multiple images from multiple images according to the bounding boxes.
 
         Parameters:
@@ -91,12 +91,12 @@ class LPR:
         style (str): The style of the bounding boxes, either 'xyxy' or 'xywh'.
 
         Returns:
-        lps (list): The list of cropped image arrays.
+        cropped_imgs (list): The list of cropped image arrays.
         """
-        lps = []
+        cropped_imgs = []
         for img, box in zip(imgs, boxes):
-            lps.append(self._crop_img(img=img, box=box, style=style))
-        return lps
+            cropped_imgs.append(self._crop_img(img=img, box=box, style=style))
+        return cropped_imgs
     
     def detect_cars(self, img: np.ndarray) -> np.ndarray:
         """Detect cars in the image using the YOLO model.
@@ -169,7 +169,7 @@ class LPR:
                 # Print the license plate text and confidence
                 print(f'LP Text: {lp_text}, confidence: {conf}')
 
-            return lp_text
+                return lp_text
         except UnboundLocalError:
             pass
             
@@ -192,9 +192,9 @@ class LPR:
         """
         rgb_img = self.read_img()
         car_boxes = self.detect_cars(rgb_img)
-        cropped_cars = self.crop_imgs(rgb_img, car_boxes)
+        cropped_cars = self.crop_imgs([rgb_img]*len(car_boxes), car_boxes)
         lps_box = self.detect_lps(cropped_cars)
-        cropped_lps = self.crop_multi_imgs(cropped_cars, lps_box)
+        cropped_lps = self.crop_imgs(cropped_cars, lps_box)
         return self.recognize_lps(cropped_lps)
 
 

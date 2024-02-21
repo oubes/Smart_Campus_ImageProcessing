@@ -66,22 +66,6 @@ class LPR:
         except IndexError:
             print('Cropping Failed due to empty bounding box')
     
-    def crop_imgs(self, img: np.ndarray, boxes: list, style: str ='xyxy') -> list:
-        """Crop multiple images according to the bounding boxes.
-
-        Parameters:
-        img (np.ndarray): The image array to crop.
-        boxes (list): The list of bounding boxes.
-        style (str): The style of the bounding boxes, either 'xyxy' or 'xywh'.
-
-        Returns:
-        cropped_imgs (list): The list of cropped image arrays.
-        """
-        cropped_imgs = []
-        for box in boxes:
-            cropped_imgs.append(self._crop_img(img=img, box=box, style=style))
-        return cropped_imgs
-    
     def crop_imgs(self, imgs: list, boxes: list, style: str ='xyxy') -> list:
         """Crop multiple images from multiple images according to the bounding boxes.
 

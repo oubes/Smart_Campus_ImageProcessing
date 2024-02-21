@@ -3,9 +3,18 @@
         "langs": [
             "en"
         ],
-        "allowlists": {
+        "allowLists": {
             "en": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ -",
             "ar": "أبجدةهوزحطيكلمنسعفصقرشتثخذضظغ٠١٢٣٤٥٦٧٨٩ -"
-        }
+        },
+        "vehiclesList": {
+            "1": "bicycle",
+            "2": "car",
+            "3": "motorcycle",
+            "5": "bus"
+        },
+        "allowVehicles": [
+            1, 2, 3, 5
+        ]
     }
 }

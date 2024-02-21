@@ -13,7 +13,7 @@ class LPR:
     lpd_model = YOLO('pretrained_models/license_plate_detector.pt')
     readers = {}
 
-    def __init__(self, img:str, lang: list, allow_list: list):
+    def __init__(self, img:str, lang: list, allow_list: list, allow_vehicles):
         """Initialize the LPR class with the image, language, and allowed characters.
 
         Parameters:
@@ -30,6 +30,7 @@ class LPR:
         """
         self.img = img
         self.lang = lang
+        self.vehicles = allow_vehicles
         self.allow_list = allow_list
         if str(self.lang) not in LPR.readers:
             LPR.readers[str(self.lang)] = easyocr.Reader(self.lang, verbose=False, quantize=True)
@@ -97,7 +98,7 @@ class LPR:
             lps.append(self._crop_img(img=img, box=box, style=style))
         return lps
     
-    def detect_cars(self, img: np.ndarray) -> list:
+    def detect_cars(self, img: np.ndarray) -> np.ndarray:
         """Detect cars in the image using the YOLO model.
 
         Parameters:
@@ -107,13 +108,13 @@ class LPR:
         car_boxes (list): The list of bounding boxes for cars.
         """
         coco_results = self.coco_model(img)
-        all_boxes = coco_results[0].boxes.xyxy
-        all_labels = coco_results[0].boxes.cls
-        desired_labels = (1, 2, 3, 5) # 1: 'bicycle', 2: 'car', 3: 'motorcycle', 5: 'bus'
-        car_boxes = [box for box, label in zip(all_boxes, all_labels) if label in desired_labels]
-        return car_boxes
+        all_boxes = np.array(coco_results[0].boxes.xyxy)
+        all_labels = np.array(coco_results[0].boxes.cls)
+        desired_labels = np.array(self.vehicles) # 1: 'bicycle', 2: 'car', 3: 'motorcycle', 5: 'bus'
+        idx = np.where(np.isin(all_labels, desired_labels))[0]
+        return all_boxes[idx]
     
-    def _detect_lp(self, img: np.ndarray):
+    def _detect_lp(self, img: np.ndarray) -> np.ndarray:
         """Detect the license plate in the image using the YOLO model.
 
         Parameters:
@@ -130,7 +131,7 @@ class LPR:
         except IndexError:
             print('No lp found')
     
-    def detect_lps(self, imgs: list):
+    def detect_lps(self, imgs: list) -> np.ndarray:
         """Detect the license plates in the images using the YOLO model.
 
         Parameters:
@@ -139,12 +140,9 @@ class LPR:
         Returns:
         lps_box (list): The list of bounding boxes for the license plates.
         """
-        lps_box = []
-        for img in imgs:
-            lps_box.append(self._detect_lp(img=img))
-        return lps_box
+        return np.array([self._detect_lp(img=img) for img in imgs])
     
-    def _recognize_lp(self, lp_img: list):
+    def _recognize_lp(self, lp_img: list) -> np.ndarray:
         """Recognize the license plate number in the image using the easyocr reader.
 
         Parameters:
@@ -155,17 +153,27 @@ class LPR:
         """
         try:
             if lp_img is not None:
-                lp_text = ""
+                # Convert the lp_img to a numpy array
+                lp_img = np.array(lp_img)
+
+                # Get the OCR results
                 result = self.reader.readtext(lp_img, allowlist=self.allow_list)
-                for res in result:
-                    _, text, conf = res
-                    lp_text += text
+
+                # Extract the text and confidence values
+                text = np.array([res[1] for res in result])
+                conf = np.array([res[2] for res in result])
+
+                # Join the text results into a single string
+                lp_text = np.char.join("", text)
+
+                # Print the license plate text and confidence
                 print(f'LP Text: {lp_text}, confidence: {conf}')
+
             return lp_text
         except UnboundLocalError:
             pass
             
-    def recognize_lps(self, lp_imgs: list):
+    def recognize_lps(self, lp_imgs: list) -> list:
         """Recognize the license plate numbers in the images using the easyocr reader.
 
         Parameters:
@@ -174,10 +182,7 @@ class LPR:
         Returns:
         lps (list): The list of license plate numbers.
         """
-        lps = []
-        for lp_img in lp_imgs:
-            lps.append(self._recognize_lp(lp_img=lp_img))
-        return lps
+        return [self._recognize_lp(lp_img=lp_img) for lp_img in lp_imgs]
     
     def run(self):
         """Run the LPR system on the image and return the license plate numbers.
@@ -192,6 +197,8 @@ class LPR:
         cropped_lps = self.crop_multi_imgs(cropped_cars, lps_box)
         return self.recognize_lps(cropped_lps)
 
+
+# Start Testing Area
 def dft(lang):
     """Run the LPR system on a list of images for a given language.
 
@@ -202,17 +209,18 @@ def dft(lang):
     langs = config['LprConfig']['langs']
     allow_list = ""
     for lang in langs:
-        allow_list += config['LprConfig']['allowlists'][lang]
+        allow_list += config['LprConfig']['allowLists'][lang]
     if lang == 'ar' or 'en':
         lps_list = []
         for idx, img in enumerate(os.listdir(f'imgs/{lang}_lp')):
             print(f'Img number {idx+1}, Name: {img}')
-            lpr_model = LPR(img=f'imgs/{lang}_lp/{img}', lang=[lang], allow_list=allow_list)
+            lpr_model = LPR(img=f'imgs/{lang}_lp/{img}', lang=[lang], allow_list=allow_list, allow_vehicles=config['LprConfig']['allowVehicles'])
             lps_list.append(lpr_model.run())
         flattened_list = [item for sublist in lps_list for item in sublist]
         print(flattened_list)
     else:
         print("unsupported language")
+# End Testing Area
 
 if __name__ == "__main__":
     

@@ -105,7 +105,7 @@ class LPR:
         img (np.ndarray): The image array to detect cars.
 
         Returns:
-        car_boxes (list): The list of bounding boxes for cars.
+        car_boxes (np.ndarray): The list of bounding boxes for cars.
         """
         coco_results = self.coco_model(img)
         all_boxes = np.array(coco_results[0].boxes.xyxy)
@@ -121,7 +121,7 @@ class LPR:
         img (np.ndarray): The image array to detect the license plate.
 
         Returns:
-        lp_box (list): The bounding box for the license plate.
+        lp_box (np.ndarray): The bounding box for the license plate.
         """
         try:
             lp_results = self.lpd_model(img)
@@ -138,7 +138,7 @@ class LPR:
         imgs (list): The list of image arrays to detect the license plates.
 
         Returns:
-        lps_box (list): The list of bounding boxes for the license plates.
+        lps_box (np.ndarray): The list of bounding boxes for the license plates.
         """
         return np.array([self._detect_lp(img=img) for img in imgs])
     
@@ -149,26 +149,16 @@ class LPR:
         lp_img (np.ndarray): The image array of the license plate.
 
         Returns:
-        lp_text (str): The license plate number.
+        lp_text (np.ndarray): The license plate number.
         """
         try:
             if lp_img is not None:
-                # Convert the lp_img to a numpy array
                 lp_img = np.array(lp_img)
-
-                # Get the OCR results
                 result = self.reader.readtext(lp_img, allowlist=self.allow_list)
-
-                # Extract the text and confidence values
                 text = np.array([res[1] for res in result])
                 conf = np.array([res[2] for res in result])
-
-                # Join the text results into a single string
                 lp_text = np.char.join("", text)
-
-                # Print the license plate text and confidence
                 print(f'LP Text: {lp_text}, confidence: {conf}')
-
                 return lp_text
         except UnboundLocalError:
             pass
@@ -184,7 +174,7 @@ class LPR:
         """
         return [self._recognize_lp(lp_img=lp_img) for lp_img in lp_imgs]
     
-    def run(self):
+    def run(self) -> list:
         """Run the LPR system on the image and return the license plate numbers.
 
         Returns:

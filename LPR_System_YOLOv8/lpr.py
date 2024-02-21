@@ -4,7 +4,8 @@ import cv2
 import os
 import numpy as np
 from vars import read_json
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import scipy.ndimage
 
 class LPR:
     """A class for license plate recognition using YOLO and easyocr."""
@@ -140,9 +141,9 @@ class LPR:
             if lp_img is not None:
                 lp_img = np.array(lp_img)
                 result = self.reader.readtext(lp_img, allowlist=self.allow_list)
-                text = np.array([res[1] for res in result])
+                text = [res[1] for res in result]
                 conf = np.array([res[2] for res in result])
-                lp_text = np.char.join("", text)
+                lp_text = "".join(text)
                 print(f'LP Text: {lp_text}, confidence: {conf}')
                 return lp_text
         except UnboundLocalError:
@@ -159,18 +160,78 @@ class LPR:
         """
         return [self._recognize_lp(lp_img=lp_img) for lp_img in lp_imgs]
     
+    def lp_alignment(self, lps_img: np.ndarray) -> np.ndarray:
+        """
+        Aligns the license plate images for better recognition by the easyocr reader.
+
+        Args:
+            lps_img (np.ndarray): An array of license plate images.
+
+        Returns:
+            np.ndarray: An array of aligned license plate numbers.
+        """
+        return lps_img
+        
+    def enhance(self, lps_imgs: list) -> list:
+        """enhance the license plate images quality for more efficient recognition using the easyocr reader.
+
+        Parameters:
+        lp_imgs (list): The list of image arrays of the license plates.
+
+        Returns:
+        lps_imgs_enhanced (list): The list of license plate numbers.
+        """
+        
+        lps_imgs_enhanced = []
+        for img in lps_imgs:
+            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            img_upscale = scipy.ndimage.zoom(gray_img, 5, order=3)
+            img_alignment = self.lp_alignment(img_upscale)
+            lps_imgs_enhanced.append(img_alignment)
+            # plt.imshow(cv2.cvtColor(img_alignment, cv2.COLOR_BGR2RGB))
+            # plt.show()
+        return lps_imgs_enhanced
+    
+    def process_and_structure(self, license_plate_data):
+        """Process and structure the output for license plate data.
+
+        Parameters:
+        license_plate_data (list): The list of arrays containing license plate text.
+
+        Returns:
+        processed_data (list): The list of processed license plate numbers.
+        """
+        return license_plate_data
+    
+    def compare(self, lps, lps_dB):
+        
+        """compare license plates text with the allowed ones in the database.
+
+        Parameters:
+        lps (list): The list of arrays of the license plates text.
+
+        Returns:
+        lps (list): The list of license plates authorized to enter.
+        """
+        return lps
+    
     def run(self) -> list:
         """Run the LPR system on the image and return the license plate numbers.
 
         Returns:
         lps (list): The list of license plate numbers.
         """
+        lps_dB = None
         rgb_img = self.read_img()
         car_boxes = self.detect_cars(rgb_img)
         cropped_cars = self.crop_imgs([rgb_img]*len(car_boxes), car_boxes)
         lps_box = self.detect_lps(cropped_cars)
         cropped_lps = self.crop_imgs(cropped_cars, lps_box)
-        return self.recognize_lps(cropped_lps)
+        enhanced_lps = self.enhance(cropped_lps)
+        lps = self.recognize_lps(enhanced_lps)
+        lps_clean = self.process_and_structure(lps)
+        lps_recognized = self.compare(lps_clean, lps_dB)
+        return lps_recognized
 
 
 # Start Testing Area

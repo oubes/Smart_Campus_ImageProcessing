@@ -13,7 +13,7 @@ class LPR:
     lpd_model = YOLO('pretrained_models/license_plate_detector.pt')
     readers = {}
 
-    def __init__(self, img:str, lang: list, allow_list: list, allow_vehicles):
+    def __init__(self, img:str, lang: list, allow_list: list, allow_vehicles: list):
         """Initialize the LPR class with the image, language, and allowed characters.
 
         Parameters:
@@ -27,6 +27,7 @@ class LPR:
         reader (easyocr.Reader): The OCR reader object.
         coco_model (YOLO): The YOLO model for car detection.
         lpd_model (YOLO): The YOLO model for license plate detection.
+        allow_vehicles (list): The allowd types of vehicles for detection
         """
         self.img = img
         self.lang = lang

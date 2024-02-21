@@ -32,8 +32,10 @@ class LPR:
         """
         self.img = img
         self.lang = lang
+        print(lang)
         self.vehicles = allow_vehicles
         self.allow_list = allow_list
+        print(allow_list)
         self.config = config
         if str(self.lang) not in LPR.readers:
             LPR.readers[str(self.lang)] = easyocr.Reader(self.lang, verbose=False, quantize=True)
@@ -118,7 +120,7 @@ class LPR:
         except IndexError:
             print('No lp found')
     
-    def detect_lps(self, imgs: list) -> np.ndarray:
+    def detect_lps(self, imgs: list) -> list:
         """Detect the license plates in the images using the YOLO model.
 
         Parameters:
@@ -127,7 +129,7 @@ class LPR:
         Returns:
         lps_box (np.ndarray): The list of bounding boxes for the license plates.
         """
-        return np.array([self._detect_lp(img=img) for img in imgs])
+        return [self._detect_lp(img=img) for img in imgs]
     
     def _recognize_lp(self, lp_img: list) -> np.ndarray:
         """Recognize the license plate number in the image using the easyocr reader.
@@ -185,10 +187,11 @@ class LPR:
         upsample = self.config['LprConfig']['enhance']['upsample']
         lps_imgs_enhanced = []
         for img in lps_imgs:
-            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            img_upscale = scipy.ndimage.zoom(gray_img, upsample, order=3)
-            img_alignment = self.lp_alignment(img_upscale)
-            lps_imgs_enhanced.append(img_alignment)
+            if img is not None:
+                gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                img_upscale = scipy.ndimage.zoom(gray_img, upsample, order=3)
+                img_alignment = self.lp_alignment(img_upscale)
+                lps_imgs_enhanced.append(img_alignment)
             # plt.imshow(cv2.cvtColor(img_alignment, cv2.COLOR_BGR2RGB))
             # plt.show()
         return lps_imgs_enhanced
@@ -243,17 +246,18 @@ def dft(lang):
     """
     config = read_json('config.json')
     langs = config['LprConfig']['langs']
+    print(langs)
     allow_list = ""
     for lang in langs:
         allow_list += config['LprConfig']['allowLists'][lang]
-    if lang == 'ar' or 'en':
+    if 'ar' in langs or 'en' in langs:
         lps_list = []
-        for idx, img in enumerate(os.listdir(f'imgs/{lang}_lp')):
+        for idx, img in enumerate(os.listdir(f'imgs/{langs[0]}_lp')):
             print(f'Img number {idx+1}, Name: {img}')
             
             lpr_model = LPR(
-                img=f'imgs/{lang}_lp/{img}',
-                lang=[lang],
+                img=f'imgs/{langs[0]}_lp/{img}',
+                lang=langs,
                 allow_list=allow_list,
                 allow_vehicles=config['LprConfig']['allowVehicles'],
                 config=config

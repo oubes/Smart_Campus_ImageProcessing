@@ -11,17 +11,9 @@ class LPR:
     
     coco_model = YOLO('pretrained_models/yolov8s.pt')
     lpd_model = YOLO('pretrained_models/license_plate_detector.pt')
-    _reader = None
-    _lang = None
-    
-    @property
-    def reader(self):
-        if self._reader is None or self._lang != self.lang:
-            self._reader = easyocr.Reader(self.lang, verbose=False, quantize=True)
-            self._lang = self.lang
-        return self._reader
+    readers = {}
 
-    def __init__(self, img, lang: list, allow_list: list):
+    def __init__(self, img:str, lang: list, allow_list: list):
         """Initialize the LPR class with the image, language, and allowed characters.
 
         Parameters:
@@ -39,8 +31,11 @@ class LPR:
         self.img = img
         self.lang = lang
         self.allow_list = allow_list
+        if str(self.lang) not in LPR.readers:
+            LPR.readers[str(self.lang)] = easyocr.Reader(self.lang, verbose=False, quantize=True)
+        self.reader = LPR.readers[str(self.lang)]
     
-    def read_img(self):
+    def read_img(self) -> np.ndarray:
         """Read the image file and convert it to RGB format.
 
         Returns:
@@ -50,7 +45,7 @@ class LPR:
         rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
         return rgb_img
     
-    def _crop_img(self, img, box, style='xyxy'):
+    def _crop_img(self, img: np.ndarray, box: list, style='xyxy') -> np.ndarray:
         """Crop the image according to the bounding box.
 
         Parameters:
@@ -59,24 +54,18 @@ class LPR:
         style (str): The style of the bounding box, either 'xyxy' or 'xywh'.
 
         Returns:
-        rescaled_img (np.ndarray): The rescaled cropped image array.
+        crop_img (np.ndarray): The cropped image array.
         """
         try:
             if (style == 'xyxy') & (box is not None):
                 x_min, y_min, x_max, y_max = map(int, box)
                 crop_img = img[y_min:y_max, x_min:x_max]
-                height, width, _ = crop_img.shape
-                scale = 2
-                new_height = height * scale
-                new_width = width * scale
-                matrix = np.array([[scale, 0, 0], [0, scale, 0]], dtype=np.float32)
-                rescaled_img = cv2.warpAffine(crop_img, matrix, (new_width, new_height))
-                return rescaled_img
+                return crop_img
         
         except IndexError:
             print('Cropping Failed due to empty bounding box')
     
-    def crop_imgs(self, img: np.ndarray, boxes: list, style: str ='xyxy'):
+    def crop_imgs(self, img: np.ndarray, boxes: list, style: str ='xyxy') -> list:
         """Crop multiple images according to the bounding boxes.
 
         Parameters:
@@ -92,7 +81,7 @@ class LPR:
             cropped_imgs.append(self._crop_img(img=img, box=box, style=style))
         return cropped_imgs
     
-    def crop_multi_imgs(self, imgs: list, boxes: list, style: str ='xyxy'):
+    def crop_multi_imgs(self, imgs: list, boxes: list, style: str ='xyxy') -> list:
         """Crop multiple images from multiple images according to the bounding boxes.
 
         Parameters:
@@ -108,7 +97,7 @@ class LPR:
             lps.append(self._crop_img(img=img, box=box, style=style))
         return lps
     
-    def detect_cars(self, img: np.ndarray):
+    def detect_cars(self, img: np.ndarray) -> list:
         """Detect cars in the image using the YOLO model.
 
         Parameters:
@@ -136,6 +125,7 @@ class LPR:
         try:
             lp_results = self.lpd_model(img)
             lp_box = lp_results[0].boxes.xyxy[0]
+            lp_box = lp_box.detach().numpy().astype(np.int16)
             return lp_box
         except IndexError:
             print('No lp found')
@@ -163,14 +153,17 @@ class LPR:
         Returns:
         lp_text (str): The license plate number.
         """
-        if lp_img is not None:
-            lp_text = ""
-            result = self.reader.readtext(lp_img, allowlist=self.allow_list)
-            for res in result:
-                _, text, conf = res
-                lp_text += text
-            print(f'LP Text: {lp_text}, confidence: {conf}')
+        try:
+            if lp_img is not None:
+                lp_text = ""
+                result = self.reader.readtext(lp_img, allowlist=self.allow_list)
+                for res in result:
+                    _, text, conf = res
+                    lp_text += text
+                print(f'LP Text: {lp_text}, confidence: {conf}')
             return lp_text
+        except UnboundLocalError:
+            pass
             
     def recognize_lps(self, lp_imgs: list):
         """Recognize the license plate numbers in the images using the easyocr reader.
@@ -207,11 +200,9 @@ def dft(lang):
     """
     config = read_json('config.json')
     langs = config['LprConfig']['langs']
-    print(langs)
     allow_list = ""
     for lang in langs:
         allow_list += config['LprConfig']['allowlists'][lang]
-    print(allow_list)
     if lang == 'ar' or 'en':
         lps_list = []
         for idx, img in enumerate(os.listdir(f'imgs/{lang}_lp')):

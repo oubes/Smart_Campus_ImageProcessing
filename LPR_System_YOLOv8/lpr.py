@@ -6,7 +6,6 @@ import numpy as np
 from vars import read_json
 import matplotlib.pyplot as plt
 import scipy.ndimage
-from multiprocessing import Pool
 
 
 class LPR:
@@ -27,11 +26,11 @@ class LPR:
         self.img = img
         self.lang = config['LprConfig']['lang']
         self.vehicles = config['LprConfig']['allowVehicles']
-        self.allow_list = config['LprConfig']['allowLists'][self.lang[0]]
+        self.allow_list = config['LprConfig']['allowLists'][self.lang]
         self.upsample = config['LprConfig']['enhance']['upsample']
         
         if str(self.lang) not in LPR.readers:
-            LPR.readers[str(self.lang)] = easyocr.Reader(self.lang, verbose=False)
+            LPR.readers[str(self.lang)] = easyocr.Reader([self.lang], verbose=False)
         self.reader = LPR.readers[str(self.lang)]
     
     def read_img(self) -> np.ndarray:
@@ -228,40 +227,27 @@ class LPR:
         lps_recognized = self.compare(lps_clean, lps_dB)
         return lps_recognized
 
-
-
 # Start Testing Area
-def process_img(img):
-    """Run the LPR system on a single image.
-
-    Parameters:
-    img (str): The image to process.
-    """
-    config = read_json('config.json')
-    lang = config['LprConfig']['lang']
-    
-    if 'ar' in lang or 'en' in lang:
-        print(f'Processing Image: {img}')
-        
-        lpr_model = LPR(
-            img=f'imgs/{lang[0]}_lp/{img}',
-            config=config
-        )
-        
-        return lpr_model.run()
-
 def dft(lang):
     """Run the LPR system on a list of images for a given language.
 
     Parameters:
     lang (str): The language to use for OCR.
     """
-    config = read_json('config.json')
-    lang = config['LprConfig']['lang']
     
-    if 'ar' in lang or 'en' in lang:
-        with Pool(10) as p:
-            lps_list = p.map(process_img, os.listdir(f'imgs/{lang[0]}_lp'))
+    
+    
+    if lang in ['ar', 'en']:
+        lps_list = []
+        for idx, img in enumerate(os.listdir(f'imgs/{lang}_lp')):
+            print(f'Img number {idx+1}, Name: {img}')
+            
+            lpr_model = LPR(
+                img=f'imgs/{lang}_lp/{img}',
+                config=config
+            )
+            
+            lps_list.append(lpr_model.run())
         flattened_list = [item for sublist in lps_list for item in sublist]
         print(flattened_list)
     else:
@@ -269,6 +255,8 @@ def dft(lang):
 # End Testing Area
 
 if __name__ == "__main__":
-    dft('en')
+    config = read_json('config.json')
+    lang = config['LprConfig']['lang']
+    dft(lang)
 
 

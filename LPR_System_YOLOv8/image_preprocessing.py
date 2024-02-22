@@ -43,10 +43,7 @@ def crop_imgs(imgs: list, boxes: list, style: str ='xyxy') -> list:
     Returns:
     cropped_imgs (list): The list of cropped image arrays.
     """
-    cropped_imgs = []
-    for img, box in zip(imgs, boxes):
-        cropped_imgs.append(_crop_img(img=img, box=box, style=style))
-    return cropped_imgs
+    return [_crop_img(img=img, box=box, style=style) for img, box in zip(imgs, boxes)]
 
 def lp_alignment(lps_img: np.ndarray) -> np.ndarray:
     """

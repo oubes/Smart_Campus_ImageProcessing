@@ -1,6 +1,3 @@
-import os
-import numpy as np
-import matplotlib.pyplot as plt
 import detection, recognition, image_preprocessing, output_dataAnalysis
 
 from vars import read_json
@@ -47,7 +44,9 @@ def dft(lang):
     Parameters:
     lang (str): The language to use for OCR.
     """
-
+    import os
+    import numpy as np
+    
     if np.isin(lang, ['en', 'ar']):
         lps_list = []
         for idx, img in enumerate(os.listdir(f'imgs/{lang}_lp')):

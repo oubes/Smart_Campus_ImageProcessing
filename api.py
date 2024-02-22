@@ -1,12 +1,13 @@
 import requests
 import json
+import os
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
+from typing import List, Union
 from vars import config
 from tasks import Recognize
-import os
 from dotenv import load_dotenv
 
 host_config = config
@@ -62,25 +63,25 @@ headers = {
     'Content-Type': 'application/json'
 }
 base_url = os.environ.get("BASE_URL")
-response = requests.request("POST", base_url + "api/users/login", headers=headers, data=payload)
-accessToken = response.json()["accessToken"]
+#response = requests.request("POST", base_url + "api/users/login", headers=headers, data=payload)
+#accessToken = response.json()["accessToken"]
 
 
 # add authorization token to the header
-headers = {
-    'Content-Type': 'application/json',
-    'Authorization': f'Bearer {accessToken}'
-}
+#headers = {
+#    'Content-Type': 'application/json',
+#    'Authorization': f'Bearer {accessToken}'
+#}
 apiToken = "abcd"
 
 body = json.dumps({
     "token": apiToken
 })
-response = requests.request("POST", base_url + "api/controllers/recognizer-token", headers=headers, data=body)
-if not response.ok:
-    print(response.text)
-    print("Error in getting token")
-    exit(1)
+#response = requests.request("POST", base_url + "api/controllers/recognizer-token", headers=headers, data=body)
+#if not response.ok:
+#    print(response.text)
+#    print("Error in getting token")
+#    exit(1)
 
 
 def json(code, res):
@@ -122,18 +123,72 @@ def detect(config: Config, token: str | None = None):
             }
         )
 
-    print(config)
-    return json(
-        200,
-        []
-    )
+    res = Recognize(detector_name = config.detector, recognizer_name = config.recognizer, img_url = config.img)
+    return res
 
-    for (i, def_detector) in enumerate(detectors):
-        if def_detector != config.detector:
-            continue
-        res = Recognize(detector_name = config.detector, recognizer_name = config.recognizer)
-        return res
+    #for (i, def_detector) in enumerate(detectors):
+    #    if def_detector != config.detector:
+    #        continue
+    #    res = Recognize(detector_name = config.detector, recognizer_name = config.recognizer, img_url = config.img)
+    #    return res
 
+class EncodingConfig(BaseModel):
+    imgs: list
+    detector: str
+    recognizer: str
+
+    ############
+    # DLIB
+    dlib_threshold: float = host_config["RecognizerConfig"]["DLIB"]["threshold"]
+    dlib_resample: int = host_config["RecognizerConfig"]["DLIB"]["resample"]
+    dlib_model: str = host_config["RecognizerConfig"]["DLIB"]["encodingModel"]
+    dlib_encoding_update: int = host_config["RecognizerConfig"]["DLIB"]["encodingUpdate"]
+
+
+class NestedArray(BaseModel):
+    array: List[List[Union[float, List[float]]]]
+    
+
+@app.post("/encoding")
+def encoding(encodingConfig: EncodingConfig):
+    
+    from Recognizers import DLIB
+    import numpy as np
+    host_config["RecognizerConfig"]["DLIB"]["threshold"] = encodingConfig.dlib_threshold
+    host_config["RecognizerConfig"]["DLIB"]["resample"] = encodingConfig.dlib_resample
+    host_config["RecognizerConfig"]["DLIB"]["encodingModel"] = encodingConfig.dlib_model
+    host_config["RecognizerConfig"]["DLIB"]["encodingUpdate"] = encodingConfig.dlib_encoding_update
+
+    recognizers = {'DLIB': (DLIB.fr_dlib_model, host_config["RecognizerConfig"]["DLIB"])}
+    if encodingConfig.recognizer not in recognizers:
+        return json(
+            404,
+            {
+                "error": "NOT_FOUND",
+                "message": f"Couldn't find recognition model '{encodingConfig.recognizer}'"
+            }
+        )
+
+    model_class, recognizerConfig = recognizers[encodingConfig.recognizer]
+    encoded_imgs = []
+
+    from tasks import Detect
+    for img in encodingConfig.imgs:
+        face_locations, _, _ = Detect(encodingConfig.detector, img)
+        image = requests.get(img)
+        with open("./tmp/image.jpg", "wb") as file:
+            file.write(image.content)
+        
+        encoded_img, _ = model_class(detector_name = encodingConfig.detector, recognizer_config = host_config["RecognizerConfig"]["DLIB"], img_url = img)._img_encoding("./tmp/image.jpg", face_locations)
+        #encoded_imgs.append(encoded_img)
+        encoded_imgs.append(encoded_img)
+        os.remove("./tmp/image.jpg")
+    
+    response = NestedArray(array = encoded_imgs)
+    
+    print(isinstance(encoded_imgs, np.ndarray))
+    print(isinstance(response.array, np.ndarray))
+    return response
 
 # TODO
 # Connect to server

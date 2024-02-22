@@ -80,12 +80,17 @@ class logger:
         message = '\n############################################\n'
         logging.info(message)
 
+import requests
 class url_img:
     def __init__(self, url: str, img_name: str):
         self.url = url
         self.img_name = img_name
     def download(self):
         downloaded_img_name = f'{self.img_name}.jpg'
-        urllib.request.urlretrieve(self.url, downloaded_img_name)
+        response = requests.get(self.url)
+        with open(downloaded_img_name, 'wb') as f:
+            f.write(response.content)
         return downloaded_img_name
+#        urllib.request.urlretrieve(self.url, downloaded_img_name)
+#        return downloaded_img_name
 

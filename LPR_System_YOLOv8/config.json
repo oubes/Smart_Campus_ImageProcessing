@@ -1,7 +1,7 @@
 {
     "LprConfig": {
         "lang": [
-            "ar"
+            "en"
         ],
         "allowLists": {
             "en": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ -",

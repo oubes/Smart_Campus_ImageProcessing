@@ -7,6 +7,7 @@ from vars import read_json
 import matplotlib.pyplot as plt
 import scipy.ndimage
 
+
 class LPR:
     """A class for license plate recognition using YOLO and easyocr."""
     
@@ -15,16 +16,11 @@ class LPR:
     readers = {}
 
     def __init__(self, img:str, config: dict):
-        """Initialize the LPR class with the image, language, and allowed characters.
+        """Initialize the LPR class with the image, language, allowVehicles, and allowed characters.
 
         Parameters:
         img (str): The path to the image file.
-        allow_list (list): The list of allowed characters for OCR.
-        reader (easyocr.Reader): The OCR reader object.
-        coco_model (YOLO): The YOLO model for car detection.
-        lpd_model (YOLO): The YOLO model for license plate detection.
-        allow_vehicles (list): The allowd types of vehicles for detection
-        config (dict):
+        config (dict): Contains all the required config for license plate detection
 
         """
         self.img = img
@@ -163,7 +159,7 @@ class LPR:
         """
         Aligns the license plate images for better recognition by the easyocr reader.
 
-        Args:
+        Parameters:
             lps_img (np.ndarray): An array of license plate images.
 
         Returns:
@@ -191,7 +187,7 @@ class LPR:
                 # plt.show()
         return lps_imgs_enhanced
     
-    def process_and_structure(self, license_plate_data):
+    def process_and_structure(self, license_plate_data) -> list:
         """Process and structure the output for license plate data.
 
         Parameters:
@@ -202,7 +198,7 @@ class LPR:
         """
         return license_plate_data
     
-    def compare(self, lps, lps_dB):
+    def compare(self, lps, lps_dB) -> list:
         
         """compare license plates text with the allowed ones in the database.
 

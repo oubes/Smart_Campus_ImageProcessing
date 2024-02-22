@@ -90,12 +90,6 @@ def json(code, res):
         content=jsonable_encoder(res)
         )
 
-@app.get("/")
-def index():
-    return "Hello World!"
-
-
-
 @app.post("/detect")
 def detect(config: Config, token: str | None = None):
     if token != apiToken:
@@ -126,11 +120,6 @@ def detect(config: Config, token: str | None = None):
     res = Recognize(detector_name = config.detector, recognizer_name = config.recognizer, img_url = config.img)
     return res
 
-    #for (i, def_detector) in enumerate(detectors):
-    #    if def_detector != config.detector:
-    #        continue
-    #    res = Recognize(detector_name = config.detector, recognizer_name = config.recognizer, img_url = config.img)
-    #    return res
 
 class EncodingConfig(BaseModel):
     imgs: list
@@ -153,7 +142,6 @@ class NestedArray(BaseModel):
 def encoding(encodingConfig: EncodingConfig):
     
     from Recognizers import DLIB
-    import numpy as np
     host_config["RecognizerConfig"]["DLIB"]["threshold"] = encodingConfig.dlib_threshold
     host_config["RecognizerConfig"]["DLIB"]["resample"] = encodingConfig.dlib_resample
     host_config["RecognizerConfig"]["DLIB"]["encodingModel"] = encodingConfig.dlib_model
@@ -186,11 +174,9 @@ def encoding(encodingConfig: EncodingConfig):
     
     response = NestedArray(array = encoded_imgs)
     
-    print(isinstance(encoded_imgs, np.ndarray))
-    print(isinstance(response.array, np.ndarray))
     return response
 
-# TODO
+# Todo
 # Connect to server
 # Connect to database
 # Change code accordingly

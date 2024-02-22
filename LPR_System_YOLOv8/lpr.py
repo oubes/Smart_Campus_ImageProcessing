@@ -14,27 +14,25 @@ class LPR:
     lpd_model = YOLO('pretrained_models/license_plate_detector.pt')
     readers = {}
 
-    def __init__(self, img:str, lang: list, allow_list: list, allow_vehicles: list, config: dict):
+    def __init__(self, img:str, config: dict):
         """Initialize the LPR class with the image, language, and allowed characters.
 
         Parameters:
-        img (str): The path to the image file.
-        lang (list): The list of languages to use for OCR.
-        allow_list (list): The list of allowed characters for OCR.
-
-        Attributes:
         img (str): The path to the image file.
         allow_list (list): The list of allowed characters for OCR.
         reader (easyocr.Reader): The OCR reader object.
         coco_model (YOLO): The YOLO model for car detection.
         lpd_model (YOLO): The YOLO model for license plate detection.
         allow_vehicles (list): The allowd types of vehicles for detection
+        config (dict):
+
         """
         self.img = img
-        self.lang = lang
-        self.vehicles = allow_vehicles
-        self.allow_list = allow_list
-        self.config = config
+        self.lang = config['LprConfig']['lang']
+        self.vehicles = config['LprConfig']['allowVehicles']
+        self.allow_list = config['LprConfig']['allowLists'][self.lang[0]]
+        self.upsample = config['LprConfig']['enhance']['upsample']
+        
         if str(self.lang) not in LPR.readers:
             LPR.readers[str(self.lang)] = easyocr.Reader(self.lang, verbose=False)
         self.reader = LPR.readers[str(self.lang)]
@@ -182,16 +180,15 @@ class LPR:
         Returns:
         lps_imgs_enhanced (list): The list of license plate numbers.
         """
-        upsample = self.config['LprConfig']['enhance']['upsample']
         lps_imgs_enhanced = []
         for img in lps_imgs:
             if img is not None:
                 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-                img_upscale = scipy.ndimage.zoom(gray_img, upsample, order=3)
+                img_upscale = scipy.ndimage.zoom(gray_img, self.upsample, order=3)
                 img_alignment = self.lp_alignment(img_upscale)
                 lps_imgs_enhanced.append(img_alignment)
-            # plt.imshow(cv2.cvtColor(img_alignment, cv2.COLOR_BGR2RGB))
-            # plt.show()
+                # plt.imshow(cv2.cvtColor(img_alignment, cv2.COLOR_BGR2RGB))
+                # plt.show()
         return lps_imgs_enhanced
     
     def process_and_structure(self, license_plate_data):
@@ -243,20 +240,15 @@ def dft(lang):
     lang (str): The language to use for OCR.
     """
     config = read_json('config.json')
-    langs = config['LprConfig']['langs']
-    allow_list = ""
-    for lang in langs:
-        allow_list += config['LprConfig']['allowLists'][lang]
-    if 'ar' in langs or 'en' in langs:
+    lang = config['LprConfig']['lang']
+    
+    if 'ar' in lang or 'en' in lang:
         lps_list = []
-        for idx, img in enumerate(os.listdir(f'imgs/{langs[0]}_lp')):
+        for idx, img in enumerate(os.listdir(f'imgs/{lang[0]}_lp')):
             print(f'Img number {idx+1}, Name: {img}')
             
             lpr_model = LPR(
-                img=f'imgs/{langs[0]}_lp/{img}',
-                lang=langs,
-                allow_list=allow_list,
-                allow_vehicles=config['LprConfig']['allowVehicles'],
+                img=f'imgs/{lang[0]}_lp/{img}',
                 config=config
             )
             

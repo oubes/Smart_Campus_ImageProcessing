@@ -6,6 +6,7 @@ import numpy as np
 from vars import read_json
 import matplotlib.pyplot as plt
 import scipy.ndimage
+from multiprocessing import Pool
 
 
 class LPR:
@@ -61,7 +62,7 @@ class LPR:
                 return crop_img
         
         except IndexError:
-            print('Cropping Failed due to empty bounding box')
+            raise ValueError('Cropping Failed due to empty bounding box')
     
     def crop_imgs(self, imgs: list, boxes: list, style: str ='xyxy') -> list:
         """Crop multiple images from multiple images according to the bounding boxes.
@@ -132,17 +133,16 @@ class LPR:
         Returns:
         lp_text (np.ndarray): The license plate number.
         """
-        try:
-            if lp_img is not None:
-                lp_img = np.array(lp_img)
-                result = self.reader.readtext(lp_img, allowlist=self.allow_list)
-                text = [res[1] for res in result]
-                conf = np.array([res[2] for res in result])
-                lp_text = "".join(text)
-                print(f'LP Text: {lp_text}, confidence: {conf}')
-                return lp_text
-        except UnboundLocalError:
-            pass
+
+        if lp_img is not None:
+            lp_img = np.array(lp_img)
+            result = self.reader.readtext(lp_img, allowlist=self.allow_list)
+            text = [res[1] for res in result]
+            conf = np.array([res[2] for res in result])
+            lp_text = "".join(text)
+            print(f'LP Text: {lp_text}, confidence: {conf}')
+            return lp_text
+
             
     def recognize_lps(self, lp_imgs: list) -> list:
         """Recognize the license plate numbers in the images using the easyocr reader.
@@ -228,7 +228,28 @@ class LPR:
         lps_recognized = self.compare(lps_clean, lps_dB)
         return lps_recognized
 
+
+
 # Start Testing Area
+def process_img(img):
+    """Run the LPR system on a single image.
+
+    Parameters:
+    img (str): The image to process.
+    """
+    config = read_json('config.json')
+    lang = config['LprConfig']['lang']
+    
+    if 'ar' in lang or 'en' in lang:
+        print(f'Processing Image: {img}')
+        
+        lpr_model = LPR(
+            img=f'imgs/{lang[0]}_lp/{img}',
+            config=config
+        )
+        
+        return lpr_model.run()
+
 def dft(lang):
     """Run the LPR system on a list of images for a given language.
 
@@ -239,16 +260,8 @@ def dft(lang):
     lang = config['LprConfig']['lang']
     
     if 'ar' in lang or 'en' in lang:
-        lps_list = []
-        for idx, img in enumerate(os.listdir(f'imgs/{lang[0]}_lp')):
-            print(f'Img number {idx+1}, Name: {img}')
-            
-            lpr_model = LPR(
-                img=f'imgs/{lang[0]}_lp/{img}',
-                config=config
-            )
-            
-            lps_list.append(lpr_model.run())
+        with Pool(10) as p:
+            lps_list = p.map(process_img, os.listdir(f'imgs/{lang[0]}_lp'))
         flattened_list = [item for sublist in lps_list for item in sublist]
         print(flattened_list)
     else:
@@ -256,7 +269,6 @@ def dft(lang):
 # End Testing Area
 
 if __name__ == "__main__":
-    
     dft('en')
 
 

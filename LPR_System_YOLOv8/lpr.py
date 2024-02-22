@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-import detection, recognition, image_processing, output_dataAnalysis
+import detection, recognition, image_preprocessing, output_dataAnalysis
 
 from vars import read_json
 
@@ -29,12 +29,12 @@ class LPR:
         lps (list): The list of license plate numbers.
         """
         lps_dB = None
-        rgb_img = image_processing.read_img(self.img)
+        rgb_img = image_preprocessing.read_img(self.img)
         car_boxes = detection.detect_cars(rgb_img, self.vehicles)
-        cropped_cars = image_processing.crop_imgs([rgb_img]*len(car_boxes), car_boxes)
+        cropped_cars = image_preprocessing.crop_imgs([rgb_img]*len(car_boxes), car_boxes)
         lps_box = detection.detect_lps(cropped_cars)
-        cropped_lps = image_processing.crop_imgs(cropped_cars, lps_box)
-        enhanced_lps = image_processing.enhance(cropped_lps, self.upsample)
+        cropped_lps = image_preprocessing.crop_imgs(cropped_cars, lps_box)
+        enhanced_lps = image_preprocessing.enhance(cropped_lps, self.upsample)
         lps = recognition.recognize_lps(enhanced_lps, self.allow_list)
         lps_clean = output_dataAnalysis.process_and_structure(lps)
         lps_recognized = output_dataAnalysis.compare(lps_clean, lps_dB)

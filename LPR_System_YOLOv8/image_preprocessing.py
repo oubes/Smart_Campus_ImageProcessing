@@ -48,8 +48,6 @@ def crop_imgs(imgs: list, boxes: list, style: str ='xyxy') -> list:
         cropped_imgs.append(_crop_img(img=img, box=box, style=style))
     return cropped_imgs
 
-
-
 def lp_alignment(lps_img: np.ndarray) -> np.ndarray:
     """
     Aligns the license plate images for better recognition by the easyocr reader.

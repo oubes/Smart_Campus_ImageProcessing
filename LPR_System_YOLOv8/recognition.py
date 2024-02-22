@@ -22,7 +22,6 @@ def _recognize_lp(lp_img: list, allow_list: str) -> np.ndarray:
         lp_text = "".join(text)
         print(f'LP Text: {lp_text}')
         return lp_text
-
         
 def recognize_lps(lp_imgs: list, allow_list: str) -> list:
     """Recognize the license plate numbers in the images using the easyocr reader.

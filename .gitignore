@@ -1,6 +1,9 @@
 # Ignore the output generated from running the code
 output/
 tmp/
+
+# Ignore the data generated from running the code
+dataset/
 Augmented_imgs/
 
 # Ignore chached file from python
@@ -11,5 +14,8 @@ __pycache__/
 Detectors/__pycache__/
 Recognizers/__pycache__/
 
+# Ignore the log files
 *.log
+
+# Ignore the environment file
 *.env

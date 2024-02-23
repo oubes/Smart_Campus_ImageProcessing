@@ -60,16 +60,16 @@ payload = json.dumps({
     "password": os.environ.get("PASSWORD")
 })
 headers = {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json_res'
 }
 base_url = os.environ.get("BASE_URL")
 #response = requests.request("POST", base_url + "api/users/login", headers=headers, data=payload)
-#accessToken = response.json()["accessToken"]
+#accessToken = response.json_res()["accessToken"]
 
 
 # add authorization token to the header
 #headers = {
-#    'Content-Type': 'application/json',
+#    'Content-Type': 'application/json_res',
 #    'Authorization': f'Bearer {accessToken}'
 #}
 apiToken = "abcd"
@@ -84,7 +84,7 @@ body = json.dumps({
 #    exit(1)
 
 
-def json(code, res):
+def json_res(code, res):
     return JSONResponse(
         status_code=code,
         content=jsonable_encoder(res)
@@ -93,7 +93,7 @@ def json(code, res):
 @app.post("/detect")
 def detect(config: Config, token: str | None = None):
     if token != apiToken:
-        return json(
+        return json_res(
             401,
             {
                 "error": "UNAUTHORIZED",
@@ -101,7 +101,7 @@ def detect(config: Config, token: str | None = None):
             }
         )
     if config.detector not in detectors:
-        return json(
+        return json_res(
             404,
             {
                 "error": "NOT_FOUND",
@@ -109,7 +109,7 @@ def detect(config: Config, token: str | None = None):
             }
         )
     if config.recognizer not in recognizers:
-        return json(
+        return json_res(
             404,
             {
                 "error": "NOT_FOUND",
@@ -134,13 +134,34 @@ class EncodingConfig(BaseModel):
     dlib_encoding_update: int = host_config["RecognizerConfig"]["DLIB"]["encodingUpdate"]
 
 
-class NestedArray(BaseModel):
-    array: List[List[Union[float, List[float]]]]
-    
 
 @app.post("/encoding")
-def encoding(encodingConfig: EncodingConfig):
-    
+def encoding(encodingConfig: EncodingConfig, token: str | None = None):
+    if token != apiToken:
+        return json_res(
+            401,
+            {
+                "error": "UNAUTHORIZED",
+                "message": "Invalid token"
+            }
+        )
+    if encodingConfig.detector not in detectors:
+        return json_res(
+            404,
+            {
+                "error": "NOT_FOUND",
+                "message": f"Couldn't find detection model '{encodingConfig.detector}'"
+            }
+        )
+    if encodingConfig.recognizer not in ["DLIB"]:
+        return json_res(
+            404,
+            {
+                "error": "NOT_FOUND",
+                "message": f"Couldn't find recognition model '{encodingConfig.recognizer}'"
+            }
+        )
+
     from Recognizers import DLIB
     host_config["RecognizerConfig"]["DLIB"]["threshold"] = encodingConfig.dlib_threshold
     host_config["RecognizerConfig"]["DLIB"]["resample"] = encodingConfig.dlib_resample
@@ -149,7 +170,7 @@ def encoding(encodingConfig: EncodingConfig):
 
     recognizers = {'DLIB': (DLIB.fr_dlib_model, host_config["RecognizerConfig"]["DLIB"])}
     if encodingConfig.recognizer not in recognizers:
-        return json(
+        return json_res(
             404,
             {
                 "error": "NOT_FOUND",
@@ -158,22 +179,34 @@ def encoding(encodingConfig: EncodingConfig):
         )
 
     model_class, recognizerConfig = recognizers[encodingConfig.recognizer]
-    encoded_imgs = []
 
     from tasks import Detect
-    for img in encodingConfig.imgs:
-        face_locations, _, _ = Detect(encodingConfig.detector, img)
-        image = requests.get(img)
+    import numpy as np
+
+    encodedJSON = {"encoded_images": {}, "config": {}, "person_name": ""}
+    for person in encodingConfig.imgs:
+        face_locations, _, _ = Detect(encodingConfig.detector, person)
+        image = requests.get(person)
         with open("./tmp/image.jpg", "wb") as file:
             file.write(image.content)
         
-        encoded_img, _ = model_class(detector_name = encodingConfig.detector, recognizer_config = host_config["RecognizerConfig"]["DLIB"], img_url = img)._img_encoding("./tmp/image.jpg", face_locations)
-        #encoded_imgs.append(encoded_img)
-        encoded_imgs.append(encoded_img)
+        encoded_img = model_class.encoder(model_class, "./tmp/image.jpg", face_locations, recognizerConfig["resample"], recognizerConfig["encodingModel"])
+        encodedJSON["encoded_images"][person] = list(encoded_img[0].tolist())
+        encodedJSON["config"] = host_config["RecognizerConfig"]["DLIB"]
+        encodedJSON["person_name"] = person
         os.remove("./tmp/image.jpg")
     
-    response = NestedArray(array = encoded_imgs)
+    class NumpyEncoder(json.JSONEncoder):
+        def default(self, obj):
+            if isinstance(obj, np.ndarray):
+                return obj.tolist()
+            return json.JSONEncoder.default(self, obj)
     
+    print(encodedJSON)
+    response = jsonable_encoder(encodedJSON)
+    with open("./dataset/labeled/tmp/cropped_img/tmp_encoded.json", "w") as file:
+        json.dump(response, file, cls=NumpyEncoder)
+
     return response
 
 # Todo

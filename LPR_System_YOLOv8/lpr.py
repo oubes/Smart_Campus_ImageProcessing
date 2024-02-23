@@ -19,7 +19,7 @@ class LPR:
         self.allow_list = config['LprConfig']['allowLists'][self.lang]
         self.upsample = config['LprConfig']['enhance']['upsample']
 
-    def run(self) -> list:
+    def run(self, test_mode: bool = False) -> list:
         """Run the LPR system on the image and return the license plate numbers.
 
         Returns:
@@ -31,7 +31,7 @@ class LPR:
         cropped_cars = image_preprocessing.crop_imgs([rgb_img]*len(car_boxes), car_boxes)
         lps_box = detection.detect_lps(cropped_cars)
         cropped_lps = image_preprocessing.crop_imgs(cropped_cars, lps_box)
-        enhanced_lps = image_preprocessing.enhance(cropped_lps, self.upsample)
+        enhanced_lps = image_preprocessing.preprocessing(cropped_lps, self.upsample, test_mode)
         lps = recognition.recognize_lps(enhanced_lps, self.allow_list)
         lps_clean = output_dataAnalysis.process_and_structure(lps)
         lps_recognized = output_dataAnalysis.compare(lps_clean, lps_dB)
@@ -57,7 +57,7 @@ def dft(lang):
                 config=config
             )
             
-            lps_list.append(lpr_model.run())
+            lps_list.append(lpr_model.run(test_mode=1))
         flattened_list = [item for sublist in lps_list for item in sublist]
         print(flattened_list)
     else:

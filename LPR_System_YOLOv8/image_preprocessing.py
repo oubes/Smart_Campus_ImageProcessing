@@ -46,7 +46,12 @@ def crop_imgs(imgs: list, boxes: list, style: str ='xyxy') -> list:
     """
     return [_crop_img(img=img, box=box, style=style) for img, box in zip(imgs, boxes)]
 
-def lp_alignment(lps_img: np.ndarray, test_mode: bool) -> np.ndarray:
+def quality_enhancement(img: np.ndarray, upsample: int):
+    img_denoise = cv2.fastNlMeansDenoising(img) 
+    img_upscale = scipy.ndimage.zoom(img_denoise, upsample, order=5)
+    return img_upscale
+
+def lp_alignment(lps_img: np.ndarray) -> np.ndarray:
     """
     Aligns the license plate images for better recognition by the easyocr reader.
 
@@ -57,17 +62,12 @@ def lp_alignment(lps_img: np.ndarray, test_mode: bool) -> np.ndarray:
         np.ndarray: An array of aligned license plate numbers.
     """
     edge_detection = cv2.Canny(lps_img, 0, 200)
-    if test_mode:
-        plt.imshow(edge_detection, cmap='gray')
-        plt.title('Edge Detection')
-        plt.show()
 
     contours, _ = cv2.findContours(edge_detection.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     lp_contour = None 
     lp_area = 0
 
     total_area = lps_img.shape[0] * lps_img.shape[1]
-    print("total_area:", total_area)
 
     for contour in contours:
         epsilon = 0.01 * cv2.arcLength(contour, True)
@@ -82,8 +82,6 @@ def lp_alignment(lps_img: np.ndarray, test_mode: bool) -> np.ndarray:
 
             if area > lp_area and area >= total_area * 0.3:
                 lp_area = area
-                print("lp_area:", lp_area)
-                print(f"ratio = , {(lp_area/total_area) * 100} %")
                 lp_contour = approx
 
     if lp_contour is not None:
@@ -100,11 +98,6 @@ def lp_alignment(lps_img: np.ndarray, test_mode: bool) -> np.ndarray:
         M = cv2.getRotationMatrix2D(center, angle, 1.0)
         rotated = cv2.warpAffine(lps_img, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
 
-        if test_mode:
-            plt.imshow(cv2.cvtColor(rotated, cv2.COLOR_BGR2RGB))
-            plt.title('Rotated Image')
-            plt.show()
-
     return rotated
     
 def preprocessing(lps_imgs: list, upsample, test_mode: bool) -> list:
@@ -120,9 +113,8 @@ def preprocessing(lps_imgs: list, upsample, test_mode: bool) -> list:
     for img in lps_imgs:
         if img is not None:
             gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            img_denoise = cv2.fastNlMeansDenoising(gray_img) 
-            img_upscale = scipy.ndimage.zoom(img_denoise, upsample, order=5)
-            img_alignment = lp_alignment(img_upscale, test_mode)
+            img_enhanced = quality_enhancement(gray_img, upsample)
+            img_alignment = lp_alignment(img_enhanced)
             img_binary = cv2.adaptiveThreshold(img_alignment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 101, 0.5) 
             kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (6, 6)) 
             img_morph = cv2.morphologyEx(img_binary, cv2.MORPH_CLOSE, kernel) 
@@ -130,8 +122,8 @@ def preprocessing(lps_imgs: list, upsample, test_mode: bool) -> list:
             
             # Start Testing
             if test_mode:
-                img_vars = [gray_img, img_denoise, img_upscale, img_alignment, img_binary, img_morph]
-                img_title = ['Original image', 'Denoised image', 'Upsampled image', 'Aligned image', 'Binarized image', 'Morphological image']
+                img_vars = [gray_img, img_enhanced, img_alignment, img_binary, img_morph]
+                img_title = ['Original image', 'Upsampled image', 'Aligned image', 'Binarized image', 'Morphological image']
                 img_pos = range(231, 232+len(img_vars))
                 plt.figure(figsize=(15, 7))
                 for pos, var, title in zip(img_pos, img_vars, img_title):

@@ -25,7 +25,6 @@ class LPR:
         Returns:
         lps (list): The list of license plate numbers.
         """
-        lps_dB = None
         rgb_img = image_preprocessing.read_img(self.img)
         car_boxes = detection.detect_cars(rgb_img, self.vehicles)
         cropped_cars = image_preprocessing.crop_imgs([rgb_img]*len(car_boxes), car_boxes)
@@ -34,8 +33,7 @@ class LPR:
         enhanced_lps = image_preprocessing.preprocessing(cropped_lps, self.enhance, test_mode)
         lps = recognition.recognize_lps(enhanced_lps, self.allow_list)
         lps_clean = output_dataAnalysis.process_and_structure(lps)
-        lps_recognized = output_dataAnalysis.compare(lps_clean, lps_dB)
-        return lps_recognized
+        return lps_clean
         
 # Start Testing Area
 def dft(lang):
@@ -57,7 +55,7 @@ def dft(lang):
                 config=config
             )
             
-            lps_list.append(lpr_model.run(test_mode=1))
+            lps_list.append(lpr_model.run(test_mode=config['LprConfig']['testMode']))
         flattened_list = [item for sublist in lps_list for item in sublist]
         print(flattened_list)
     else:

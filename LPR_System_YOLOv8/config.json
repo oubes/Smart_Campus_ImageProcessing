@@ -3,7 +3,7 @@
         "lang": "ar",
         "allowLists": {
             "en": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ -",
-            "ar": "أبجدةهوزحطيكلمنسعفصقرشتثخذضظغ٠١٢٣٤٥٦٧٨٩ -"
+            "ar": "أبجدةهوزحطيكلمنسعفصقرشتثخذضظغ٠١٢٣٤٥٦٧٨٩ -egypt"
         },
         "vehiclesList": {
             "1": "bicycle",
@@ -14,10 +14,13 @@
         "allowVehicles": [
             1, 2, 3, 5
         ],
+        "testMode": 1,
         "enhance": {
-            "upsample": 4,
+            "EN": 1,
+            "upsample": 6,
             "CONTOUR_AREA_RATIO_THRESHOLD": 0.35,
-            "MORPH_KERNEL_SIZE": 3
+            "MORPH_KERNEL_SIZE": 2,
+            "Max_Rotation_Angle": 20
         }
     }
 }

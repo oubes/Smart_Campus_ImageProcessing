@@ -12,25 +12,84 @@ def read_img(img) -> np.ndarray:
     rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
     return rgb_img
 
-def _crop_img(img: np.ndarray, box: list, style='xyxy') -> np.ndarray:
-    """Crop the image according to the bounding box.
+def rotate_image(image: np.ndarray, angle: float) -> np.ndarray:
+    """Rotate an image by a given angle.
 
     Parameters:
-    img (np.ndarray): The image array to crop.
-    box (list): The coordinates of the bounding box.
-    style (str): The style of the bounding box, either 'xyxy' or 'xywh'.
+    image (np.ndarray): The input image.
+    angle (float): The angle by which to rotate the image in degrees.
 
     Returns:
-    crop_img (np.ndarray): The cropped image array.
+    np.ndarray: The rotated image.
+    """
+    (h, w) = image.shape[:2]
+    center = (w // 2, h // 2)
+    M = cv2.getRotationMatrix2D(center, angle, 1.0)
+    rotated = cv2.warpAffine(image, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
+    return rotated
+
+def _crop_img(img: np.ndarray, box: list, style='xyxy') -> np.ndarray:
+    """Crop an image to a specified bounding box.
+
+    Parameters:
+    img (np.ndarray): The input image.
+    box (list): The bounding box to which to crop the image.
+    style (str, optional): The style of the bounding box. Defaults to 'xyxy'.
+
+    Returns:
+    np.ndarray: The cropped image.
     """
     try:
         if (style == 'xyxy') & (box is not None):
             x_min, y_min, x_max, y_max = map(int, box)
             crop_img = img[y_min:y_max, x_min:x_max]
             return crop_img
-    
     except IndexError:
-        raise ValueError('Cropping Failed due to empty bounding box')
+        raise ValueError('Cropping failed due to incorrect bounding box')
+
+def rotate_lp_image(lps_img: np.ndarray, enhance: dict) -> np.ndarray:
+    """Rotate a license plate image based on its contour.
+
+    Parameters:
+    lps_img (np.ndarray): The license plate image.
+    enhance (dict): A dictionary of enhancement parameters.
+
+    Returns:
+    np.ndarray: The rotated license plate image.
+    """
+    lp_contour = find_lp_contour(lps_img, enhance)
+    if lp_contour is not None:
+        rect = cv2.minAreaRect(lp_contour)
+        if rect[1][0] < rect[1][1]:
+            rect = (rect[0], (rect[1][1], rect[1][0]), rect[2] - 90)
+        box = cv2.boxPoints(rect)
+        box = np.int0(box)
+        print(box)
+        angle = rect[-1]
+        print(angle)
+        if angle < -45:
+            angle = 90 + angle
+        if abs(angle) <= enhance['Max_Rotation_Angle']:
+            rotated = rotate_image(lps_img, angle)
+        else:
+            rotated = lps_img
+        return rotated, True
+    else:
+        return lps_img, False
+
+def quality_enhancement(img: np.ndarray, upsample: int) -> np.ndarray:
+    """Enhance the quality of an image by denoising and upscaling.
+
+    Parameters:
+    img (np.ndarray): The input image.
+    upsample (int): The factor by which to upscale the image.
+
+    Returns:
+    np.ndarray: The enhanced image.
+    """
+    img_denoise = cv2.fastNlMeansDenoising(img) 
+    img_upscale = scipy.ndimage.zoom(img_denoise, upsample, order=5)
+    return img_upscale
 
 def crop_imgs(imgs: list, boxes: list, style: str ='xyxy') -> list:
     """Crop multiple images from multiple images according to the bounding boxes.
@@ -45,20 +104,16 @@ def crop_imgs(imgs: list, boxes: list, style: str ='xyxy') -> list:
     """
     return [_crop_img(img=img, box=box, style=style) for img, box in zip(imgs, boxes)]
 
-def quality_enhancement(img: np.ndarray, upsample: int) -> np.ndarray:
-    img_denoise = cv2.fastNlMeansDenoising(img) 
-    img_upscale = scipy.ndimage.zoom(img_denoise, upsample, order=5)
-    return img_upscale
-
-def lp_alignment(lps_img: np.ndarray, enhance: dict) -> np.ndarray:
+def find_lp_contour(lps_img: np.ndarray, enhance: dict) -> np.ndarray:
     """
-    Aligns the license plate images for better recognition by the easyocr reader.
+    Finds the contour of the license plate image using edge detection and approximation.
 
     Parameters:
         lps_img (np.ndarray): An array of license plate images.
+        enhance (dict): A dictionary of enhancement parameters.
 
     Returns:
-        np.ndarray: An array of aligned license plate numbers.
+        np.ndarray: An array of points that form the license plate contour, or None if no contour is found.
     """
     edge_detection = cv2.Canny(lps_img, 0, 200)
 
@@ -69,8 +124,7 @@ def lp_alignment(lps_img: np.ndarray, enhance: dict) -> np.ndarray:
     total_area = lps_img.shape[0] * lps_img.shape[1]
 
     for contour in contours:
-        epsilon = 0.01 * cv2.arcLength(contour, True)
-        approx = cv2.approxPolyDP(contour, epsilon, True)
+        approx = cv2.approxPolyDP(contour, 0.01 * cv2.arcLength(contour, True), True)
 
         if len(approx) >= 4: 
             if not cv2.isContourConvex(approx):
@@ -82,31 +136,9 @@ def lp_alignment(lps_img: np.ndarray, enhance: dict) -> np.ndarray:
             if area > lp_area and area >= total_area * enhance['CONTOUR_AREA_RATIO_THRESHOLD']:
                 lp_area = area
                 lp_contour = approx
-
-    if lp_contour is not None:
-        rect = cv2.minAreaRect(lp_contour)
-        if rect[1][0] < rect[1][1]:
-            rect = (rect[0], (rect[1][1], rect[1][0]), rect[2] - 90)
-        box = cv2.boxPoints(rect)
-        box = np.int0(box)
-        print(box)
-        angle = rect[-1]
-        print(angle)
-        if angle < -45:
-            angle = 90 + angle
-        # Limit the rotation to 30 degrees
-        if abs(angle) <= 20:
-            (h, w) = lps_img.shape[:2]
-            center = (w // 2, h // 2)
-            M = cv2.getRotationMatrix2D(center, angle, 1.0)
-            rotated = cv2.warpAffine(lps_img, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
-        else:
-            rotated = lps_img
-        return rotated
-    else:
-        return lps_img
     
-    
+    return lp_contour
+   
 def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
     """enhance the license plate images quality for more efficient recognition using the easyocr reader.
 
@@ -119,23 +151,32 @@ def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
     lps_imgs_enhanced = []
     for img in lps_imgs:
         if img is not None:
-            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            img_enhanced = quality_enhancement(gray_img, enhance['upsample'])
-            img_alignment = lp_alignment(img_enhanced, enhance)
-            img_binary = cv2.adaptiveThreshold(img_alignment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 101, 0.5) 
-            kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (enhance['MORPH_KERNEL_SIZE'], enhance['MORPH_KERNEL_SIZE'])) 
-            img_morph = cv2.morphologyEx(img_binary, cv2.MORPH_CLOSE, kernel) 
-            lps_imgs_enhanced.append(img_morph)
-            
-            # Start Testing
-            if test_mode:
-                img_vars = [gray_img, img_enhanced, img_alignment, img_binary, img_morph]
-                img_title = ['Original image', 'Upsampled image', 'Aligned image', 'Binarized image', 'Morphological image']
-                img_pos = range(231, 232+len(img_vars))
-                plt.figure(figsize=(15, 7))
-                for pos, var, title in zip(img_pos, img_vars, img_title):
-                    plt.subplot(pos); plt.imshow(var, cmap='gray'); plt.title(title)
-                plt.show()
-            # End Testing
-            
-    return lps_imgs_enhanced
+            if enhance['EN']:
+                gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                img_enhanced = quality_enhancement(gray_img, enhance['upsample'])
+                img_alignment, aligment_state = rotate_lp_image(img_enhanced, enhance)
+                img_binary = cv2.adaptiveThreshold(img_alignment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 201, 0.5) 
+                kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (enhance['MORPH_KERNEL_SIZE'], enhance['MORPH_KERNEL_SIZE'])) 
+                img_morph = cv2.morphologyEx(img_binary, cv2.MORPH_CLOSE, kernel) 
+                lps_imgs_enhanced.append(img_morph)
+                
+                # Start Testing
+                if test_mode:
+                    img_vars = [gray_img, img_enhanced, img_alignment if aligment_state is True else None, img_binary, img_morph]
+                    img_title = ['gray image', 'Upsampled image', 'Aligned image' if aligment_state is True else None, 'Binarized image', 'Morphological image']
+                    img_pos = range(232, 233+len(img_vars))
+                    plt.figure(figsize=(15, 7))
+                    plt.subplot(231); plt.imshow(img); plt.title('Original image')
+                    for pos, var, title in zip(img_pos, img_vars, img_title):
+                        if var is not None:
+                            plt.subplot(pos); plt.imshow(var, cmap='gray'); plt.title(title)    
+                    plt.show()
+                # End Testing
+                
+                return lps_imgs_enhanced
+            else:
+                for img in lps_imgs:
+                    if img is not None and test_mode:
+                        plt.figure(figsize=(15, 7)); plt.imshow(img); plt.title('Original image'); plt.show()
+                return lps_imgs
+    

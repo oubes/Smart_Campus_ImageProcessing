@@ -105,7 +105,6 @@ I/P: {img: url, data: encodedJSON}
 O/P: [IDs]
 '''
 # Person in encoding -> IDs
-
 @app.post("/detect")
 def detect(config: Config, token: str):
     if token != apiToken:

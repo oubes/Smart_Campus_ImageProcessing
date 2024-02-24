@@ -1,4 +1,4 @@
-import detection, recognition, image_preprocessing, output_dataAnalysis
+import detection, recognition, image_preprocessing, license_plate_processing
 
 from vars import read_json
 
@@ -32,7 +32,7 @@ class LPR:
         cropped_lps = image_preprocessing.crop_imgs(cropped_cars, lps_box)
         enhanced_lps = image_preprocessing.preprocessing(cropped_lps, self.enhance, test_mode)
         lps = recognition.recognize_lps(enhanced_lps, self.allow_list)
-        lps_clean = output_dataAnalysis.process_and_structure(lps)
+        lps_clean = license_plate_processing.process_and_structure(lps)
         return lps_clean
         
 # Start Testing Area

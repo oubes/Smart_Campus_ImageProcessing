@@ -54,22 +54,22 @@ class Config(BaseModel):
 
 app = FastAPI()
 
-load_dotenv()
-payload = json.dumps({
-    "username": os.environ.get("USERNAME"),
-    "password": os.environ.get("PASSWORD")
-})
-headers = {
-    'Content-Type': 'application/json_res'
-}
-base_url = os.environ.get("BASE_URL")
+#load_dotenv()
+#payload = json.dumps({
+#    "username": os.environ.get("USERNAME"),
+#    "password": os.environ.get("PASSWORD")
+#})
+#headers = {
+#    'Content-Type': 'application/json'
+#}
+#base_url = os.environ.get("BASE_URL")
 #response = requests.request("POST", base_url + "api/users/login", headers=headers, data=payload)
-#accessToken = response.json_res()["accessToken"]
+#accessToken = response.json()["accessToken"]
 
 
 # add authorization token to the header
 #headers = {
-#    'Content-Type': 'application/json_res',
+#    'Content-Type': 'application/json',
 #    'Authorization': f'Bearer {accessToken}'
 #}
 apiToken = "abcd"
@@ -87,11 +87,27 @@ body = json.dumps({
 def json_res(code, res):
     return JSONResponse(
         status_code=code,
-        content=jsonable_encoder(res)
-        )
+        content=json_encodable(res)
+    )
+
+@app.post("/config")
+def edit_config(config: Config, token: str):
+    pass
+    # Todo
+    # change config.json
+
+
+
+# Todo
+# Do not take config and only detect
+'''
+I/P: {img: url, data: encodedJSON}
+O/P: [IDs]
+'''
+# Person in encoding -> IDs
 
 @app.post("/detect")
-def detect(config: Config, token: str | None = None):
+def detect(config: Config, token: str):
     if token != apiToken:
         return json_res(
             401,
@@ -125,7 +141,7 @@ class EncodingConfig(BaseModel):
     imgs: list
     detector: str
     recognizer: str
-
+    
     ############
     # DLIB
     dlib_threshold: float = host_config["RecognizerConfig"]["DLIB"]["threshold"]
@@ -181,7 +197,6 @@ def encoding(encodingConfig: EncodingConfig, token: str | None = None):
     model_class, recognizerConfig = recognizers[encodingConfig.recognizer]
 
     from tasks import Detect
-    import numpy as np
 
     encodedJSON = {"encoded_images": {}, "config": {}, "person_name": ""}
     for person in encodingConfig.imgs:
@@ -196,16 +211,8 @@ def encoding(encodingConfig: EncodingConfig, token: str | None = None):
         encodedJSON["person_name"] = person
         os.remove("./tmp/image.jpg")
     
-    class NumpyEncoder(json.JSONEncoder):
-        def default(self, obj):
-            if isinstance(obj, np.ndarray):
-                return obj.tolist()
-            return json.JSONEncoder.default(self, obj)
-    
     print(encodedJSON)
     response = jsonable_encoder(encodedJSON)
-    with open("./dataset/labeled/tmp/cropped_img/tmp_encoded.json", "w") as file:
-        json.dump(response, file, cls=NumpyEncoder)
 
     return response
 

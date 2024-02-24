@@ -30,13 +30,13 @@ def adjust_brightness_contrast(image, brightness_factor, contrast_factor):
     return adjusted_image
 def apply_gaussian_blur(image):
     # Apply Gaussian blur with a random kernel size
-    kernel_size = int(np.random.uniform(config["PerprocessingConfig"]["KERNAL"]["value1"], config["PerprocessingConfig"]["KERNAL"]["value2"])) * 2 + 1  # Ensure odd kernel size
+    kernel_size = int(np.random.uniform(config["PerprocessingConfig"]["KERNAL"]["lowest_gaussian_blur"], config["PerprocessingConfig"]["KERNAL"]["highest_gaussian_blur"])) * 2 + 1  # Ensure odd kernel size
     blurred_image = cv2.GaussianBlur(image, (kernel_size, kernel_size), 0)
     return blurred_image
 def apply_color_jittering(image):
     # Randomly adjust gamma and saturation
-    gamma = np.random.uniform(config["PerprocessingConfig"]["GAMMA"]["value1"], config["PerprocessingConfig"]["GAMMA"]["value2"])
-    saturation = np.random.uniform(config["PerprocessingConfig"]["SATURATION"]["value1"], config["PerprocessingConfig"]["SATURATION"]["value2"])
+    gamma = np.random.uniform(config["PerprocessingConfig"]["GAMMA"]["lowest_color_jittering"], config["PerprocessingConfig"]["GAMMA"]["highest_color_jittering"])
+    saturation = np.random.uniform(config["PerprocessingConfig"]["SATURATION"]["lowest_saturation"], config["PerprocessingConfig"]["SATURATION"]["highest_saturation"])
     # Convert image to HSV
     hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     # Adjust gamma
@@ -76,8 +76,8 @@ def image_augmentation(image):
     # Randomly flip the image horizontally
     flipped_image = flip_image(image)
     # Randomly adjust brightness and contrast
-    brightness_factor = np.random.uniform(config["PerprocessingConfig"]["BRIGHTNESS"]["value1"], config["PerprocessingConfig"]["BRIGHTNESS"]["value2"])
-    contrast_factor = np.random.uniform(config["PerprocessingConfig"]["CONTRAST"]["value1"], config["PerprocessingConfig"]["CONTRAST"]["value2"])
+    brightness_factor = np.random.uniform(config["PerprocessingConfig"]["BRIGHTNESS"]["lowest_brightness"], config["PerprocessingConfig"]["BRIGHTNESS"]["highest_brightness"])
+    contrast_factor = np.random.uniform(config["PerprocessingConfig"]["CONTRAST"]["lowest_contrast"], config["PerprocessingConfig"]["CONTRAST"]["highest_contrast"])
     adjusted_image = adjust_brightness_contrast(image, brightness_factor, contrast_factor)
     # Apply Gaussian blur
     blurred_image = apply_gaussian_blur(image)

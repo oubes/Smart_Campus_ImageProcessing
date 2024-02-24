@@ -1,6 +1,6 @@
 {
     "LprConfig": {
-        "lang": "en",
+        "lang": "ar",
         "allowLists": {
             "en": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ -",
             "ar": "أبجدةهوزحطيكلمنسعفصقرشتثخذضظغ٠١٢٣٤٥٦٧٨٩ -"
@@ -15,7 +15,9 @@
             1, 2, 3, 5
         ],
         "enhance": {
-            "upsample": 4
+            "upsample": 4,
+            "CONTOUR_AREA_RATIO_THRESHOLD": 0.35,
+            "MORPH_KERNEL_SIZE": 3
         }
     }
 }

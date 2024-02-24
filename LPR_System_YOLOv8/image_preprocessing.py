@@ -1,5 +1,4 @@
-import cv2, imutils
-import scipy.ndimage
+import scipy.ndimage, cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -46,12 +45,12 @@ def crop_imgs(imgs: list, boxes: list, style: str ='xyxy') -> list:
     """
     return [_crop_img(img=img, box=box, style=style) for img, box in zip(imgs, boxes)]
 
-def quality_enhancement(img: np.ndarray, upsample: int):
+def quality_enhancement(img: np.ndarray, upsample: int) -> np.ndarray:
     img_denoise = cv2.fastNlMeansDenoising(img) 
     img_upscale = scipy.ndimage.zoom(img_denoise, upsample, order=5)
     return img_upscale
 
-def lp_alignment(lps_img: np.ndarray) -> np.ndarray:
+def lp_alignment(lps_img: np.ndarray, enhance: dict) -> np.ndarray:
     """
     Aligns the license plate images for better recognition by the easyocr reader.
 
@@ -80,7 +79,7 @@ def lp_alignment(lps_img: np.ndarray) -> np.ndarray:
             else:
                 area = cv2.contourArea(approx)
 
-            if area > lp_area and area >= total_area * 0.3:
+            if area > lp_area and area >= total_area * enhance['CONTOUR_AREA_RATIO_THRESHOLD']:
                 lp_area = area
                 lp_contour = approx
 
@@ -90,17 +89,25 @@ def lp_alignment(lps_img: np.ndarray) -> np.ndarray:
             rect = (rect[0], (rect[1][1], rect[1][0]), rect[2] - 90)
         box = cv2.boxPoints(rect)
         box = np.int0(box)
+        print(box)
         angle = rect[-1]
+        print(angle)
         if angle < -45:
             angle = 90 + angle
-        (h, w) = lps_img.shape[:2]
-        center = (w // 2, h // 2)
-        M = cv2.getRotationMatrix2D(center, angle, 1.0)
-        rotated = cv2.warpAffine(lps_img, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
-
-    return rotated
+        # Limit the rotation to 30 degrees
+        if abs(angle) <= 20:
+            (h, w) = lps_img.shape[:2]
+            center = (w // 2, h // 2)
+            M = cv2.getRotationMatrix2D(center, angle, 1.0)
+            rotated = cv2.warpAffine(lps_img, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
+        else:
+            rotated = lps_img
+        return rotated
+    else:
+        return lps_img
     
-def preprocessing(lps_imgs: list, upsample, test_mode: bool) -> list:
+    
+def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
     """enhance the license plate images quality for more efficient recognition using the easyocr reader.
 
     Parameters:
@@ -113,10 +120,10 @@ def preprocessing(lps_imgs: list, upsample, test_mode: bool) -> list:
     for img in lps_imgs:
         if img is not None:
             gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            img_enhanced = quality_enhancement(gray_img, upsample)
-            img_alignment = lp_alignment(img_enhanced)
+            img_enhanced = quality_enhancement(gray_img, enhance['upsample'])
+            img_alignment = lp_alignment(img_enhanced, enhance)
             img_binary = cv2.adaptiveThreshold(img_alignment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 101, 0.5) 
-            kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (6, 6)) 
+            kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (enhance['MORPH_KERNEL_SIZE'], enhance['MORPH_KERNEL_SIZE'])) 
             img_morph = cv2.morphologyEx(img_binary, cv2.MORPH_CLOSE, kernel) 
             lps_imgs_enhanced.append(img_morph)
             

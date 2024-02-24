@@ -17,7 +17,7 @@ class LPR:
         self.lang = config['LprConfig']['lang']
         self.vehicles = config['LprConfig']['allowVehicles']
         self.allow_list = config['LprConfig']['allowLists'][self.lang]
-        self.upsample = config['LprConfig']['enhance']['upsample']
+        self.enhance = config['LprConfig']['enhance']
 
     def run(self, test_mode: bool = False) -> list:
         """Run the LPR system on the image and return the license plate numbers.
@@ -31,7 +31,7 @@ class LPR:
         cropped_cars = image_preprocessing.crop_imgs([rgb_img]*len(car_boxes), car_boxes)
         lps_box = detection.detect_lps(cropped_cars)
         cropped_lps = image_preprocessing.crop_imgs(cropped_cars, lps_box)
-        enhanced_lps = image_preprocessing.preprocessing(cropped_lps, self.upsample, test_mode)
+        enhanced_lps = image_preprocessing.preprocessing(cropped_lps, self.enhance, test_mode)
         lps = recognition.recognize_lps(enhanced_lps, self.allow_list)
         lps_clean = output_dataAnalysis.process_and_structure(lps)
         lps_recognized = output_dataAnalysis.compare(lps_clean, lps_dB)

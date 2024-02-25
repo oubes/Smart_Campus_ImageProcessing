@@ -2,8 +2,8 @@
     "LprConfig": {
         "lang": "ar",
         "allowLists": {
-            "en": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ -",
-            "ar": "أبجدةهوزحطيكلمنسعفصقرشتثخذضظغ٠١٢٣٤٥٦٧٨٩ -egypt"
+            "en": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+            "ar": "أبجدةهوزحطيكلمنسعفصقرشتثخذضظغ٠١٢٣٤٥٦٧٨٩"
         },
         "vehiclesList": {
             "1": "bicycle",
@@ -17,10 +17,12 @@
         "testMode": 1,
         "enhance": {
             "EN": 1,
-            "upsample": 6,
+            "block_size": 301,
+            "upsample_before_aligment": 2,
+            "upsample_after_aligment": 2,
             "CONTOUR_AREA_RATIO_THRESHOLD": 0.35,
             "MORPH_KERNEL_SIZE": 2,
-            "Max_Rotation_Angle": 20
+            "Max_Rotation_Angle": 25
         }
     }
 }

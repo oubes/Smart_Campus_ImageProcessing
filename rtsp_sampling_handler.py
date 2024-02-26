@@ -6,7 +6,8 @@ def rtsp_handler(username: str, password: str, ip: str, channel: int = 1, subtyp
     try:
         stream_link = f"rtsp://{username}:{password}@{ip}:554/cam/realmonitor?channel={channel}&subtype={subtype}&unicast=true&proto=Onvif"
         cap = cv2.VideoCapture(stream_link)
-        
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, 3840)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 2160)
         ret, frame = cap.read()
         if plt is True:
             window_width = int(1920 * (5/7))

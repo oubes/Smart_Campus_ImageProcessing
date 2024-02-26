@@ -150,34 +150,36 @@ def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
     """
     lps_imgs_enhanced = []
     for img in lps_imgs:
-        if img is not None:
-            if enhance['EN']:
-                gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-                img_enhanced_before_aligment = quality_enhancement(gray_img, enhance['upsample_before_aligment'])
-                img_alignment, aligment_state = rotate_lp_image(img_enhanced_before_aligment, enhance)
-                img_enhanced_after_aligment = quality_enhancement(img_alignment, enhance['upsample_after_aligment'])
-                img_binary = cv2.adaptiveThreshold(img_enhanced_after_aligment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, enhance['block_size'], 2) 
-                kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (enhance['MORPH_KERNEL_SIZE'], enhance['MORPH_KERNEL_SIZE'])) 
-                img_morph = cv2.morphologyEx(img_binary, cv2.MORPH_CLOSE, kernel) 
-                lps_imgs_enhanced.append(img_morph)
-                
-                # Start Testing
-                if test_mode:
-                    img_vars = [gray_img, img_enhanced_before_aligment, img_alignment if aligment_state is True else None, img_enhanced_after_aligment, img_binary, img_morph]
-                    img_title = ['Gray Image', 'Upsample Before Aligment', 'Aligned Image' if aligment_state is True else None, "Upsample After Aligment", 'Binarized Image', 'Morphological Image']
-                    img_pos = range(242, 243+len(img_vars))
-                    plt.figure(figsize=(15, 7))
-                    plt.subplot(241); plt.imshow(img); plt.title('Original image')
-                    for pos, var, title in zip(img_pos, img_vars, img_title):
-                        if var is not None:
-                            plt.subplot(pos); plt.imshow(var, cmap='gray'); plt.title(title)    
-                    plt.show()
-                # End Testing
-                
-                return lps_imgs_enhanced
-            else:
-                for img in lps_imgs:
-                    if img is not None and test_mode:
-                        plt.figure(figsize=(15, 7)); plt.imshow(img); plt.title('Original image'); plt.show()
-                return lps_imgs
+        if img is not None and enhance['EN']:
+            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            img_enhanced_before_aligment = quality_enhancement(gray_img, enhance['upsample_before_aligment'])
+            img_alignment, aligment_state = rotate_lp_image(img_enhanced_before_aligment, enhance)
+            img_enhanced_after_aligment = quality_enhancement(img_alignment, enhance['upsample_after_aligment'])
+            img_binary = cv2.adaptiveThreshold(img_enhanced_after_aligment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, enhance['block_size'], 2) 
+            kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (enhance['MORPH_KERNEL_SIZE'], enhance['MORPH_KERNEL_SIZE'])) 
+            img_morph = cv2.morphologyEx(img_binary, cv2.MORPH_CLOSE, kernel) 
+            lps_imgs_enhanced.append(img_morph)
+            
+            # Start Testing
+            if test_mode:
+                img_vars = [gray_img, img_enhanced_before_aligment, img_alignment if aligment_state is True else None, img_enhanced_after_aligment, img_binary, img_morph]
+                img_title = ['Gray Image', 'Upsample Before Aligment', 'Aligned Image' if aligment_state is True else None, "Upsample After Aligment", 'Binarized Image', 'Morphological Image']
+                img_pos = range(242, 243+len(img_vars))
+                plt.figure(figsize=(15, 7))
+                plt.subplot(241); plt.imshow(img); plt.title('Original image')
+                for pos, var, title in zip(img_pos, img_vars, img_title):
+                    if var is not None:
+                        plt.subplot(pos); plt.imshow(var, cmap='gray'); plt.title(title)    
+                plt.show()
+            # End Testing
+            
+            return lps_imgs_enhanced
+        else:
+            # Start Testing
+            for img in lps_imgs:
+                if img is not None and test_mode:
+                    plt.figure(figsize=(15, 7)); plt.imshow(img); plt.title('Original image'); plt.show()
+            # End Testing
+            
+            return lps_imgs
     

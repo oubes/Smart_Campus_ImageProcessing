@@ -2,9 +2,9 @@ import cv2, time
 import numpy as np
 from typing import Tuple
 
-def rtsp_handler(username: str, password: str, ip: str, plt=False) -> Tuple[bool, np.ndarray]:
+def rtsp_handler(username: str, password: str, ip: str, channel: int = 1, subtype: int = 0, plt=False) -> Tuple[bool, np.ndarray]:
     try:
-        stream_link = f"rtsp://{username}:{password}@{ip}:554/cam/realmonitor?channel=1&subtype=0"
+        stream_link = f"rtsp://{username}:{password}@{ip}:554/cam/realmonitor?channel={channel}&subtype={subtype}&unicast=true&proto=Onvif"
         cap = cv2.VideoCapture(stream_link)
         
         ret, frame = cap.read()
@@ -35,7 +35,7 @@ def rtsp_sampling(img_every_N: int):
     img_every_N (int): The number of seconds to wait between each sample.
     """
     while True:           
-        ret, frame = rtsp_handler(username='admin', password='L28FA3F4', ip='192.168.231.78', plt=False)
+        ret, frame = rtsp_handler(username='admin', password='L28FA3F4', ip='192.168.63.78', plt=True)
         time.sleep(img_every_N)
         print(ret, frame)
 

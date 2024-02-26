@@ -19,7 +19,8 @@ def get_camera_ip(mac_add: str) -> str:
 
 def rtsp_handler(username: str, password: str, mac_add: str, channel: int = 1, subtype: int = 0, plt=False) -> Tuple[bool, np.ndarray]:
     ip = get_camera_ip(mac_add)
-    stream_link = f"rtsp://{username}:{password}@{ip}:554/cam/realmonitor?channel={channel}&subtype={subtype}"
+    
+    stream_link = f"rtsp://{username}:{password}@{ip}:554/cam/realmonitor?channel={channel}&subtype={subtype}&unicast=true&proto=Onvif"
     cap = cv2.VideoCapture(stream_link)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 3840)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 2160)

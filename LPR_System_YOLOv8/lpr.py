@@ -1,4 +1,4 @@
-import detection, recognition, LPR_System_YOLOv8.lp_preprocessing as lp_preprocessing, LPR_System_YOLOv8.lp_processing as lp_processing
+import detection, recognition, lp_preprocessing, lp_data_processing
 
 from vars import read_json
 
@@ -32,7 +32,7 @@ class LPR:
         cropped_lps = lp_preprocessing.crop_imgs(cropped_cars, lps_box)
         enhanced_lps = lp_preprocessing.preprocessing(cropped_lps, self.enhance, test_mode)
         lps = recognition.recognize_lps(enhanced_lps, self.allow_list)
-        lps_clean = lp_processing.process_and_structure(lps)
+        lps_clean = lp_data_processing.process_and_structure(lps)
         return lps_clean
         
 # Start Testing Area

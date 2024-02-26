@@ -1,4 +1,4 @@
-import detection, recognition, image_preprocessing, license_plate_processing
+import detection, recognition, LPR_System_YOLOv8.lp_preprocessing as lp_preprocessing, LPR_System_YOLOv8.lp_processing as lp_processing
 
 from vars import read_json
 
@@ -25,14 +25,14 @@ class LPR:
         Returns:
         lps (list): The list of license plate numbers.
         """
-        rgb_img = image_preprocessing.read_img(self.img)
+        rgb_img = lp_preprocessing.read_img(self.img)
         car_boxes = detection.detect_cars(rgb_img, self.vehicles)
-        cropped_cars = image_preprocessing.crop_imgs([rgb_img]*len(car_boxes), car_boxes)
+        cropped_cars = lp_preprocessing.crop_imgs([rgb_img]*len(car_boxes), car_boxes)
         lps_box = detection.detect_lps(cropped_cars)
-        cropped_lps = image_preprocessing.crop_imgs(cropped_cars, lps_box)
-        enhanced_lps = image_preprocessing.preprocessing(cropped_lps, self.enhance, test_mode)
+        cropped_lps = lp_preprocessing.crop_imgs(cropped_cars, lps_box)
+        enhanced_lps = lp_preprocessing.preprocessing(cropped_lps, self.enhance, test_mode)
         lps = recognition.recognize_lps(enhanced_lps, self.allow_list)
-        lps_clean = license_plate_processing.process_and_structure(lps)
+        lps_clean = lp_processing.process_and_structure(lps)
         return lps_clean
         
 # Start Testing Area

@@ -79,6 +79,7 @@ def apply_histogram_equalization(image):
 def image_augmentation(image):
     #reading the image
     image = cv2.imread(image)
+    
     # Randomly flip the image horizontally
     flipped_image = flip_image(image)
     # Randomly adjust brightness and contrast
@@ -122,6 +123,19 @@ def image_augmentation(image):
 
     return  flipped_image, adjusted_image, blurred_image, jittered_image, noisy_image , histo_image, flip_Gaussian_blur, flip_brightness, flip_histo, flip_noise, flip_jittered, brightness_noise, brightness_histo, brighness_gaussian, gaussian_jittered, gaussian_histo, histo_noise, jittered_noise, jittered_histo
 
+
+def encoded_Augmanted(img:str):
+    import face_recognition
+    face_locations,_,_=Detect('YOLOv8', img)
+    img = cv2.imread(img)
+    re_sample = config["RecognizerConfig"]["DLIB"]["resample"] 
+    model = config["RecognizerConfig"]["DLIB"]["encodingModel"]
+    face_encoded_img = face_recognition.face_encodings(img, face_locations, re_sample, model)
+    #print(face_encoded_img)
+    return face_encoded_img
+
+
+
 def is_single_person(image_url):
     _, face_count, _ = Detect('RetinaFace', image_url)
     return face_count == 1
@@ -138,5 +152,5 @@ def save_augmented_imaged(image_url):
         # Save or use augmented images for training
         for i, augmented_image in enumerate(preprocessed_images):
             output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Augmented_imgs", datetime.now().strftime("%Y-%m-%d %H-%M-%S") + '_' + str(i+1) + '.jpg')
-            print(output_path)
             cv2.imwrite(output_path, augmented_image)
+            encoded_pics = encoded_Augmanted(output_path)

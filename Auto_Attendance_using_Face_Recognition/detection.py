@@ -15,6 +15,9 @@ class face_detector(ABC):
         self.detector_config = detector_config
 
     def _read_img(self):
+        if(not(self.img_url.startswith(("https://","http://")))):
+            rgb_img, gray_img = toolbox.img().read(self.img_url,gray = True)
+            return rgb_img, gray_img
         toolbox.dir(file_directory, 'tmp').create()
         downloaded_img_name = toolbox.url_img(self.img_url, os.path.join(file_directory, 'tmp', datetime_filename)).download()
         rgb_img, gray_img = toolbox.img().read(os.path.join(file_directory, downloaded_img_name), gray=True)

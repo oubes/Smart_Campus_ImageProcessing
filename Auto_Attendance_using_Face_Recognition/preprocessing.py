@@ -126,7 +126,7 @@ def image_augmentation(image):
 
 def encoded_Augmanted(img:str):
     import face_recognition
-    face_locations,_,_=Detect('YOLOv8', img)
+    face_locations,_,_=Detect('RetinaFace', img)
     img = cv2.imread(img)
     re_sample = config["RecognizerConfig"]["DLIB"]["resample"] 
     model = config["RecognizerConfig"]["DLIB"]["encodingModel"]
@@ -147,7 +147,7 @@ def save_augmented_imaged(image_url):
         img_name = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
         image = toolbox.url_img(image_url, img_name).download()
         preprocessed_images = image_augmentation(image)
-        toolbox.img().remove(img_name + '.jpg')
+        toolbox.remove(img_name + '.jpg')
 
         # Save or use augmented images for training
         for i, augmented_image in enumerate(preprocessed_images):

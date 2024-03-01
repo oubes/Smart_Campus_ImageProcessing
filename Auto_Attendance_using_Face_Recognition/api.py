@@ -87,7 +87,7 @@ body = json.dumps({
 def json_res(code, res):
     return JSONResponse(
         status_code=code,
-        content=json_encodable(res)
+        content=jsonable_encoder(res)
     )
 
 @app.post("/config")
@@ -204,7 +204,7 @@ def encoding(encodingConfig: EncodingConfig, token: str | None = None):
         with open("./tmp/image.jpg", "wb") as file:
             file.write(image.content)
         
-        encoded_img = model_class.encoder(model_class, "./tmp/image.jpg", face_locations, recognizerConfig["resample"], recognizerConfig["encodingModel"])
+        encoded_img = model_class.encoder(model_class, image = "./tmp/image.jpg",face_locations = face_locations, config = recognizerConfig)
         encodedJSON["encoded_images"][person] = list(encoded_img[0].tolist())
         encodedJSON["config"] = host_config["RecognizerConfig"]["DLIB"]
         encodedJSON["person_name"] = person

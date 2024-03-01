@@ -10,6 +10,11 @@ def write_json(file_name, data):
 
 config = read_json('config.json')
 
+detector    = config["HandlingConfig"]["detectorName"]
+recognizer  = config["HandlingConfig"]["recognizerName"]
+
+detector_config     = config["DetectorConfig"][detector]
+recognizer_config   = config["RecognizerConfig"][recognizer]
 
 # https://i.postimg.cc/X72yyb43/img2.jpg
 # https://i.postimg.cc/rp4dbRWF/students1.jpg

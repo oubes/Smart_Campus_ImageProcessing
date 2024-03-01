@@ -1,25 +1,23 @@
 import os
+from typing import List, Tuple
 import cv2 as cv
 from vars import config
 import toolbox
 import time
-from abc import ABC, abstractclassmethod
+from abc import ABC, abstractmethod
 import numpy as np
 import json
 
 class NumpyEncoder(json.JSONEncoder):
-        def default(self, obj):
-            if isinstance(obj, np.ndarray):
-                return obj.tolist()
-            return json.JSONEncoder.default(self, obj)
+    def default(self, o):
+            if isinstance(o, np.ndarray):
+                return o.tolist()
+            return json.JSONEncoder.default(self, o)
 
 # def img_preprocessing():
 #     pass
-class face_recognizer(ABC):
+class face_recognizer_old(ABC):
     def __init__(self, detector_name, recognizer_config, img_url):
-        self.file_directory = os.path.dirname(os.path.abspath(__file__))
-        # self.unlabeled_path = os.path.join(self.file_directory, vars.file_config.input_imgs_dir)
-        self.labeled_path = os.path.join(self.file_directory, config["ImgConfig"]["LabeledDirectory"])
         self.detector_name = detector_name
         self.img_url = img_url
         self.threshold = recognizer_config["threshold"]
@@ -45,24 +43,25 @@ class face_recognizer(ABC):
         self.best_match_confidences = np.zeros(len(self.unlabeled_face_encoded_img))
         self.best_match_names = np.full(len(self.unlabeled_face_encoded_img), 'Unknown', dtype='U20')
 
-    @abstractclassmethod
-    def detection(self, detector_name):
+    @abstractmethod
+    def detection(self, detector_name, img_url) -> Tuple[List[List[int]], List[List[int]], str]:
         pass
 
     def _img_encoding(self, img, face_locations=None, full_img=False):
         self.re_sample, self.model = self.config
         if full_img:
-            image = toolbox.img().read(img)
+            image, _ = toolbox.read(img)
             height, width, _ = image.shape
             face_locations = [(0, width, height, 0)]
         face_encoded_img = self.encoder(img, face_locations, self.re_sample, self.model) #dlib
         return face_encoded_img, img
     
-    @abstractclassmethod
-    def encoder(self, img, face_locations, re_sample, model):
+    @abstractmethod
+    def encoder(self, img, face_locations, re_sample, model) -> List[np.ndarray]:
         pass
 
     def _process_profiles(self):
+        
         for person in os.listdir(self.labeled_path):
             person_path = os.path.join(self.labeled_path, person, 'cropped_img')
             encoded_images_dict = self._create_encoded_file(person_path, person)
@@ -118,8 +117,8 @@ class face_recognizer(ABC):
                     self.best_match_confidences[i] = confidence[0]
                     self.best_match_names[i] = person
     
-    @abstractclassmethod
-    def compare_faces(self, labeled_face_encoded_img, unlabeled_face_encoded_img, threshold):
+    @abstractmethod
+    def compare_faces(self, labeled_face_encoded_img, unlabeled_face_encoded_img, threshold) -> Tuple[List, np.ndarray]:
         pass
 
     def _print_times(self, t1, t2, t3, d_encoding_time):
@@ -144,11 +143,11 @@ class face_recognizer(ABC):
                 thickness = 1,
                 lineType = cv.LINE_AA
             )
-            toolbox.img().draw_borders(image, [self.fl[i]])
+            toolbox.draw_borders(image, [self.fl[i]])
 
         img = cv.cvtColor(image, cv.COLOR_RGB2BGR)    
         resized_img = self._resize_image(img)
-        toolbox.img().plot(resized_img, 'Image')
+        toolbox.plot(resized_img, 'Image')
         return [name for name in self.best_match_names if name != 'Unknown']
 
     def _resize_image(self, image):

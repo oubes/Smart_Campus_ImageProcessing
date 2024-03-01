@@ -13,10 +13,6 @@
         "detectorName": "RetinaFace",
         "recognizerName": "DLIB"
 	},
-	"ImgConfig":{
-		"LabeledDirectory": "dataset/labeled",
-        "InputImgUrl": "https://i.postimg.cc/mrrByXS1/Whats-App-Image-2024-01-30-at-11-01-35-PM.jpg"
-	},
 	"DetectorConfig": {
 		"DLIB": {
 			"upsampling": 3,

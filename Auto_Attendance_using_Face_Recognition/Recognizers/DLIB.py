@@ -1,4 +1,4 @@
-from recognition_refactored import face_recognizer
+from recognition import face_recognizer
 import face_recognition
 from tasks import Detect
 import toolbox
@@ -10,8 +10,8 @@ class fr_dlib_model(face_recognizer):
         return matches, confidence
     
     def encoder(self, image, face_locations, config):
-        re_sample = config["RecognizerConfig"]["resample"]
-        model = config["RecognizerConfig"]["encodingModel"]
+        re_sample = config["resample"]
+        model = config["encodingModel"]
         img = toolbox.read(image)
         face_encoded_img = face_recognition.face_encodings(img, face_locations, re_sample, model) #dlib
         return face_encoded_img

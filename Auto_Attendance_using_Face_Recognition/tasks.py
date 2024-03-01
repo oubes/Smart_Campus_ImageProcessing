@@ -30,7 +30,7 @@ def Detect(detector_name, img_url):
 
     return face_locations, faces_count, rgb_img
 
-def Recognize(detector_name, recognizer_name, img_url):
+def Recognize(recognizer_name, img_url):
     from vars import read_json
     config = read_json('config.json')
     from Recognizers import DLIB
@@ -45,14 +45,11 @@ def Recognize(detector_name, recognizer_name, img_url):
     }
 
     if recognizer_name in recognizers:
-        model_class, recognizer_config = recognizers[recognizer_name]
-        model = model_class(
-            detector_name = detector_name,
-            recognizer_config = config["RecognizerConfig"]["DLIB"],
-            img_url=img_url
-        )
-        names = model.run()
+        model_class, _ = recognizers[recognizer_name]
+        model = model_class({})
+        names = model.Recognize(unlabeled_img_url=img_url)
     else:
         raise ValueError(f"Unknown recognizer: {recognizer_name}")
 
     return names
+

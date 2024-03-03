@@ -68,53 +68,7 @@ def crop_imgs(imgs: list, boxes: list, style: str ='xyxy', type: str = None) -> 
     """
     return [_crop_img(img=img, box=box, style=style, type=type) for img, box in zip(imgs, boxes)]
 
-def rotate_lp_image(lps_img: np.ndarray, lp_rgb_img: np.ndarray, enhance: dict) -> np.ndarray:
-    """Rotate a license plate image based on its contour.
-
-    Parameters:
-    lps_img (np.ndarray): The license plate image.
-    enhance (dict): A dictionary of enhancement parameters.
-
-    Returns:
-    np.ndarray: The rotated license plate image.
-    """
-    lp_contour = find_lp_contour(lps_img, enhance)
-    if lp_contour is not None:
-        rect = cv2.minAreaRect(lp_contour)
-        if rect[1][0] < rect[1][1]:
-            rect = (rect[0], (rect[1][1], rect[1][0]), rect[2] - 90)
-        box = cv2.boxPoints(rect)
-        box = np.int0(box)
-        # print(box)
-        angle = rect[-1]
-        # print(angle)
-        if angle < -45:
-            angle = 90 + angle
-        if abs(angle) <= enhance['Max_Rotation_Angle']:
-            img_rotated = rotate_image(lps_img, angle)
-            rgb_img_rotated = rotate_image(lp_rgb_img, angle)
-        else:
-            img_rotated = lps_img
-            rgb_img_rotated = lp_rgb_img
-        return img_rotated, rgb_img_rotated, True
-    else:
-        return lps_img, lp_rgb_img, False
-
-def quality_enhancement(img: np.ndarray, upsample: int) -> np.ndarray:
-    """Enhance the quality of an image by denoising and upscaling.
-
-    Parameters:
-    img (np.ndarray): The input image.
-    upsample (int): The factor by which to upscale the image.
-
-    Returns:
-    np.ndarray: The enhanced image.
-    """
-    img_denoise = cv2.fastNlMeansDenoising(img) 
-    img_upscale = scipy.ndimage.zoom(img_denoise, upsample, order=5)
-    return img_upscale
-
-def find_lp_contour(lps_img: np.ndarray, enhance: dict) -> np.ndarray:
+def find_lp_contour(lp_img: np.ndarray, enhance: dict) -> np.ndarray:
     """
     Finds the contour of the license plate image using edge detection and approximation.
 
@@ -125,16 +79,18 @@ def find_lp_contour(lps_img: np.ndarray, enhance: dict) -> np.ndarray:
     Returns:
         np.ndarray: An array of points that form the license plate contour, or None if no contour is found.
     """
-    edge_detection = cv2.Canny(lps_img, 0, 200)
+    # cv2.imshow('lp', lp_img)
+    edge_detection = cv2.Canny(lp_img, 0, 150)
     img_dilated = cv2.dilate(edge_detection, kernel= np.ones((3, 3), dtype='uint8'))
     
-    # cv2.imshow('edge', img_dilated)
+    # cv2.imshow('edge_detection', edge_detection)
+    # cv2.imshow('img_dilated', img_dilated)
 
-    contours, _ = cv2.findContours(edge_detection.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(img_dilated.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     lp_contour = None 
     lp_area = 0
 
-    total_area = lps_img.shape[0] * lps_img.shape[1]
+    total_area = lp_img.shape[0] * lp_img.shape[1]
 
     for contour in contours:
         approx = cv2.approxPolyDP(contour, 0.01 * cv2.arcLength(contour, True), True)
@@ -152,13 +108,60 @@ def find_lp_contour(lps_img: np.ndarray, enhance: dict) -> np.ndarray:
     
     return lp_contour
 
+def rotate_lp_image(lp_img: np.ndarray, lp_rgb_img: np.ndarray, enhance: dict) -> np.ndarray:
+    """Rotate a license plate image based on its contour.
+
+    Parameters:
+    lps_img (np.ndarray): The license plate image.
+    enhance (dict): A dictionary of enhancement parameters.
+
+    Returns:
+    np.ndarray: The rotated license plate image.
+    """
+    lp_contour = find_lp_contour(lp_rgb_img, enhance)
+    if lp_contour is not None:
+        rect = cv2.minAreaRect(lp_contour)
+        if rect[1][0] < rect[1][1]:
+            rect = (rect[0], (rect[1][1], rect[1][0]), rect[2] - 90)
+        box = cv2.boxPoints(rect)
+        box = np.int0(box)
+        # print(box)
+        angle = rect[-1]
+        # print(angle)
+        if angle < -45:
+            angle = 90 + angle
+        if abs(angle) <= enhance['Max_Rotation_Angle']:
+            img_rotated = rotate_image(lp_img, angle)
+            rgb_img_rotated = rotate_image(lp_rgb_img, angle)
+
+        else:
+            img_rotated = lp_img
+            rgb_img_rotated = lp_rgb_img
+        
+        return img_rotated, rgb_img_rotated, True
+    else:
+        return lp_img, lp_rgb_img, False
+
+def quality_enhancement(img: np.ndarray, upsample: int) -> np.ndarray:
+    """Enhance the quality of an image by denoising and upscaling.
+
+    Parameters:
+    img (np.ndarray): The input image.
+    upsample (int): The factor by which to upscale the image.
+
+    Returns:
+    np.ndarray: The enhanced image.
+    """
+    img_denoise = cv2.fastNlMeansDenoising(img)
+    img_upscale = scipy.ndimage.zoom(img_denoise, upsample, order=5)
+    return img_upscale
+
 def egypt_remover(img: np.ndarray, bgr_img: np.ndarray, enhance: dict) -> np.ndarray:
     h, w, _ = bgr_img.shape; hsv_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2HSV)
     Range = np.array([[0, 100, 100],
                       [360, 255, 255]]); 
     mask = cv2.inRange(hsv_img, Range[0,:], Range[1,:]); # cv2.imshow('mask', mask)
     valid_check = np.divide(float(len(np.where(mask[:int(h*0.45), :] == 255)[0])), float(w*h))
-    print(valid_check)
     if valid_check >= 0.08:
         min_height = np.max(np.where(mask[:int(h*0.45),int(w//3):int((2*w)//3)] == 255)[0])
         new_img = img[int(min_height*enhance['upsample_before_aligment']*0.95):, :]
@@ -180,7 +183,8 @@ def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
     for img in lps_imgs:
         if enhance['EN']:
             if img is not None:
-                gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                img_bilateral = cv2.bilateralFilter(img, 9, 75, 75)
+                gray_img = cv2.cvtColor(img_bilateral, cv2.COLOR_BGR2GRAY)
                 
                 img_enhanced_before_aligment = quality_enhancement(gray_img, enhance['upsample_before_aligment'])
                 
@@ -190,23 +194,31 @@ def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
                 
                 img_enhanced_after_aligment = quality_enhancement(egypt_removed, enhance['upsample_after_aligment'])
                 
-                _, w,_ = img.shape
-                bs = int(enhance['block_size']*np.round((w/110)))
-                bs = bs if bs%2 !=0 else bs+1
-                img_binary = cv2.adaptiveThreshold(img_enhanced_after_aligment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, bs, 2) 
+                img_binary = cv2.adaptiveThreshold(img_enhanced_after_aligment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, enhance['block_size'], 2) 
                 
                 kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (enhance['MORPH_KERNEL_SIZE'], enhance['MORPH_KERNEL_SIZE'])) 
                 img_morph = cv2.morphologyEx(img_binary, cv2.MORPH_CLOSE, kernel) 
                 
                 h, w = img_morph.shape; ratio = np.divide(250, h)
-                std_size = cv2.resize(img_morph, (0, 0), fx=ratio, fy=ratio, interpolation=cv2.INTER_CUBIC)
-                
-                lps_imgs_enhanced.append(std_size)
+                std_size_img = cv2.resize(img_morph, (0, 0), fx=ratio, fy=ratio, interpolation=cv2.INTER_CUBIC)
+                                
+                lps_imgs_enhanced.append(std_size_img)
                 
                 
                 # Start Testing
                 if test_mode:
-                    img_vars = [gray_img, img_enhanced_before_aligment, img_alignment if aligment_state is True else None, egypt_removed, img_enhanced_after_aligment, img_binary, img_morph, std_size]
+                    img_vars = [
+                        gray_img,
+                        img_enhanced_before_aligment,
+                        img_alignment if aligment_state is True else None,
+                        egypt_removed,
+                        img_enhanced_after_aligment,
+                        img_binary,
+                        img_morph,
+                        std_size_img,
+                        
+                    ]
+                    
                     img_title = [
                         'Gray Image',
                         'Upsample Before Aligment',
@@ -215,8 +227,10 @@ def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
                         "Upsample After Aligment",
                         'Binarized Image',
                         'Morphological Image',
-                        'Transfer Image to std size'
+                        'Transfer Image to std size',
+                        
                     ]
+                    
                     img_pos = range(252, 253+len(img_vars))
                     plt.figure(figsize=(15, 7))
                     plt.subplot(251); plt.imshow(img); plt.title('Original image')

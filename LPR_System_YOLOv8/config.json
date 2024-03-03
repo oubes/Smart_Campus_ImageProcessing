@@ -10,15 +10,15 @@
             "2": "car",
             "3": "motorcycle",
             "5": "bus",
-            "8": "truck"
+            "7": "truck"
         },
         "allowVehicles": [
             1, 2, 3, 5, 7
         ],
-        "testMode": 0,
+        "testMode": 1,
         "enhance": {
             "EN": 1,
-            "block_size": 301,
+            "block_size": 2001,
             "upsample_before_aligment": 3,
             "upsample_after_aligment": 2,
             "CONTOUR_AREA_RATIO_THRESHOLD": 0.35,

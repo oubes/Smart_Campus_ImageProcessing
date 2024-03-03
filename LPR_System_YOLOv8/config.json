@@ -15,7 +15,7 @@
         "allowVehicles": [
             1, 2, 3, 5, 7
         ],
-        "testMode": 1,
+        "testMode": 0,
         "enhance": {
             "EN": 1,
             "block_size": 2001,

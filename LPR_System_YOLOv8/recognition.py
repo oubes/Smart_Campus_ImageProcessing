@@ -3,7 +3,7 @@ import easyocr
 from vars import read_json
 
 config = read_json('config.json')
-reader = easyocr.Reader([config['LprConfig']['lang']], verbose=False)
+reader = easyocr.Reader([config['LprConfig']['lang']], verbose=True)
 
 def _recognize_lp(lp_img: list, allow_list: str) -> np.ndarray:
     """Recognize the license plate number in the image using the easyocr reader.

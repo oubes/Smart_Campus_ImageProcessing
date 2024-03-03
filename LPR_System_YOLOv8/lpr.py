@@ -1,5 +1,5 @@
 import detection, recognition, lp_preprocessing, lp_data_processing
-
+import cv2
 from vars import read_json
 
 class LPR:
@@ -27,9 +27,9 @@ class LPR:
         """
         rgb_img = lp_preprocessing.read_img(self.img)
         car_boxes = detection.detect_cars(rgb_img, self.vehicles)
-        cropped_cars = lp_preprocessing.crop_imgs([rgb_img]*len(car_boxes), car_boxes)
+        cropped_cars = lp_preprocessing.crop_imgs([rgb_img]*len(car_boxes), car_boxes, type='car')
         lps_box = detection.detect_lps(cropped_cars)
-        cropped_lps = lp_preprocessing.crop_imgs(cropped_cars, lps_box)
+        cropped_lps = lp_preprocessing.crop_imgs(cropped_cars, lps_box, type='lp')
         enhanced_lps = lp_preprocessing.preprocessing(cropped_lps, self.enhance, test_mode)
         lps = recognition.recognize_lps(enhanced_lps, self.allow_list)
         lps_clean = lp_data_processing.process_and_structure(lps)
@@ -46,18 +46,15 @@ def dft(lang):
     import numpy as np
     
     if np.isin(lang, ['en', 'ar']):
-        lps_list = []
         for idx, img in enumerate(os.listdir(f'imgs/{lang}_lp')):
-            print(f'Img number {idx+1}, Name: {img}')
-            
+
             lpr_model = LPR(
                 img=f'imgs/{lang}_lp/{img}',
                 config=config
             )
+            lp = lpr_model.run(test_mode=config['LprConfig']['testMode'])
+            print(f'Img number {idx+1}, Name: {img}, lps: {lp}')
             
-            lps_list.append(lpr_model.run(test_mode=config['LprConfig']['testMode']))
-        flattened_list = [item for sublist in lps_list for item in sublist]
-        print(flattened_list)
     else:
         print("unsupported language")
 # End Testing Area

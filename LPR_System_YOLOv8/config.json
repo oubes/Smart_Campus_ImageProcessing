@@ -9,16 +9,17 @@
             "1": "bicycle",
             "2": "car",
             "3": "motorcycle",
-            "5": "bus"
+            "5": "bus",
+            "8": "truck"
         },
         "allowVehicles": [
-            1, 2, 3, 5
+            1, 2, 3, 5, 7
         ],
-        "testMode": 1,
+        "testMode": 0,
         "enhance": {
             "EN": 1,
             "block_size": 301,
-            "upsample_before_aligment": 2,
+            "upsample_before_aligment": 3,
             "upsample_after_aligment": 2,
             "CONTOUR_AREA_RATIO_THRESHOLD": 0.35,
             "MORPH_KERNEL_SIZE": 2,

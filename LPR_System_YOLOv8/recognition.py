@@ -20,7 +20,6 @@ def _recognize_lp(lp_img: list, allow_list: str) -> np.ndarray:
         result = reader.readtext(lp_img, allowlist=allow_list)
         text = [res[1] for res in result]
         lp_text = "".join(text)
-        print(f'LP Text: {lp_text}')
         return lp_text
         
 def recognize_lps(lp_imgs: list, allow_list: str) -> list:
@@ -32,4 +31,5 @@ def recognize_lps(lp_imgs: list, allow_list: str) -> list:
     Returns:
     lps (list): The list of license plate numbers.
     """
-    return [_recognize_lp(lp_img=lp_img, allow_list=allow_list) for lp_img in lp_imgs]
+    if lp_imgs is not None:
+        return [_recognize_lp(lp_img=lp_img, allow_list=allow_list) for lp_img in lp_imgs]

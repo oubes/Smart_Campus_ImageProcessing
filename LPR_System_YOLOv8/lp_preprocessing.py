@@ -169,6 +169,56 @@ def egypt_remover(img: np.ndarray, bgr_img: np.ndarray, enhance: dict) -> np.nda
     else:
         return img
         
+def img_spiltter(img):
+    try:
+        h, w = img.shape
+        edges = cv2.Canny(img, 30, 150, apertureSize=3)
+        img_dilated_canny = cv2.dilate(edges, kernel= np.ones((1, 13), dtype='uint8'))
+        lines = cv2.HoughLinesP(img_dilated_canny, 0.1, np.pi/180, 15, minLineLength=130, maxLineGap=20)
+
+        mask = np.zeros_like(img)
+
+        for line in lines:
+            x1, y1, x2, y2 = line[0]
+            
+            if x1 == x2: # If the line is vertical
+                cv2.line(mask, (x1, y1), (x2, y2), (255), 2)  
+
+        mask = cv2.dilate(mask, kernel= np.ones((3, 5), dtype='uint8'))
+
+        left_edge = np.where(mask.any(axis=0))[0][0]
+        right_edge = np.where(mask.any(axis=0))[0][-1]
+
+        if left_edge <= 0.15 * w and right_edge >= 0.85 * w:
+        
+            cropped_mask = mask[:, left_edge:right_edge]
+            cropped_img = img[:, left_edge:right_edge]
+
+            h, w = cropped_mask.shape
+            y = h // 3
+
+            search_limit = int(w * 0.1)
+
+            left_edge = next((i for i, x in enumerate(cropped_mask[y, :search_limit]) if x==0), None)
+            right_edge = next((i for i, x in reversed(list(enumerate(cropped_mask[y, -search_limit:]))) if x==0), None)
+            
+            if right_edge is not None:
+                right_edge = w - search_limit + right_edge  # Adjust the right edge index
+
+            cropped2_mask = cropped_mask[:, left_edge:right_edge]
+            cropped2_img = cropped_img[:, left_edge:right_edge]
+            h, w = cropped2_img.shape
+            
+            img_split_p1 = cropped2_img[:, :int((w/2)-0.015*w)]; img_split_p2 = cropped2_img[:, int((w/2)+0.015*w):]
+            
+        else:
+            img_split_p1 = img; img_split_p2 = None
+            cropped2_mask = img
+            cropped2_img = img
+            
+        return img_split_p1, img_split_p2
+    except:
+        return img, None
 
 def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
     """enhance the license plate images quality for more efficient recognition using the easyocr reader.
@@ -195,48 +245,50 @@ def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
                 img_enhanced_after_aligment = quality_enhancement(egypt_removed, enhance['upsample_after_aligment'])
                 
                 img_binary = cv2.adaptiveThreshold(img_enhanced_after_aligment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, enhance['block_size'], 2) 
-                
-                kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (enhance['MORPH_KERNEL_SIZE'], enhance['MORPH_KERNEL_SIZE'])) 
-                img_morph = cv2.morphologyEx(img_binary, cv2.MORPH_CLOSE, kernel) 
-                
-                h, w = img_morph.shape; ratio = np.divide(250, h)
-                std_size_img = cv2.resize(img_morph, (0, 0), fx=ratio, fy=ratio, interpolation=cv2.INTER_CUBIC)
                                 
-                lps_imgs_enhanced.append(std_size_img)
+                h, w = img_binary.shape; ratio = np.divide(250, h)
+                std_size_img = cv2.resize(img_binary, (0, 0), fx=ratio, fy=ratio, interpolation=cv2.INTER_CUBIC)
+
+                img_split_p1, img_split_p2 = img_spiltter(std_size_img) 
                 
-                
+                lps_imgs_enhanced.append([img_split_p1, img_split_p2])
+                     
+
                 # Start Testing
                 if test_mode:
                     img_vars = [
+                        img,
+                        img_bilateral,
                         gray_img,
                         img_enhanced_before_aligment,
                         img_alignment if aligment_state is True else None,
                         egypt_removed,
                         img_enhanced_after_aligment,
                         img_binary,
-                        img_morph,
-                        std_size_img,
-                        
+                        std_size_img
                     ]
                     
                     img_title = [
+                        'Original image',
+                        'Bilateral filter',
                         'Gray Image',
                         'Upsample Before Aligment',
                         'Aligned Image' if aligment_state is True else None,
                         "Removing Egypt",
                         "Upsample After Aligment",
                         'Binarized Image',
-                        'Morphological Image',
-                        'Transfer Image to std size',
-                        
+                        'Transfer Image to std size'
                     ]
                     
-                    img_pos = range(252, 253+len(img_vars))
+                    cv2.imshow('img_split_p1', img_split_p1)
+                    if img_split_p2 is not None:
+                        cv2.imshow('img_split_p2', img_split_p2)
+                    
+                    img_pos = range(251, 252+len(img_vars))
                     plt.figure(figsize=(15, 7))
-                    plt.subplot(251); plt.imshow(img); plt.title('Original image')
                     for pos, var, title in zip(img_pos, img_vars, img_title):
                         if var is not None:
-                            plt.subplot(pos); plt.imshow(var, cmap='gray'); plt.title(title)    
+                            plt.subplot(pos if pos%10 != 0 else pos+1); plt.imshow(var, cmap='gray'); plt.title(title)    
                     plt.show()
                 # End Testing
         else:

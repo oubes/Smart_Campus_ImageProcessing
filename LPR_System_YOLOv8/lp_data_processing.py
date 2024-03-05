@@ -1,27 +1,37 @@
 import re
 
 def text_splitter(license_plate_data: str) -> list:
-    
+    """Split the license plate data into groups based on regular expressions.
 
-    if license_plate_data.isalnum():
-        data1 = re.finditer(pattern='^\s*(\d+)\s*(\w+)\s*$', string=license_plate_data, flags=0)
-        data2 = re.finditer(pattern='^\s*(\D+)\s*(\d+)\s*$', string=license_plate_data, flags=0)
-        lp_data1 = lp_data2 = None
-        for matches in data1:
-            lp_data1 = [lp for lp in matches.groups() if lp is not None]
-        for matches in data2:
-            lp_data2 = [lp for lp in matches.groups() if lp is not None]
-            lp_data2.reverse()
-        return [lp for lp in [lp_data1, lp_data2] if ((lp_data1 is None) ^ (lp_data2 is None)) and (lp is not None)][0]
+    Parameters:
+    license_plate_data (str): The license plate data as a string.
+
+    Returns:
+    list: A list of groups that match the regular expressions.
+    """
+    try:
+        if license_plate_data.isalnum():
+            data1 = re.finditer(pattern='^\s*(\d+)\s*(\w+)\s*$', string=license_plate_data, flags=0)
+            data2 = re.finditer(pattern='^\s*(\D+)\s*(\d+)\s*$', string=license_plate_data, flags=0)
+            lp_data1 = lp_data2 = None
+            for matches in data1:
+                lp_data1 = [lp for lp in matches.groups() if lp is not None]
+            for matches in data2:
+                lp_data2 = [lp for lp in matches.groups() if lp is not None]
+                lp_data2.reverse()
+            return [lp for lp in [lp_data1, lp_data2] if ((lp_data1 is None) ^ (lp_data2 is None)) and (lp is not None)][0]
+    except:
+        return license_plate_data
+    
 
 def error_detection(lp: list) -> bool:
     """Detect errors in the recognized license plate data.
 
     Parameters:
-    license_plate_data (list): The list of recognized license plate strings.
+    lp (list): The list of recognized license plate strings.
 
     Returns:
-    error_detected_data (list): The list of license plate data with detected errors.
+    bool: True if an error is detected, False otherwise.
     """
     try:
         if lp is not None:
@@ -42,7 +52,7 @@ def error_detection(lp: list) -> bool:
             if lp1_letter_pattern2 is not None:
                 lp1_letter_pattern2 = lp1_letter_pattern2[0]
 
-            return True if ((lp0_num_pattern1 and lp1_letter_pattern1) or (lp0_num_pattern2 and lp1_letter_pattern2)) and (6 <= len_lp01 <= 7) else False
+            return True if (bool(lp0_num_pattern1 and lp1_letter_pattern1) != bool(lp0_num_pattern2 and lp1_letter_pattern2)) and (6 <= len_lp01 <= 7) else False
         else:
             return False
     except:
@@ -55,7 +65,7 @@ def process_and_structure(license_plate_data: list) -> list:
     license_plate_data (list): The list of recognized license plate strings.
 
     Returns:
-    processed_data (list): The list of processed and structured license plate data.
+    list: A list of dictionaries with license plate data as keys and error detection results as values.
     """
     lps = []
     for DUE in license_plate_data:
@@ -67,4 +77,3 @@ def process_and_structure(license_plate_data: list) -> list:
             error = error_detection(DUE)
             lps.append({str(DUE):error})
     return lps
-    

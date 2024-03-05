@@ -142,7 +142,7 @@ def rotate_lp_image(lp_img: np.ndarray, lp_rgb_img: np.ndarray, enhance: dict) -
     else:
         return lp_img, lp_rgb_img, False
 
-def quality_enhancement(img: np.ndarray, upsample: int) -> np.ndarray:
+def quality_enhancement(img: np.ndarray, enhance: int) -> np.ndarray:
     """Enhance the quality of an image by denoising and upscaling.
 
     Parameters:
@@ -153,10 +153,20 @@ def quality_enhancement(img: np.ndarray, upsample: int) -> np.ndarray:
     np.ndarray: The enhanced image.
     """
     img_denoise = cv2.fastNlMeansDenoising(img)
-    img_upscale = scipy.ndimage.zoom(img_denoise, upsample, order=5)
+    img_upscale = scipy.ndimage.zoom(img_denoise, enhance[0], order=enhance[1])
     return img_upscale
 
 def egypt_remover(img: np.ndarray, bgr_img: np.ndarray, enhance: dict) -> np.ndarray:
+    """Removes the 'Egypt' text from the license plate image.
+
+    Parameters:
+    img (np.ndarray): The original license plate image.
+    bgr_img (np.ndarray): The license plate image in BGR color space.
+    enhance (dict): A dictionary of enhancement factors.
+
+    Returns:
+    np.ndarray: The license plate image with the 'Egypt' text removed.
+    """
     h, w, _ = bgr_img.shape; hsv_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2HSV)
     Range = np.array([[0, 100, 100],
                       [360, 255, 255]]); 
@@ -169,7 +179,15 @@ def egypt_remover(img: np.ndarray, bgr_img: np.ndarray, enhance: dict) -> np.nda
     else:
         return img
         
-def img_spiltter(img):
+def img_spiltter(img: np.ndarray) -> np.ndarray:
+    """Splits the license plate image into two parts.
+
+    Parameters:
+    img (np.ndarray): The license plate image.
+
+    Returns:
+    tuple: A tuple containing two np.ndarray objects representing the two parts of the license plate image.
+    """
     try:
         h, w = img.shape
         edges = cv2.Canny(img, 30, 150, apertureSize=3)
@@ -236,17 +254,19 @@ def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
                 img_bilateral = cv2.bilateralFilter(img, 9, 75, 75)
                 gray_img = cv2.cvtColor(img_bilateral, cv2.COLOR_BGR2GRAY)
                 
-                img_enhanced_before_aligment = quality_enhancement(gray_img, enhance['upsample_before_aligment'])
+                enhance_options = [enhance['upsample_before_aligment'], enhance['upsampling_before_aligment_order']]
+                img_enhanced_before_aligment = quality_enhancement(gray_img, enhance_options)
                 
                 img_alignment, bgr_img_alignment, aligment_state = rotate_lp_image(img_enhanced_before_aligment, img, enhance)
                 
                 egypt_removed = egypt_remover(img_alignment, bgr_img_alignment, enhance)
                 
-                img_enhanced_after_aligment = quality_enhancement(egypt_removed, enhance['upsample_after_aligment'])
+                enhance_options = [enhance['upsample_after_aligment'], enhance['upsampling_after_aligment_order']]
+                img_enhanced_after_aligment = quality_enhancement(egypt_removed, enhance_options)
                 
                 img_binary = cv2.adaptiveThreshold(img_enhanced_after_aligment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, enhance['block_size'], 2) 
                                 
-                h, w = img_binary.shape; ratio = np.divide(250, h)
+                h, _ = img_binary.shape; ratio = np.divide(250, h)
                 std_size_img = cv2.resize(img_binary, (0, 0), fx=ratio, fy=ratio, interpolation=cv2.INTER_CUBIC)
 
                 img_split_p1, img_split_p2 = img_spiltter(std_size_img) 

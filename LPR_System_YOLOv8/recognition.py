@@ -19,13 +19,13 @@ def _recognize_lp(lp_img: list, allow_list: str) -> np.ndarray:
     if lp_img is not None:
         lp_img_p1 = lp_img[0]; lp_img_p2 = lp_img[1]
         if lp_img_p2 is None:
-            result = reader.readtext(lp_img_p1, allowlist=allow_list[0]+allow_list[1], decoder='wordbeamsearch')
+            result = reader.readtext(lp_img_p1, allowlist=allow_list[0]+allow_list[1])
             text = [res[1] for res in result]
             lp_text = ["".join(text)]
             
         else:
-            result1 = reader.readtext(lp_img_p1, allowlist=allow_list[1], decoder='wordbeamsearch')
-            result2 = reader.readtext(lp_img_p2, allowlist=allow_list[0], decoder='wordbeamsearch')
+            result1 = reader.readtext(lp_img_p1, allowlist=allow_list[1])
+            result2 = reader.readtext(lp_img_p2, allowlist=allow_list[0])
             text1 = [res[1] for res in result1]
             text2 = [res[1] for res in result2]
             lp_text = ["".join(text1), "".join(text2)]

@@ -19,8 +19,10 @@
         "enhance": {
             "EN": 1,
             "block_size": 2001,
-            "upsample_before_aligment": 3,
-            "upsample_after_aligment": 2,
+            "upsample_before_aligment": 2,
+            "upsampling_before_aligment_order": 5,
+            "upsample_after_aligment": 3,
+            "upsampling_after_aligment_order": 5,
             "CONTOUR_AREA_RATIO_THRESHOLD": 0.35,
             "Max_Rotation_Angle": 25
         }

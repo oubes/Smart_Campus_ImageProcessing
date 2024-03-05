@@ -1,5 +1,9 @@
-import detection, recognition, lp_preprocessing, lp_data_processing
-import cv2
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+from image_processing import detection, recognition, lp_preprocessing
+from data_processing import lp_data_processing
 from vars import read_json
 
 class LPR:

@@ -179,7 +179,7 @@ def egypt_remover(img: np.ndarray, bgr_img: np.ndarray, enhance: dict) -> np.nda
     else:
         return img
         
-def img_spiltter(img: np.ndarray) -> np.ndarray:
+def lp_spiltter(img: np.ndarray) -> np.ndarray:
     """Splits the license plate image into two parts.
 
     Parameters:
@@ -251,25 +251,33 @@ def preprocessing(lps_imgs: list, enhance: dict, test_mode: bool) -> list:
     for img in lps_imgs:
         if enhance['EN']:
             if img is not None:
+                # Reduce background visibility and increase it for foreground
                 img_bilateral = cv2.bilateralFilter(img, 9, 75, 75)
                 gray_img = cv2.cvtColor(img_bilateral, cv2.COLOR_BGR2GRAY)
                 
+                # upsmaple and filtering before aligment to enhance the probabiltiy of successive aligment
                 enhance_options = [enhance['upsample_before_aligment'], enhance['upsampling_before_aligment_order']]
                 img_enhanced_before_aligment = quality_enhancement(gray_img, enhance_options)
                 
+                # Align license plate horizontally
                 img_alignment, bgr_img_alignment, aligment_state = rotate_lp_image(img_enhanced_before_aligment, img, enhance)
                 
+                # Remove the upper part of license plate that contains egypt
                 egypt_removed = egypt_remover(img_alignment, bgr_img_alignment, enhance)
                 
+                # upsample more time to increase the probability of successive ocr
                 enhance_options = [enhance['upsample_after_aligment'], enhance['upsampling_after_aligment_order']]
                 img_enhanced_after_aligment = quality_enhancement(egypt_removed, enhance_options)
                 
+                # binaraize the image to aliminate some of the noise & separate the chars from the rest of the image
                 img_binary = cv2.adaptiveThreshold(img_enhanced_after_aligment, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, enhance['block_size'], 2) 
-                                
+                
+                # Standarize the size of the output using semi-std                
                 h, _ = img_binary.shape; ratio = np.divide(250, h)
                 std_size_img = cv2.resize(img_binary, (0, 0), fx=ratio, fy=ratio, interpolation=cv2.INTER_CUBIC)
 
-                img_split_p1, img_split_p2 = img_spiltter(std_size_img) 
+                # Try to split the 2 parts of the image for better ocr
+                img_split_p1, img_split_p2 = lp_spiltter(std_size_img) 
                 
                 lps_imgs_enhanced.append([img_split_p1, img_split_p2])
                      

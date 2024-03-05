@@ -1,7 +1,6 @@
 import numpy as np
 import easyocr
 from vars import read_json
-from lp_data_processing import process_and_structure
 
 config = read_json('config.json')
 reader = easyocr.Reader([config['LprConfig']['lang']], verbose=True)

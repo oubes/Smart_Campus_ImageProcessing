@@ -209,7 +209,7 @@ def img_spiltter(img):
             cropped2_img = cropped_img[:, left_edge:right_edge]
             h, w = cropped2_img.shape
             
-            img_split_p1 = cropped2_img[:, :int((w/2)-0.015*w)]; img_split_p2 = cropped2_img[:, int((w/2)+0.015*w):]
+            img_split_p1 = cropped2_img[:, :int((w/2)-0.01*w)]; img_split_p2 = cropped2_img[:, int((w/2)+0.01*w):]
             
         else:
             img_split_p1 = img; img_split_p2 = None

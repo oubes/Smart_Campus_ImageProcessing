@@ -3,7 +3,7 @@
         "lang": "ar",
         "allowLists": {
             "en": ["ABCDEFGHIJKLMNOPQRSTUVWXYZ", "1234567890"],
-            "ar": ["اأبجدةهوزحطيكلمنسعفصقرشتثخذضظغ", "٠١٢٣٤٥٦٧٨٩"]
+            "ar": ["أبدرسعفقلمنهـويجصط", "٠١٢٣٤٥٦٧٨٩"]
         },
         "vehiclesList": {
             "1": "bicycle",

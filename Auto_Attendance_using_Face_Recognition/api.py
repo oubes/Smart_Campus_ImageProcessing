@@ -6,6 +6,7 @@ from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 from vars import config
 from dotenv import load_dotenv
+from typing import Optional
 
 
 host_config = config
@@ -57,6 +58,18 @@ class Config(BaseModel):
     ]
 
 
+class Recognizable(BaseModel):
+    img_url: str
+    encoded_dict: list[
+        dict[str, Optional[str]]
+    ]  # list[dict["id": id, "imgs": list[list[float]]]
+
+
+class Encodable(BaseModel):
+    img: str
+    prev: Optional[str]
+
+
 app = FastAPI()
 
 load_dotenv()
@@ -81,21 +94,65 @@ def json_res(code, res):
 
 
 @app.post("/config")
-def edit_config(config: Config, token: str):
-    pass
-    # Todo
-    # change config.json
+def edit_config(config: Config, token: Optional[str]):
+    if token != apiToken:
+        return json_res(401, {"error": "UNAUTHORIZED", "message": "Invalid token"})
 
+    with open("config.json") as file:
+        host_config = json.load(file)
 
-# Todo
-# Do not take config and only detect
+    if config.detector not in detectors:
+        return json_res(
+            404,
+            {
+                "error": "NOT_FOUND",
+                "message": f"Couldn't find detector '{config.detector}'",
+            },
+        )
+    if config.recognizer not in recognizers:
+        return json_res(
+            404,
+            {
+                "error": "NOT_FOUND",
+                "message": f"Couldn't find recognizer '{config.recognizer}'",
+            },
+        )
 
+    host_config["HandlingConfig"]["detectorName"] = config.detector
+    host_config["HandlingConfig"]["recognizerName"] = config.recognizer
 
-class Recognizable(BaseModel):
-    img_url: str
-    encoded_dict: list[
-        dict[str, str | None]
-    ]  # list[dict["id": id, "imgs": list[list[float]]]
+    host_config["DetectorConfig"]["CV2"]["scaleFactor"] = config.cv2_scale
+    host_config["DetectorConfig"]["CV2"]["minNeighbors"] = config.cv2_min_neighbors
+    host_config["DetectorConfig"]["CV2"]["minLength"] = config.cv2_min_size[0]
+    host_config["DetectorConfig"]["CV2"]["minWidth"] = config.cv2_min_size[1]
+
+    host_config["DetectorConfig"]["DLIB"]["upsampling"] = config.dlib_upsample
+    host_config["DetectorConfig"]["DLIB"]["model"] = config.dlib_model
+
+    host_config["DetectorConfig"]["RetinaFace"]["threshold"] = config.retinaface_thresh
+    host_config["DetectorConfig"]["RetinaFace"]["upsampleScale"] = (
+        config.retinaface_scale
+    )
+
+    host_config["DetectorConfig"]["MTCNN"]["minFaceSize"] = config.mtcnn_min_face_size
+    host_config["DetectorConfig"]["MTCNN"]["thresholds"] = config.mtcnn_thresh
+    host_config["DetectorConfig"]["MTCNN"]["scaleFactor"] = config.mtcnn_scale
+
+    host_config["DetectorConfig"]["YOLOv8"]["confidenceThreshold"] = (
+        config.yolo_conf_thres
+    )
+
+    host_config["RecognizerConfig"]["DLIB"]["threshold"] = config.dlib_recog_thresh
+    host_config["RecognizerConfig"]["DLIB"]["resample"] = config.dlib_recog_resample
+    host_config["RecognizerConfig"]["DLIB"]["encodingModel"] = config.dlib_recog_model
+    host_config["RecognizerConfig"]["DLIB"]["encodingUpdate"] = (
+        config.dlib_recog_encoding_update
+    )
+
+    with open("config.json", "w") as file:
+        json.dump(host_config, file, indent=4)
+
+    return json_res(200, {"message": "Config updated successfully"})
 
 
 @app.post("/recognition")
@@ -124,13 +181,8 @@ def recognition(person: Recognizable, token: str):
     return res
 
 
-class Encodable(BaseModel):
-    img: str
-    prev: str | None
-
-
 @app.post("/encoding")
-def encoding(sayed: Encodable, token: str | None = None):
+def encoding(sayed: Encodable, token: Optional[str] = None):
     if token != apiToken:
         return json_res(401, {"error": "UNAUTHORIZED", "message": "Invalid token"})
 
@@ -164,51 +216,3 @@ def encoding(sayed: Encodable, token: str | None = None):
     )
     response = jsonable_encoder(str(encoded_dict))
     return response
-
-    # from tasks import Detect
-    # from preprocessing import save_augmented_imaged
-
-    # responses = []
-    # for i, img in enumerate(imgs):
-    #    face_locations, face_counts, _ = Detect(detector, img)
-    #    if face_counts == 0:
-    #        return json_res(
-    #            404,
-    #            {
-    #                "error": "BAD_REQUEST",
-    #                "message": f"No face found in image '{img}'",
-    #            },
-    #        )
-    #    if face_counts > 1:
-    #        return json_res(
-    #            404,
-    #            {
-    #                "error": "BAD_REQUEST",
-    #                "message": f"Multiple faces found in image '{img}'",
-    #            },
-    #        )
-
-    #    import toolbox
-
-    #    face_locations = toolbox.points2rotation_format(face_locations)
-
-    #    image = requests.get(img)
-    #    with open("./tmp/image.jpg", "wb") as file:
-    #        file.write(image.content)
-
-    #    encoded_dict = model_class.encoder(
-    #        image="./tmp/image.jpg",
-    #        face_locations=face_locations,
-    #        config=recognizerConfig,
-    #    )
-    #    responses[i] = jsonable_encoder(str(encoded_dict))
-    #    os.remove("./tmp/image.jpg")
-
-    # return responses
-
-
-# Todo
-# Connect to server
-# Connect to database
-# Change code accordingly
-# Encoding to database and updating the database

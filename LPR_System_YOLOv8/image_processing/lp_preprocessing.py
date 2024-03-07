@@ -12,22 +12,6 @@ def read_img(img) -> np.ndarray:
     rgb_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2RGB)
     return rgb_img
 
-def rotate_image(image: np.ndarray, angle: float) -> np.ndarray:
-    """Rotate an image by a given angle.
-
-    Parameters:
-    image (np.ndarray): The input image.
-    angle (float): The angle by which to rotate the image in degrees.
-
-    Returns:
-    np.ndarray: The rotated image.
-    """
-    (h, w) = image.shape[:2]
-    center = (w // 2, h // 2)
-    M = cv2.getRotationMatrix2D(center, angle, 1.0)
-    rotated = cv2.warpAffine(image, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
-    return rotated
-
 def _crop_img(img: np.ndarray, box: list, style: str, type: str) -> np.ndarray:
     """Crop an image to a specified bounding box.
 
@@ -54,6 +38,23 @@ def _crop_img(img: np.ndarray, box: list, style: str, type: str) -> np.ndarray:
             return cropped_img
     except IndexError:
         raise ValueError('Cropping failed due to incorrect bounding box')
+
+
+def _rotate_image(image: np.ndarray, angle: float) -> np.ndarray:
+    """Rotate an image by a given angle.
+
+    Parameters:
+    image (np.ndarray): The input image.
+    angle (float): The angle by which to rotate the image in degrees.
+
+    Returns:
+    np.ndarray: The rotated image.
+    """
+    (h, w) = image.shape[:2]
+    center = (w // 2, h // 2)
+    M = cv2.getRotationMatrix2D(center, angle, 1.0)
+    rotated = cv2.warpAffine(image, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
+    return rotated
 
 def crop_imgs(imgs: list, boxes: list, style: str ='xyxy', type: str = None) -> list:
     """Crop multiple images from multiple images according to the bounding boxes.
@@ -131,8 +132,8 @@ def rotate_lp_image(lp_img: np.ndarray, lp_rgb_img: np.ndarray, enhance: dict) -
         if angle < -45:
             angle = 90 + angle
         if abs(angle) <= enhance['Max_Rotation_Angle']:
-            img_rotated = rotate_image(lp_img, angle)
-            rgb_img_rotated = rotate_image(lp_rgb_img, angle)
+            img_rotated = _rotate_image(lp_img, angle)
+            rgb_img_rotated = _rotate_image(lp_rgb_img, angle)
 
         else:
             img_rotated = lp_img
@@ -207,7 +208,7 @@ def lp_spiltter(img: np.ndarray) -> np.ndarray:
         left_edge = np.where(mask.any(axis=0))[0][0]
         right_edge = np.where(mask.any(axis=0))[0][-1]
 
-        if left_edge <= 0.15 * w and right_edge >= 0.85 * w:
+        if left_edge <= 0.12 * w and right_edge >= 0.88 * w:
         
             cropped_mask = mask[:, left_edge:right_edge]
             cropped_img = img[:, left_edge:right_edge]

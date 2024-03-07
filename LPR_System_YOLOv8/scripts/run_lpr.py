@@ -2,8 +2,9 @@ import sys
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from image_processing import detection, recognition, lp_preprocessing
+from image_processing import detection, lp_recognition, lp_preprocessing
 from data_processing import lp_data_processing
+import time
 from vars import read_json
 
 class LPR:
@@ -35,7 +36,7 @@ class LPR:
         lps_box = detection.detect_lps(cropped_cars)
         cropped_lps = lp_preprocessing.crop_imgs(cropped_cars, lps_box, type='lp')
         enhanced_lps = lp_preprocessing.preprocessing(cropped_lps, self.enhance, test_mode)
-        lps = recognition.recognize_lps(enhanced_lps, self.allow_list)
+        lps = lp_recognition.recognize_lps(enhanced_lps, self.allow_list)
         lps_clean = lp_data_processing.process_and_structure(lps)
         return lps_clean
         
@@ -51,13 +52,14 @@ def dft(lang):
     
     if np.isin(lang, ['en', 'ar']):
         for idx, img in enumerate(os.listdir(f'imgs/{lang}_lp')):
-
+            t1 = time.time()
             lpr_model = LPR(
                 img=f'imgs/{lang}_lp/{img}',
                 config=config
             )
             lp = lpr_model.run(test_mode=config['LprConfig']['testMode'])
-            print(f'Img number {idx+1}, Name: {img}, lps: {lp}')
+            t2 = time.time()
+            print(f'Img number {idx+1}, Name: {img}, lps: {lp}, time taken: {(t2-t1):.1f} s')
             
     else:
         print("unsupported language")

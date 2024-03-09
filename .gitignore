@@ -7,15 +7,13 @@ dataset/
 Augmented_imgs/
 
 # Ignore chached file from python
-__pycache__/*
-Detectors/__pycache__/*
-Recognizers/__pycache__/*
-__pycache__/
-Detectors/__pycache__/
-Recognizers/__pycache__/
+__pycache__
 
 # Ignore the log files
 *.log
 
 # Ignore the environment file
 *.env
+
+# Ignore pretrained models
+*.pt

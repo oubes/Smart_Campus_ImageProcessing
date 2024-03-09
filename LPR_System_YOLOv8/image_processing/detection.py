@@ -37,7 +37,7 @@ def _detect_lp(img: np.ndarray) -> np.ndarray:
         lp_box = lp_box.detach().cpu().numpy().astype(np.int16)
         return lp_box
     except IndexError:
-        print("No lp found")
+        return None
 
 
 def detect_lps(imgs: list) -> list:

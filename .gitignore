@@ -7,7 +7,7 @@ dataset/
 Augmented_imgs/
 
 # Ignore stored images
-imgs/
+imgs/*
 
 # Ignore chached file from python
 __pycache__/*
@@ -25,3 +25,5 @@ Recognizers/__pycache__/
 
 # Ignore pretrained model files
 *.pt
+pretrained_models/*
+

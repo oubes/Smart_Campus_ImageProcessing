@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
-from vars import config
+from src.vars import config
 from dotenv import load_dotenv
 from typing import Optional
 
@@ -65,6 +65,11 @@ class Recognizable(BaseModel):
     ]  # list[dict["id": id, "imgs": list[list[float]]]
 
 
+class Recognized(BaseModel):
+    ids: list[str]
+    faces: int
+
+
 class Encodable(BaseModel):
     img: str
     prev: Optional[str]
@@ -98,7 +103,7 @@ def edit_config(config: Config, token: Optional[str]):
     if token != apiToken:
         return json_res(401, {"error": "UNAUTHORIZED", "message": "Invalid token"})
 
-    with open("config.json") as file:
+    with open("config/face_rec_config.json") as file:
         host_config = json.load(file)
 
     if config.detector not in detectors:
@@ -149,7 +154,7 @@ def edit_config(config: Config, token: Optional[str]):
         config.dlib_recog_encoding_update
     )
 
-    with open("config.json", "w") as file:
+    with open("config/face_rec_config.json", "w") as file:
         json.dump(host_config, file, indent=4)
 
     return json_res(200, {"message": "Config updated successfully"})
@@ -175,10 +180,12 @@ def recognition(person: Recognizable, token: str):
         host_config["RecognizerConfig"]["DLIB"],
     )
 
-    res = model_class.Recognize(
+    res, fc = model_class.Recognize(
         unlabeled_img_url=person.img_url, encoded_dict=person.encoded_dict
     )
-    return res
+
+    response = Recognized(ids=res, faces=fc)
+    return jsonable_encoder(response)
 
 
 @app.post("/encoding")

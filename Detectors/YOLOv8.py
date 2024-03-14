@@ -1,4 +1,4 @@
-from detection import face_detector
+from src.face_detector import face_detector
 from ultralytics import YOLO
 import numpy as np
 

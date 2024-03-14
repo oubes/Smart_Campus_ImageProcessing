@@ -1,11 +1,10 @@
-import toolbox
+import utils.toolbox as toolbox
 import importlib
+from src.vars import read_json
 
 
 def Detect(detector_name, img_url):
-    from vars import read_json
-
-    config = read_json("config.json")
+    config = read_json("config/face_rec_config.json")
 
     detectors = {
         "YOLOv8": (

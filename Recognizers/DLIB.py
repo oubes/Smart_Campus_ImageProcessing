@@ -1,7 +1,7 @@
-from recognition import face_recognizer
+from src.face_recognizer import face_recognizer
 import face_recognition
-from tasks import Detect
-import toolbox
+from src.tasks import Detect
+from utils import toolbox
 
 
 class fr_dlib_model(face_recognizer):

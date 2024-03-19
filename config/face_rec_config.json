@@ -49,11 +49,11 @@
             "encodingUpdate": 0
         }
     },
-	"PerprocessingConfig": {
+	"PreprocessingConfig": {
         "FilterEable":{
             "enable_noise" : "True",
             "enable_flip":  "True",
-            "enable_brightness_contrast_adjustment":  "True",
+            "enable_brightness":  "False",
             "enable_gaussian_blur":  "True",
             "enable_color_jittering":  "True",
             "enable_histogram_equalization":  "True"

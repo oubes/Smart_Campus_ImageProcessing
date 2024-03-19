@@ -99,6 +99,13 @@ class logger:
         logging.info(message)
 
 
+def download_img(img_url: str, img_name: str):
+    response = requests.get(img_url)
+    with open(img_name + ".jpg", "wb") as f:
+        f.write(response.content)
+    return img_name + ".jpg"
+
+
 class url_img:
     def __init__(self, url: str, img_name: str):
         self.url = url

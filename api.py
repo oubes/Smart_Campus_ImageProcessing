@@ -66,7 +66,7 @@ class Recognizable(BaseModel):
 
 
 class Recognized(BaseModel):
-    ids: list[str]
+    students: list[str]
     faces: int
 
 
@@ -184,7 +184,7 @@ def recognition(person: Recognizable, token: str):
         unlabeled_img_url=person.img_url, encoded_dict=person.encoded_dict
     )
 
-    response = Recognized(ids=res, faces=fc)
+    response = Recognized(students=res, faces=fc)
     return jsonable_encoder(response)
 
 
@@ -193,7 +193,7 @@ def encoding(sayed: Encodable, token: Optional[str] = None):
     if token != apiToken:
         return json_res(401, {"error": "UNAUTHORIZED", "message": "Invalid token"})
 
-    imgs = sayed.img
+    img = sayed.img
     recognizer = host_config["HandlingConfig"]["recognizerName"]
 
     from Recognizers import DLIB
@@ -216,10 +216,16 @@ def encoding(sayed: Encodable, token: Optional[str] = None):
             },
         )
 
-    model_class = recognizers[recognizer]
+    from src.face_preprocessing import image_augmentation
+    from utils.toolbox import download_img
 
-    encoded_dict = model_class.add_labeled_encoded_entry(
-        labeled_face_url=imgs, encoded_dict=encoded_dict
-    )
+    image = download_img(img, "tmp")
+    augmented_imgs = image_augmentation(image)
+
+    model_class = recognizers[recognizer]
+    for enc_img in augmented_imgs:
+        encoded_dict = model_class.add_labeled_encoded_entry(
+            labeled_face_url=enc_img, encoded_dict=encoded_dict
+        )
     response = jsonable_encoder(str(encoded_dict))
     return response

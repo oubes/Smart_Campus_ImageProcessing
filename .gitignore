@@ -1,6 +1,7 @@
 # Ignore the output generated from running the code
 output/
 tmp/
+tmp.*
 
 # Ignore the data generated from running the code
 dataset/

@@ -3,6 +3,10 @@ import numpy as np
 import pickle
 from ultralytics import YOLO
 import cvzone
+import sys
+
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 model=YOLO('yolov8s.pt')
 

@@ -1,4 +1,4 @@
-import pickle, cv2, cvzone
+import pickle, cv2, cvzone, sys
 import numpy as np
 
 drawing = False
@@ -12,7 +12,7 @@ def recover_spots():
     except:
         spots = {}
 
-def spots_ctrl(event, x, y, flag, param):
+def spots_selection_ctrl(event, x, y, flag, param):
     global drawing, points, spots
     if event == cv2.EVENT_LBUTTONDOWN:
         points.append((x, y))
@@ -59,35 +59,41 @@ def draw_spots(frame):
     names = list(spots.keys())
     for name, pts in zip(names, points):
         cv2.polylines(frame, [pts], True, (255, 0, 255), 2)
-        cvzone.putTextRect(frame, f'{name}', (pts[0][0][0], pts[0][0][1]), 1, 1)
+        cvzone.putTextRect(frame, f'{name}', (pts[0][0][0], pts[0][0][1]), 1, 2)
     
 def store_spots():
     with open('spots.pkl', 'wb') as f:
         pickle.dump(spots, f)
 
-if __name__ == "__main__":
-    cap = cv2.VideoCapture('test/parking2.mp4')
-    
+def dft(data_loc, type):
     recover_spots()
-    
+    if type == 'vid':
+        cap = cv2.VideoCapture(data_loc)
+
     while True:
-        ret, frame = cap.read()
-        
-        if not ret:
-            cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-            continue
-        
-        else:
-            frame = cv2.resize(frame, (1020, 500))
-            draw_spots(frame)
-            cv2.imshow('Frame', frame)
-            
-            cv2.setMouseCallback('Frame', spots_ctrl)
-            
-            key = cv2.waitKey(100) & 0xFF
-            if key == ord('q'):
+        if type == 'vid':
+            ret, frame = cap.read()
+            if not ret:
+                cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+        elif type == 'img':
+            frame = cv2.imread(data_loc)
+    
+        h, w, _ = frame.shape
+        ratio = float(1200/w)
+        new_w = int(ratio*w); new_h = int(ratio*h)
+        frame = cv2.resize(frame, (new_w, new_h))
+        draw_spots(frame)
+        cv2.imshow('Frame', frame)
+        cv2.setMouseCallback('Frame', spots_selection_ctrl)
+        key = cv2.waitKey(100) & 0xFF
+        if key == ord('q'):
+            if type == 'vid':
                 cap.release()
-                cv2.destroyAllWindows()
-            elif key == ord('s'):
-                store_spots()
-                print('Saved')
+            cv2.destroyAllWindows()
+            sys.exit()
+        elif key == ord('s'):
+            store_spots()
+            print('Saved')
+
+if __name__ == "__main__":
+    dft('test/parking2.jpg', 'img')

@@ -1,22 +1,19 @@
-import cv2
+import cv2, pickle, cvzone, sys
 import numpy as np
-import pickle
 from ultralytics import YOLO
-import cvzone
-import sys
 
 from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 model=YOLO('yolov8s.pt')
 
-cap=cv2.VideoCapture('test/parking2.mp4')
-
-car_boxes = []
-spot_center = []
-car_center = []
-used_spots = []
-ratio = (0, 0)
+def init_vars():
+    global car_boxes, spot_center, car_center, used_spots, ratio
+    car_boxes = []
+    spot_center = []
+    car_center = []
+    used_spots = []
+    ratio = (0, 0)
 
 def recover_spots():
     global spots
@@ -59,37 +56,62 @@ def get_centers(type):
         return car_center
         
 def draw_centers(frame, used_spots):
-    global spot_center, car_center
-    for idx, spot in enumerate(spot_center):
-        if idx in used_spots:
+    global spot_center, car_center, spots
+    sp_k = spots.keys()
+    for name, spot in zip(sp_k, spot_center):
+        if name in used_spots:
             cv2.circle(frame, spot, 3, (0, 0, 255), 6)
         else:
             cv2.circle(frame, spot, 3, (0, 255, 0), 6)
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(frame, f'{name}', (spot[0]-12, spot[1]+20), font, fontScale=0.45, color=(255, 255, 255), thickness=1)
     # for car in  car_center:
     #     cv2.circle(frame, car, 2, (255, 0, 0), 2)
     
 def dist_calc():
     global spot_center, car_center, spots
-    sc = np.array(spot_center)
     cc = np.array(car_center)
-    sp = spots.values()
+    sp_v = spots.values()
+    sp_k = spots.keys()
     used_spots = []
-    all_spots = list(range(1, len(sc)+1))
+    all_spots = list(range(1, len(sp_v)+1))
     for idx_i, i in enumerate(cc):
-        for idx_j, j in enumerate(sp):
-            j = j.reshape(-1, 2)
-            if int(cv2.pointPolygonTest(j, (int(i[0]), int(i[1])), False)) == 1:
-                used_spots.append(idx_j)
+        for names, poly in zip(sp_k, sp_v):
+            poly = poly.reshape(-1, 2)
+            if int(cv2.pointPolygonTest(poly, (int(i[0]), int(i[1])), False)) == 1:
+                used_spots.append(names)
                 
     used_spots = np.unique(used_spots).tolist()
-    ratio = (len(used_spots), len(all_spots))    
+    print('Used spots:', used_spots)
+    ratio = [len(used_spots), len(all_spots)]    
     return used_spots, ratio
 
 def add_spot_count(frame, ratio):
     cvzone.putTextRect(frame, f'{ratio[0]} / {ratio[1]}', (50, 50), 2, 2)
 
-count = 0 
-if __name__ == "__main__":
+def run(img_loc, width=1200):
+    init_vars()
+    global spot_center, car_center
+    recover_spots()
+    spot_center = get_centers('spot')
+    img = cv2.imread(img_loc)
+    
+    h, w, _ = img.shape
+    if w != width:
+        win_ratio = float(width/w)
+        new_w = int(win_ratio*w); new_h = int(win_ratio*h)
+        img = cv2.resize(img, (new_w, new_h))
+        
+    find_cars(img)
+    car_center = get_centers('car')
+    used_spots, ratio = dist_calc()
+    print(used_spots, ratio)
+   
+def dft(vid_loc):
+    init_vars()
+    cap=cv2.VideoCapture(vid_loc)
+    global spot_center, car_center
+    count = 0 
     recover_spots()
     spot_center = get_centers('spot')
     while True:
@@ -97,8 +119,11 @@ if __name__ == "__main__":
         if not ret:
             cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
             continue
-        frame=cv2.resize(frame,(1020,500))
-        if count % 5 == 0 or count == 0:
+        h, w, _ = frame.shape
+        win_ratio = float(1200/w)
+        new_w = int(win_ratio*w); new_h = int(win_ratio*h)
+        frame = cv2.resize(frame, (new_w, new_h))
+        if count % 10 == 0 or count == 0:
             find_cars(frame)
             car_center = get_centers('car')
             used_spots, ratio = dist_calc()
@@ -107,9 +132,21 @@ if __name__ == "__main__":
         add_spot_count(frame, ratio)
         cv2.imshow('Frame', frame)
         count+=1
-        key = cv2.waitKey(1) & 0xFF
+        key = cv2.waitKey(50) & 0xFF
         if key == ord('q'):
             cap.release()
             cv2.destroyAllWindows()
-            
+            sys.exit()
+
+
+if __name__ == "__main__":
+    dft('test/parking2.mp4')
+    # run("test/parking2.jpg")
+    
+    # cap = cv2.VideoCapture("test/parking2.mp4")
+    # ret, frame = cap.read()
+    # cv2.imwrite('test/parking2.jpg', frame)
+    
+    
+
 # %%

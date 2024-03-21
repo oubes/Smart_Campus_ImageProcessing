@@ -7,7 +7,7 @@ dataset/
 Augmented_imgs/
 
 # Ignore dataset generated output
-DS/training_ds/*
+Smart_Parking/DS/training_ds/*
 
 # Ignore chached file from python
 __pycache__

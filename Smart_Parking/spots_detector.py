@@ -1,4 +1,4 @@
-import cv2, pickle, cvzone, sys
+import cv2, cvzone, sys, json
 import numpy as np
 from ultralytics import YOLO
 
@@ -8,18 +8,23 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 model=YOLO('yolov8s.pt')
 
 def init_vars():
-    global car_boxes, spot_center, car_center, used_spots, ratio
+    global car_boxes, spot_center, car_center, used_spots, ratio, spots
     car_boxes = []
     spot_center = []
     car_center = []
     used_spots = []
+    spots = {}
     ratio = (0, 0)
 
 def recover_spots():
     global spots
     try:
-        with open('spots.pkl', 'rb') as f:
-          spots = pickle.load(f)
+        with open('spots.json', 'r') as f:
+            spot = json.load(f)
+            for spot in spot:
+                spot_name = spot['name']
+                spot_poly = np.array(spot['poly']).reshape(-1, 1, 2)
+                spots[spot_name] = spot_poly
     except:
         spots = {}
 
@@ -140,7 +145,7 @@ def dft(vid_loc):
 
 
 if __name__ == "__main__":
-    dft('test/parking2.mp4')
+    dft('test/parking1.mp4')
     # run("test/parking2.jpg")
     
     # cap = cv2.VideoCapture("test/parking2.mp4")

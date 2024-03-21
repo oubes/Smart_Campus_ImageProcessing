@@ -1,14 +1,19 @@
-import pickle, cv2, cvzone, sys
+import cv2, cvzone, sys, json
 import numpy as np
 
 drawing = False
 points = []
+spots = {}
 
 def recover_spots():
     global spots
     try:
-        with open('spots.pkl', 'rb') as f:
-          spots = pickle.load(f)
+        with open('spots.json', 'r') as f:
+            spot = json.load(f)
+            for spot in spot:
+                spot_name = spot['name']
+                spot_poly = np.array(spot['poly']).reshape(-1, 1, 2)
+                spots[spot_name] = spot_poly
     except:
         spots = {}
 
@@ -62,8 +67,9 @@ def draw_spots(frame):
         cvzone.putTextRect(frame, f'{name}', (pts[0][0][0], pts[0][0][1]), 1, 2)
     
 def store_spots():
-    with open('spots.pkl', 'wb') as f:
-        pickle.dump(spots, f)
+    with open('spots.json', 'w') as f:
+        spots_reshaped = [{"name": spot_name, "poly":(spot_poly.reshape(-1, 2)).tolist()} for spot_name, spot_poly in zip(spots.keys(), spots.values())]
+        json.dump(spots_reshaped, f)
 
 def dft(data_loc, type):
     recover_spots()
@@ -96,4 +102,4 @@ def dft(data_loc, type):
             print('Saved')
 
 if __name__ == "__main__":
-    dft('test/parking2.jpg', 'img')
+    dft('test/parking1.mp4', 'vid')

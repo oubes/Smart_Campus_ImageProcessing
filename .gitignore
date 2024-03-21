@@ -7,7 +7,7 @@ dataset/
 Augmented_imgs/
 
 # Ignore dataset generated output
-LPR_System_YOLOv8/DS/training_ds/*
+LPR_System_YOLOv8/DS/training_ds/
 
 # Ignore chached file from python
 __pycache__

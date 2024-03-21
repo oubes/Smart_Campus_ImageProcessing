@@ -1,4 +1,5 @@
 import json
+import os
 
 
 def read_json(file_name):
@@ -18,6 +19,8 @@ recognizer = config["HandlingConfig"]["recognizerName"]
 
 detector_config = config["DetectorConfig"][detector]
 recognizer_config = config["RecognizerConfig"][recognizer]
+
+root_path = os.path.abspath(os.path.pardir)
 
 # https://i.postimg.cc/X72yyb43/img2.jpg
 # https://i.postimg.cc/rp4dbRWF/students1.jpg

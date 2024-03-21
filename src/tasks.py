@@ -26,8 +26,8 @@ def Detect(detector_name, img_url):
         module_name, model_name, detector_config = detectors[detector_name]
         DetectorModule = importlib.import_module(module_name)
         model_class = getattr(DetectorModule, model_name)
-        model = model_class(detector_config=detector_config, img_url=img_url)
-        face_locations, faces_count, rgb_img = model.run()
+        model = model_class(detector_config=detector_config)
+        face_locations, faces_count, rgb_img = model.run(img_url)
     else:
         raise ValueError(f"Unknown detector: {detector_name}")
 

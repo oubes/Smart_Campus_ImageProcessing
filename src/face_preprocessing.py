@@ -14,29 +14,30 @@ def flip_image(image):
 
 
 def adjust_brightness(image):
-    if np.mean(image) >= 128:
-        # Increase brightness by 20%
-        brightness_factor = 1.2
-        image = np.clip(image * brightness_factor, 0, 255)
-        return image
-    else:
-        # Decrease brightness by 20%
-        brightness_factor = 0.8
-        image = np.clip(image * brightness_factor, 0, 255)
-        return image
+    # # Increase brightness by 20%
+    # brightness_factor = 1.2
+    # image = np.clip(image * brightness_factor, 0, 255)
+    #
+    # # Decrease brightness by 20%
+    # brightness_factor = 0.8
+    # image = np.clip(image * brightness_factor, 0, 255)
+    # return image
 
-        # # Convert image to float32 for adjustment
-        # image_float = image.astype(np.float32) / 255.0
-        # # Adjust brightness and contrast
-        # adjusted_image = cv2.addWeighted(
-        #     image_float, contrast_factor, image_float, 0, brightness_factor
-        # )
-        # # Clip values to be in the valid range [0, 1]
-        # adjusted_image = np.clip(adjusted_image, 0, 1)
-        # # Convert back to uint8
-        # adjusted_image = (adjusted_image * 255).astype(np.uint8)
-        # return adjusted_image
-        # return image
+    contrast_factor = config["PreprocessingConfig"]["CONTRAST"]["lowest_contrast"]
+    brightness_factor = config["PreprocessingConfig"]["BRIGHTNESS"][
+        "highest_brightness"
+    ]
+    # Convert image to float32 for adjustment
+    image_float = image.astype(np.float32) / 255.0
+    # Adjust brightness and contrast
+    adjusted_image = cv2.addWeighted(
+        image_float, contrast_factor, image_float, 0, brightness_factor
+    )
+    # Clip values to be in the valid range [0, 1]
+    adjusted_image = np.clip(adjusted_image, 0, 1)
+    # Convert back to uint8
+    adjusted_image = (adjusted_image * 255).astype(np.uint8)
+    return adjusted_image
 
 
 def apply_gaussian_blur(image):
@@ -106,51 +107,56 @@ def apply_histogram_equalization(image):
 
 
 def image_augmentation(image):
-    augmented_images = np.array([])
     # reading the image
     image = cv2.imread(image)
+    augmented_images = {"image": image}
 
-    np.append(augmented_images, image)
     # Randomly flip the image horizontally
-    flipped_image = flip_image(image)
-    augmented_images = np.append(augmented_images, flipped_image)
+    augmented_images["flipped"] = flip_image(image)
     # Randomly adjust brightness and contrast
     if config["PreprocessingConfig"]["FilterEable"]["enable_brightness"] == "True":
-        np.append(augmented_images, adjust_brightness(image))
+        augmented_images["bright"] = adjust_brightness(image)
     # Apply Gaussian blur
     if config["PreprocessingConfig"]["FilterEable"]["enable_gaussian_blur"] == "True":
-        np.append(augmented_images, apply_gaussian_blur(image))
+        augmented_images["blur"] = apply_gaussian_blur(image)
     # Apply color jittering
-    np.append(augmented_images, apply_color_jittering(image))
+    augmented_images["jitter"] = apply_color_jittering(image)
     # Apply noise injection
-    np.append(augmented_images, apply_noise(image))
+    augmented_images["noise"] = apply_noise(image)
     # Apply histogram equalization
-    print(image)
-    # np.append(augmented_images, apply_histogram_equalization(image))
+    augmented_images["histogram"] = apply_histogram_equalization(image)
     # flip_Gaussian blur
-    np.append(augmented_images, apply_gaussian_blur(flipped_image))
+    augmented_images["flipped_blur"] = apply_gaussian_blur(augmented_images["flipped"])
     # flip_brightness
-    np.append(augmented_images, adjust_brightness(flipped_image))
+    augmented_images["flipped_bright"] = adjust_brightness(augmented_images["flipped"])
     # flip_histo
-    np.append(augmented_images, apply_histogram_equalization(flipped_image))
+    augmented_images["flipped_histo"] = apply_histogram_equalization(
+        augmented_images["flipped"]
+    )
     # flip_noise
-    np.append(augmented_images, apply_noise(flipped_image))
+    augmented_images["flipped_noise"] = apply_noise(augmented_images["flipped"])
     # flip_jittered
-    np.append(augmented_images, apply_color_jittering(flipped_image))
+    augmented_images["flipped_jitter"] = apply_color_jittering(
+        augmented_images["flipped"]
+    )
     # brighness_noise
-    np.append(augmented_images, adjust_brightness(augmented_images[5]))
+    augmented_images["bright_noise"] = adjust_brightness(augmented_images["noise"])
     # brighness_gaussian
-    np.append(augmented_images, adjust_brightness(augmented_images[2]))
+    augmented_images["bright_blur"] = adjust_brightness(augmented_images["blur"])
     # gaussian_jittered
-    np.append(augmented_images, apply_gaussian_blur(augmented_images[3]))
+    augmented_images["blur_jitter"] = apply_gaussian_blur(augmented_images["jitter"])
     # gaussian_histo
-    np.append(augmented_images, apply_gaussian_blur(augmented_images[5]))
+    augmented_images["blur_histo"] = apply_gaussian_blur(augmented_images["histogram"])
     # histo_noise
-    # np.append(augmented_images, apply_histogram_equalization(augmented_images[4]))
+    augmented_images["histo_noise"] = apply_histogram_equalization(
+        augmented_images["noise"]
+    )
     # jittered_noise
-    # np.append(augmented_images, apply_color_jittering(augmented_images[4]))
+    augmented_images["jitter_noise"] = apply_color_jittering(augmented_images["noise"])
     # jittered_histo
-    # np.append(augmented_images, apply_color_jittering(augmented_images[5]))
+    augmented_images["jitter_histo"] = apply_color_jittering(
+        augmented_images["histogram"]
+    )
 
     return augmented_images
 

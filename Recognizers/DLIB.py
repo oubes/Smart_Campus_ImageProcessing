@@ -17,7 +17,7 @@ class fr_dlib_model(face_recognizer):
     def encoder(self, image, face_locations, config):
         re_sample = config["resample"]
         model = config["encodingModel"]
-        img = toolbox.read(image)
+        img = toolbox.read_image(image)
         face_encoded_img = face_recognition.face_encodings(
             img, face_locations, re_sample, model
         )  # dlib

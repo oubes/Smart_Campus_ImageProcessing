@@ -60,17 +60,18 @@ class face_recognizer(ABC):
 
         t3 = time.perf_counter()
         self.print_times(t1, t2, t3, self.d_encoding_time)
-
+        print(f"Confidence: {self.best_match_confidences}")
         return [name for name in self.best_match_names if name != "Unknown"], fc
 
-    def add_labeled_encoded_entry(self, labeled_face_url: str, encoded_dict: list):
+    def add_labeled_encoded_entry(self, labeled_face_url, encoded_dict: list):
         # Add check for config
         labeled_fl, face_count, labeled_rgb_img = Detect(
             self.detector_name, labeled_face_url
         )
 
         if face_count == 0:
-            raise ValueError(f"No face found in image '{labeled_face_url}'")
+            # TODO: Add logger
+            return encoded_dict
             # if face_count > 1:
             # raise ValueError(f"Multiple faces found in image '{labeled_face_url}'")
 

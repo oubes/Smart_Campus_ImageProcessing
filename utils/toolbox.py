@@ -1,8 +1,10 @@
+from io import BytesIO
 import logging
 from typing import Tuple
 import cv2 as cv
 import os
 from datetime import datetime
+from PIL import Image
 import numpy as np
 import requests
 
@@ -18,15 +20,33 @@ class dir:
             os.makedirs(self.dir_path)
 
 
-def read(img_input: str, gray=False) -> Tuple[np.ndarray, np.ndarray]:
+def read_image(img_input: str, gray=False) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Reads an image from a url, path or numpy object
+    Input: string or numpy object
+    Outputs:
+    rgb_img: RGB image
+    gray_img: Grayscale image
+    """
     if isinstance(img_input, str):
-        bgr_img = cv.imread(img_input)
-        if bgr_img is None:
-            raise FileNotFoundError(f"No image found at {img_input}")
+        if img_input.startswith(("https://", "http://")):
+            response = requests.get(img_input)
+            image_bytes = response.content
+            rgb_img = np.array(Image.open(BytesIO(image_bytes)))
+            if gray is True:
+                gray_img = cv.cvtColor(rgb_img, cv.COLOR_BGR2GRAY)
+                return rgb_img, gray_img
+            else:
+                return rgb_img
+        else:
+            bgr_img = cv.imread(img_input)
+            if bgr_img is None:
+                raise FileNotFoundError(f"No image found at {img_input}")
     # If the input is a numpy array, assume it's an image
     elif isinstance(img_input, np.ndarray):
         bgr_img = img_input
     else:
+        print(img_input)
         raise ValueError(
             "Input should be an image path (str) or an image object (numpy.ndarray)"
         )

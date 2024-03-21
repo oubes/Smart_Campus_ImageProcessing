@@ -218,14 +218,22 @@ def encoding(sayed: Encodable, token: Optional[str] = None):
 
     from src.face_preprocessing import image_augmentation
     from utils.toolbox import download_img
+    import numpy as np
 
     image = download_img(img, "tmp")
     augmented_imgs = image_augmentation(image)
 
     model_class = recognizers[recognizer]
-    for enc_img in augmented_imgs:
-        encoded_dict = model_class.add_labeled_encoded_entry(
-            labeled_face_url=enc_img, encoded_dict=encoded_dict
-        )
+    for enc_img in augmented_imgs.values():
+        # print(enc_img)
+        if (
+            isinstance(enc_img, np.ndarray)
+            and len(enc_img.shape) == 3
+            and enc_img.shape[2] in [3, 4]
+            and enc_img.dtype == np.uint8
+        ):
+            encoded_dict = model_class.add_labeled_encoded_entry(
+                labeled_face_url=enc_img, encoded_dict=encoded_dict
+            )
     response = jsonable_encoder(str(encoded_dict))
     return response

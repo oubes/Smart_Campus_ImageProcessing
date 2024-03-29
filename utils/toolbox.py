@@ -32,7 +32,10 @@ def read_image(img_input: str, gray=False) -> Tuple[np.ndarray, np.ndarray]:
         if img_input.startswith(("https://", "http://")):
             response = requests.get(img_input)
             image_bytes = response.content
-            rgb_img = np.array(Image.open(BytesIO(image_bytes)))
+            img = Image.open(BytesIO(image_bytes))
+            if img.mode != "RGB":
+                img = img.convert("RGB")
+            rgb_img = np.array(img)
             if gray is True:
                 gray_img = cv.cvtColor(rgb_img, cv.COLOR_BGR2GRAY)
                 return rgb_img, gray_img

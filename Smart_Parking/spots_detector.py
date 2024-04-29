@@ -31,8 +31,8 @@ def recover_spots():
 def find_cars(frame):
     global car_boxes
     results = model.predict(frame, verbose=False)
-    car_boxes = np.intp(results[0].boxes.xyxy)
-    all_labels = np.array(results[0].boxes.cls)
+    car_boxes = np.intp(results[0].boxes.xyxy.cpu().numpy())
+    all_labels = np.array(results[0].boxes.cls.cpu())
     desired_labels = np.array([1, 2, 3, 5, 7])
     idx = np.where(np.isin(all_labels, desired_labels))[0]
     car_boxes = car_boxes[idx]

@@ -4,9 +4,11 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
-from vars import config
+from Auto_Attendance_using_Face_Recognition.vars import config, read_json
 from dotenv import load_dotenv
 from typing import Optional
+
+import LPR_System_YOLOv8
 
 
 host_config = config
@@ -63,6 +65,11 @@ class Recognizable(BaseModel):
     encoded_dict: list[
         dict[str, Optional[str]]
     ]  # list[dict["id": id, "imgs": list[list[float]]]
+
+
+class Recognized(BaseModel):
+    ids: list[str]
+    faces: int
 
 
 class Encodable(BaseModel):
@@ -159,7 +166,7 @@ def edit_config(config: Config, token: Optional[str]):
 def recognition(person: Recognizable, token: str):
     if token != apiToken:
         return json_res(401, {"error": "UNAUTHORIZED", "message": "Invalid token"})
-    from Recognizers import DLIB
+    from Auto_Attendance_using_Face_Recognition.Recognizers import DLIB
 
     if person.encoded_dict is None or len(person.encoded_dict) == 0:
         return json_res(
@@ -175,10 +182,12 @@ def recognition(person: Recognizable, token: str):
         host_config["RecognizerConfig"]["DLIB"],
     )
 
-    res = model_class.Recognize(
+    res, fc = model_class.Recognize(
         unlabeled_img_url=person.img_url, encoded_dict=person.encoded_dict
     )
-    return res
+
+    response = Recognized(ids=res, faces=fc)
+    return response
 
 
 @app.post("/encoding")
@@ -189,7 +198,7 @@ def encoding(sayed: Encodable, token: Optional[str] = None):
     imgs = sayed.img
     recognizer = host_config["HandlingConfig"]["recognizerName"]
 
-    from Recognizers import DLIB
+    from Auto_Attendance_using_Face_Recognition.Recognizers import DLIB
 
     if sayed.prev is None or sayed.prev == "":
         encoded_dict = []
@@ -216,3 +225,22 @@ def encoding(sayed: Encodable, token: Optional[str] = None):
     )
     response = jsonable_encoder(str(encoded_dict))
     return response
+
+
+@app.get("/lp")
+def lp(img: str, token: str):
+    if (apiToken != token):
+        json_res(401, {"error": "UNAUTHORIZED", "message": "Invalid token"})
+
+    from utils import download_img
+    image = download_img(img, "lp_tmp.jpg")
+
+    from LPR_System_YOLOv8.scripts.run_lpr import LPR
+
+    lp_config = read_json("LPR_System_YOLOv8/config.json")
+    LP_Recognizer = LPR(image, lp_config)
+    return LP_Recognizer.run()
+
+
+@app.post("/parking-spots")
+def parking_spots(img: str, token: str):

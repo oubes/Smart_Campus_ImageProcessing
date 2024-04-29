@@ -18,7 +18,7 @@ class face_recognizer(ABC):
     def Recognize(self, unlabeled_img_url, encoded_dict):
         # Initializing numpy arrays and encodings
         t1 = time.perf_counter()
-        unlabeled_fl, _, unlabeled_rgb_img = Detect(
+        unlabeled_fl, fc, unlabeled_rgb_img = Detect(
             self.detector_name, unlabeled_img_url
         )
         unlabeled_fl = toolbox.points2rotation_format(unlabeled_fl)
@@ -61,7 +61,7 @@ class face_recognizer(ABC):
         t3 = time.perf_counter()
         self.print_times(t1, t2, t3, self.d_encoding_time)
 
-        return [name for name in self.best_match_names if name != "Unknown"]
+        return [name for name in self.best_match_names if name != "Unknown"], fc
 
     def add_labeled_encoded_entry(self, labeled_face_url: str, encoded_dict: list):
         # Add check for config

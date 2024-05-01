@@ -13,10 +13,10 @@ def text_splitter(license_plate_data: str) -> list:
     try:
         if license_plate_data.isalnum():
             data1 = re.finditer(
-                pattern="^\s*(\d+)\s*(\w+)\s*$", string=license_plate_data, flags=0
+                pattern=r"^\s*(\d+)\s*(\w+)\s*$", string=license_plate_data, flags=0
             )
             data2 = re.finditer(
-                pattern="^\s*(\D+)\s*(\d+)\s*$", string=license_plate_data, flags=0
+                pattern=r"^\s*(\D+)\s*(\d+)\s*$", string=license_plate_data, flags=0
             )
             lp_data1 = lp_data2 = None
             for matches in data1:
@@ -49,10 +49,10 @@ def error_detection(lp: list) -> bool:
             len_lp0 = len(lp0)
             len_lp1 = len(lp1)
             len_lp01 = len_lp0 + len_lp1
-            num_pattern1 = "^\s*(\d{4})\s*$"
-            letter_pattern1 = "^\s*(\D{2})\s*$"
-            num_pattern2 = "^\s*(\d{3,4})\s*$"
-            letter_pattern2 = "^\s*(\D{3})\s*$"
+            num_pattern1 = r"^\s*(\d{4})\s*$"
+            letter_pattern1 = r"^\s*(\D{2})\s*$"
+            num_pattern2 = r"^\s*(\d{3,4})\s*$"
+            letter_pattern2 = r"^\s*(\D{3})\s*$"
             lp0_num_pattern1 = re.search(pattern=num_pattern1, string=lp0)
             lp1_letter_pattern1 = re.search(pattern=letter_pattern1, string=lp1)
             lp0_num_pattern2 = re.search(pattern=num_pattern2, string=lp0)

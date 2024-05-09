@@ -1,4 +1,5 @@
 import sys
+import json
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent.parent))
@@ -35,19 +36,36 @@ class LPR:
         lps (list): The list of license plate numbers.
         """
         rgb_img = lp_preprocessing.read_img(self.img)
+        if rgb_img is None:
+            raise FileNotFoundError
         car_boxes = lp_detection.detect_cars(rgb_img, self.vehicles)
+        if car_boxes is None:
+            raise RuntimeError("No cars detected in the image.")
         cropped_cars = lp_preprocessing.crop_imgs(
             [rgb_img] * len(car_boxes), car_boxes, type="car"
         )
+        if cropped_cars is None:
+            raise ValueError("Cropping cars failed.")
         lps_box = lp_detection.detect_lps(cropped_cars)
+        if lps_box is None:
+            raise ValueError("Could not detect license plates.")
+
         cropped_lps = lp_preprocessing.crop_imgs(cropped_cars, lps_box, type="lp")
+        if cropped_lps is None:
+            raise ValueError("Cropping license plates failed.")
         enhanced_lps = lp_preprocessing.preprocessing(
             cropped_lps, self.enhance, test_mode
         )
-        lps = lp_recognition.recognize_lps(enhanced_lps, self.allow_list)
-        lps_clean = lp_data_processing.process_and_structure(lps)
-        return lps_clean
+        if enhanced_lps is None:
+            raise RuntimeError("License plates preprocessing failed.")
 
+        lps = lp_recognition.recognize_lps(enhanced_lps, self.allow_list)
+        if lps is None:
+            raise ValueError("Could not recognize license plates.")
+        lps_clean = lp_data_processing.process_and_structure(lps)
+        if lps_clean is None:
+            raise NameError("Could not process license plates data.")
+        return lps_clean[0]["lp"]
 
 # Start Testing Area
 def dft(lang):

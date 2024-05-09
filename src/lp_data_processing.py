@@ -91,14 +91,17 @@ def process_and_structure(license_plate_data: list) -> list:
     Returns:
     list: A list of dictionaries with license plate data as keys and error detection results as values.
     """
+    if not(isinstance(license_plate_data, list)) or len(license_plate_data) < 1:
+        raise ValueError(f"License plate data must be a list with at least one element.")
+
     lps = []
     for DUE in license_plate_data:
         if len(DUE) == 1:
             lp = text_splitter(DUE[0])
             if lp is not None:
                 error = error_detection(lp)
-                lps.append({str(lp): error})
+                lps.append({"lp": lp, "valid": error})
         elif len(DUE) == 2:
             error = error_detection(DUE)
-            lps.append({str(DUE): error})
+            lps.append({"lp": DUE, "valid": error})
     return lps

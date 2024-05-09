@@ -4,9 +4,11 @@ from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
-from src.vars import config
+from src.vars import config, write_json
 from dotenv import load_dotenv
 from typing import Optional
+
+from utils.toolbox import download_img
 
 
 host_config = config
@@ -93,6 +95,9 @@ if base_url is None:
 # add authorization token to the header
 apiToken = os.environ.get("API_TOKEN")
 
+# Server API Key
+header_token = os.environ.get("SERVER_API_KEY")
+header = {"X-API-Key": header_token}
 
 def json_res(code, res):
     return JSONResponse(status_code=code, content=jsonable_encoder(res))
@@ -237,3 +242,57 @@ def encoding(sayed: Encodable, token: Optional[str] = None):
             )
     response = jsonable_encoder(str(encoded_dict))
     return response
+
+
+@app.get("/lp")
+def lpr(img: str, token: str):
+    if token != apiToken:
+        return json_res(401, {"error": "UNAUTHORIZED", "message": "Invalid token"})
+
+    from scripts.run_lpr import LPR
+    from src.vars import read_json
+
+    # try:
+    # except:
+    #     return json_res(400, {"error": "BAD_REQUEST", "message": "Invalid image url"})
+    try:
+        config = read_json("config/lp_config.json")
+        img = download_img(img, "lp_tmp")
+        LP_recognizer = LPR(img, config)
+        return LP_recognizer.run()
+    except Exception as e:
+        print(e)
+        return json_res(500, {"error": "INTERNAL_SERVER_ERROR", "message": "No output from image recognition model"})
+
+
+class ParkingSpot(BaseModel):
+    id: str
+    poly: list[list[int]]
+
+
+class ParkingSpots(BaseModel):
+    img: str
+    spots: list[ParkingSpot]
+
+ 
+
+@app.post("/parking")
+def check_spots(spots: ParkingSpots, token: str):
+    if token != apiToken:
+        return json_res(401, {"error": "UNAUTHORIZED", "message": "Invalid token"})
+
+    # response = requests.request("GET", base_url + "/api/smart-parking", json=payload, headers=header)
+    # all_slots = response.jso()
+    write_json("spots.json", jsonable_encoder(spots.spots))
+    # try:
+    import src.spots_detector as spots_detector
+    img = download_img(spots.img, "parking")
+    unavailable_spots, _ = spots_detector.run(img)
+    all_spots = []
+    for spot in spots.spots:
+        all_spots.append({"id": spot.id, "occupied": spot.id in unavailable_spots})
+        # available_spots = [spot for spot in unavailable_spots if spot["id"] == spot["id"]]
+    return all_spots
+    # except Exception as e:
+    #     print(e.__traceback__)
+    #     return json_res(500, {"error": "INTERNAL SERVER ERROR", "message": "Error importing spots_detector"})

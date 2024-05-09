@@ -1,5 +1,5 @@
 {
-	"HandlingConfig":{
+    "HandlingConfig": {
         "Detectors": [
             "DLIB",
             "CV2",
@@ -10,37 +10,37 @@
         "Recognizers": [
             "DLIB"
         ],
-        "detectorName": "DLIB",
+        "detectorName": "RetinaFace",
         "recognizerName": "DLIB"
-	},
-	"DetectorConfig": {
-		"DLIB": {
-			"upsampling": 3,
-			"model": "hog"
-		},
-		"CV2": {
-			"scaleFactor": 1.05,
-			"minNeighbors": 4,
-			"minLength": 10,
-			"minWidth": 10
-		},
-		"RetinaFace": {
-			"threshold": 0.5,
-			"upsampleScale": 1
-		},
-		"MTCNN": {
-			"minFaceSize": 10,
-			"thresholds": [
-					0.6,
-				   	0.7,
-				   	0.7
-			],
-			"scaleFactor": 0.709
-		},
-		"YOLOv8": {
-			"confidenceThreshold": 0.2
-		}
-	},
+    },
+    "DetectorConfig": {
+        "DLIB": {
+            "upsampling": 3,
+            "model": "hog"
+        },
+        "CV2": {
+            "scaleFactor": 1.05,
+            "minNeighbors": 4,
+            "minLength": 10,
+            "minWidth": 10
+        },
+        "RetinaFace": {
+            "threshold": 0.5,
+            "upsampleScale": 1
+        },
+        "MTCNN": {
+            "minFaceSize": 10,
+            "thresholds": [
+                0.6,
+                0.7,
+                0.7
+            ],
+            "scaleFactor": 0.709
+        },
+        "YOLOv8": {
+            "confidenceThreshold": 0.2
+        }
+    },
     "RecognizerConfig": {
         "DLIB": {
             "threshold": 0.5,
@@ -49,34 +49,33 @@
             "encodingUpdate": 0
         }
     },
-	"PreprocessingConfig": {
-        "FilterEable":{
-            "enable_noise" : "True",
-            "enable_flip":  "True",
-            "enable_brightness":  "False",
-            "enable_gaussian_blur":  "True",
-            "enable_color_jittering":  "True",
-            "enable_histogram_equalization":  "True"
-
+    "PreprocessingConfig": {
+        "FilterEable": {
+            "enable_noise": "True",
+            "enable_flip": "True",
+            "enable_brightness": "False",
+            "enable_gaussian_blur": "True",
+            "enable_color_jittering": "True",
+            "enable_histogram_equalization": "True"
         },
         "BRIGHTNESS": {
-            "enable_brightness_contrast_adjustment" : "True",
+            "enable_brightness_contrast_adjustment": "True",
             "lowest_brightness": 0.2,
             "highest_brightness": 0.5
         },
-		"CONTRAST": {
+        "CONTRAST": {
             "lowest_contrast": 0.4,
             "highest_contrast": 0.75
         },
-		"KERNAL": {
+        "KERNAL": {
             "lowest_gaussian_blur": 1,
             "highest_gaussian_blur": 5
         },
-		"GAMMA": {
+        "GAMMA": {
             "lowest_color_jittering": 0.8,
             "highest_color_jittering": 1.2
         },
-		"SATURATION": {
+        "SATURATION": {
             "lowest_saturation": 0.8,
             "highest_saturation": 1.2
         }

@@ -13,6 +13,7 @@ def write_json(file_name, data):
 
 
 config = read_json("./config/face_rec_config.json")
+lp_config = read_json("./config/lp_config.json")
 
 detector = config["HandlingConfig"]["detectorName"]
 recognizer = config["HandlingConfig"]["recognizerName"]

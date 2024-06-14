@@ -1,5 +1,6 @@
 import json
 import os
+from pyngrok import ngrok
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
@@ -14,6 +15,7 @@ from utils.toolbox import download_img
 host_config = config
 detectors = ["DLIB", "CV2", "RetinaFace", "MTCNN", "YOLOv8"]
 recognizers = ["DLIB"]
+
 
 
 class Config(BaseModel):
@@ -76,6 +78,14 @@ class Encodable(BaseModel):
     img: str
     prev: Optional[str]
 
+class ParkingSpot(BaseModel):
+    id: str
+    poly: list[list[int]]
+
+
+class ParkingSpots(BaseModel):
+    img: str
+    spots: list[ParkingSpot]
 
 app = FastAPI()
 
@@ -98,6 +108,13 @@ apiToken = os.environ.get("API_TOKEN")
 # Server API Key
 header_token = os.environ.get("SERVER_API_KEY")
 header = {"X-API-Key": header_token}
+
+# Open a HTTP tunnel on the port 8000
+# <NgrokTunnel: "https://<public_sub>.ngrok.io" -> "http://localhost:80">
+http_tunnel = ngrok.connect("8000")
+tcp_cam_tunnel = ngrok.connect("192.168.58.78:554", "tcp")
+
+print(tcp_cam_tunnel.public_url)
 
 def json_res(code, res):
     return JSONResponse(status_code=code, content=jsonable_encoder(res))
@@ -259,20 +276,25 @@ def lpr(img: str, token: str):
         config = read_json("config/lp_config.json")
         img = download_img(img, "lp_tmp")
         LP_recognizer = LPR(img, config)
-        return LP_recognizer.run()
+        lps = LP_recognizer.run()
+        alef = "اإآ"
+        yaa = "ي"
+        ftext = ""
+        allowedLetters = "أبجدرسصطعفقلمنهوى"
+        for letter in lps[1]:
+            if (letter in allowedLetters):
+                ftext = ftext + letter
+            elif (letter in alef):
+                ftext = ftext + "أ"
+            elif (letter in yaa):
+                ftext = ftext + "ى"
+        lps[1] = ftext
+        return lps
     except Exception as e:
         print(e)
         return json_res(500, {"error": "INTERNAL_SERVER_ERROR", "message": "No output from image recognition model"})
 
 
-class ParkingSpot(BaseModel):
-    id: str
-    poly: list[list[int]]
-
-
-class ParkingSpots(BaseModel):
-    img: str
-    spots: list[ParkingSpot]
 
  
 

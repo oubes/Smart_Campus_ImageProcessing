@@ -15,6 +15,22 @@ Experience the complete workflow, including spot selection and real-time status 
   </a>
 </p>
 
+#### 🎥 Examples
+
+# Example 1 (Selection Step):
+<img width="1187" height="543" alt="Spot Selection 1" src="https://github.com/user-attachments/assets/ee6e6796-820a-4fc3-b77d-c8b8c89f02ca" />
+
+# Example 1 (Detection Step):
+<img width="1172" height="569" alt="Spot Detection 1" src="https://github.com/user-attachments/assets/1b7dff7c-2268-43ac-a4ea-1523b2f93297" />
+
+
+# # Example 2 (Selection Step):
+<img width="1166" height="567" alt="Spot Selection 2" src="https://github.com/user-attachments/assets/44eef9fd-2f6e-4a3e-98ba-610d59ed0efe" />
+
+# Example 2 (Detection Step):
+<img width="1221" height="549" alt="Spot Detection 2" src="https://github.com/user-attachments/assets/e18a91a8-c05d-498e-b1af-1fbc7f663c01" />
+
+
 ---
 
 ## ✨ Key Features
